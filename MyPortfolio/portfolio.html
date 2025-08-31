@@ -187,12 +187,12 @@
     .chipz { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 6px 14px; }
     .chip { font-size: 12px; border: 1px solid rgba(51,231,255,0.35); padding: 6px 10px; border-radius: 999px; color: #bfeef7; }
 
-    /* ===== About ===== */
-    .about {
+    /* ===== profile ===== */
+    .profile {
       display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; align-items: center;
     }
-    @media (max-width: 900px) { .about { grid-template-columns: 1fr; } }
-    .about .panel {
+    @media (max-width: 900px) { .profile { grid-template-columns: 1fr; } }
+    .profile .panel {
       background: linear-gradient(180deg, rgba(11,16,22,0.9), rgba(9,13,17,0.9));
       border: 1px solid rgba(51,231,255,0.28); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
     }
@@ -261,9 +261,9 @@
     <nav class="nav">
       <div class="brand" aria-label="サイト名"><span class="accent">PORT</span> FOLIO</div>
       <div class="spacer"></div>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#profile">プロフィール</a>
+      <a href="#projects">作品</a>
+      <a href="#contact">連絡</a>
     </nav>
   </header>
 
@@ -278,8 +278,8 @@
         <h1 class="title">ゲーム感あるネオンの<br><span class="glow">ポートフォリオ</span></h1>
         <p class="lead">#0a0a0a と #33e7ff を基調に、冷たいシアンのグラデーションとネオングリッドで「サイバーでクール」な雰囲気を演出。カードは薄い発光、ボタンはエネルギーコアのように輝きます。</p>
         <div class="actions">
-          <a class="btn" href="#projects">作品を見る</a>
-          <a class="btn ghost" href="#about">プロフィール</a>
+          <a class="btn ghost" href="#projects">？？？</a>
+          <a class="btn ghost" href="#profile">？？？</a>
         </div>
       </div>
       <div class="avatar-wrap">
@@ -295,9 +295,36 @@
       </div>
     </section>
 
+    <section id="profile" class="wrap">
+      <h2 class="h2">プロフィール</h2>
+      <p class="sub">得意分野やスキルのバー。</p>
+      <div class="profile">
+        <div class="panel">
+          <p>ゲームの「気持ち良さ」を数式と試行錯誤で作る人。入力→反応のレイテンシ、画面の光/影、UIのアフォーダンスにこだわります。</p>
+          <p>最近は <strong>シェーダ</strong> と <strong>ポストエフェクト</strong>、Webでは <strong>Canvas</strong> に熱中。</p>
+        </div>
+        <div class="panel">
+          <div style="margin-bottom:10px; display:grid; gap:10px;">
+            <div>
+              <label>Gameplay Programming</label>
+              <div class="meter" aria-hidden="true"><i style="width:88%"></i></div>
+            </div>
+            <div>
+              <label>Rendering / Shaders</label>
+              <div class="meter" aria-hidden="true"><i style="width:75%"></i></div>
+            </div>
+            <div>
+              <label>Web / Canvas</label>
+              <div class="meter" aria-hidden="true"><i style="width:70%"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <span class="fade-in">
       <section id="projects" class="wrap">
-        <h2 class="h2">Projects</h2>
+        <h2 class="h2">作品</h2>
         <p class="sub">最近の制作物。ホバーで薄い輪郭光が走ります。</p>
         <div class="grid-cards">
           <article class="card" data-tilt>
@@ -337,35 +364,8 @@
       </section>
     </span>
 
-    <section id="about" class="wrap">
-      <h2 class="h2">About</h2>
-      <p class="sub">得意分野やスキルのバー。</p>
-      <div class="about">
-        <div class="panel">
-          <p>ゲームの「気持ち良さ」を数式と試行錯誤で作る人。入力→反応のレイテンシ、画面の光/影、UIのアフォーダンスにこだわります。</p>
-          <p>最近は <strong>シェーダ</strong> と <strong>ポストエフェクト</strong>、Webでは <strong>Canvas</strong> に熱中。</p>
-        </div>
-        <div class="panel">
-          <div style="margin-bottom:10px; display:grid; gap:10px;">
-            <div>
-              <label>Gameplay Programming</label>
-              <div class="meter" aria-hidden="true"><i style="width:88%"></i></div>
-            </div>
-            <div>
-              <label>Rendering / Shaders</label>
-              <div class="meter" aria-hidden="true"><i style="width:75%"></i></div>
-            </div>
-            <div>
-              <label>Web / Canvas</label>
-              <div class="meter" aria-hidden="true"><i style="width:70%"></i></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="wrap">
-      <h2 class="h2">Contact</h2>
+      <h2 class="h2">連絡</h2>
       <p class="sub">連絡用のダミーフォーム。静的サイトでも使える見た目。</p>
       <form onsubmit="event.preventDefault(); alert('送信テスト: ここにハンドラを実装してください');">
         <div>
