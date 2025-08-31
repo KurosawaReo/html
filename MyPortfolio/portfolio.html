@@ -1,20 +1,12 @@
 <!-- 
-  chatGPTに作ってもらったお試しサイト。 
-  ↓このようにお願いした。
-
-  htmlとjavascriptでポートフォリオサイトを作りたいです
-  今から色を2色指定するので、これらとグラデーションを上手く使ってデザインを作ってほしいです
-  使う色はこの2色に限る必要はありませんが、全体的な色のテーマは統一してください。 
-  ゲームっぽいかっこよさのあるデザインがいいです 
-  
-  #0a0a0a #33e7ff
+  元はChatGPT作のサイト。ここはテストで改造したver.
 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio | Neon Grid</title>
+  <title>Portfolio | Kurosawa Reo</title>
   <meta name="description" content="ゲームっぽいネオンテーマのポートフォリオ" />
   <style>
     :root {
@@ -231,6 +223,32 @@
       .cursor { position: fixed; inset: 0; pointer-events: none; z-index: 1000; mix-blend-mode: screen; }
       .cursor i { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); filter: blur(10px) brightness(1.6); opacity: 0.9; transform: translate(-50%, -50%); }
     }
+
+    /* ===== my追加分(アニメーション) ===== */
+    /* 初期状態（非表示＆位置ずらし） */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px); /* 下から */
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-40px); /* 左から */
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(40px); /* 右から */
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    /* 表示時に適用されるクラス */
+    .show {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -241,12 +259,11 @@
 
   <header>
     <nav class="nav">
-      <div class="brand" aria-label="サイト名"><span class="accent">NEON</span> GRID</div>
+      <div class="brand" aria-label="サイト名"><span class="accent">PORT</span> FOLIO</div>
       <div class="spacer"></div>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a class="cta" href="#contact">Hire Me</a>
     </nav>
   </header>
 
@@ -254,10 +271,9 @@
     <section class="hero">
       <div>
         <div class="pillbar">
-          <span class="pill">Game Dev</span>
+          <span class="pill">Unity</span>
+          <span class="pill">DxLib</span>
           <span class="pill">C / C++ / C#</span>
-          <span class="pill">Unity / DxLib</span>
-          <span class="pill">Web</span>
         </div>
         <h1 class="title">ゲーム感あるネオンの<br><span class="glow">ポートフォリオ</span></h1>
         <p class="lead">#0a0a0a と #33e7ff を基調に、冷たいシアンのグラデーションとネオングリッドで「サイバーでクール」な雰囲気を演出。カードは薄い発光、ボタンはエネルギーコアのように輝きます。</p>
@@ -272,51 +288,54 @@
           <div class="rings"></div>
           <div class="rings"></div>
         </div>
+        <img src="img/star_icon.png" style="height:100%;">
         <div class="thumb" style="height:100%; border:none;">
           LOGO / ICON
         </div>
       </div>
     </section>
 
-    <section id="projects" class="wrap">
-      <h2 class="h2">Projects</h2>
-      <p class="sub">最近の制作物。ホバーで薄い輪郭光が走ります。</p>
-      <div class="grid-cards">
-        <article class="card" data-tilt>
-          <span class="badge">Unity</span>
-          <div class="thumb">PROJECT A</div>
-          <h3>Neon Runner</h3>
-          <p>スピード感重視のステージ攻略。粒子と残像でサイバー演出。</p>
-          <div class="chipz">
-            <span class="chip">C#</span>
-            <span class="chip">PostFX</span>
-            <span class="chip">URP</span>
-          </div>
-        </article>
-        <article class="card" data-tilt>
-          <span class="badge">C++</span>
-          <div class="thumb">PROJECT B</div>
-          <h3>Bullet Lab</h3>
-          <p>弾幕/当たり判定の実験作。自作エンジンで表現。</p>
-          <div class="chipz">
-            <span class="chip">C++</span>
-            <span class="chip">DxLib</span>
-            <span class="chip">ECS</span>
-          </div>
-        </article>
-        <article class="card" data-tilt>
-          <span class="badge">Web</span>
-          <div class="thumb">PROJECT C</div>
-          <h3>Web Visualizer</h3>
-          <p>音に反応する波形/グリッド。ネオン配色で統一。</p>
-          <div class="chipz">
-            <span class="chip">JS</span>
-            <span class="chip">Canvas</span>
-            <span class="chip">ShaderToy風</span>
-          </div>
-        </article>
-      </div>
-    </section>
+    <span class="fade-in">
+      <section id="projects" class="wrap">
+        <h2 class="h2">Projects</h2>
+        <p class="sub">最近の制作物。ホバーで薄い輪郭光が走ります。</p>
+        <div class="grid-cards">
+          <article class="card" data-tilt>
+            <span class="badge">Unity</span>
+            <div class="thumb">PROJECT A</div>
+            <h3>Neon Runner</h3>
+            <p>スピード感重視のステージ攻略。粒子と残像でサイバー演出。</p>
+            <div class="chipz">
+              <span class="chip">C#</span>
+              <span class="chip">PostFX</span>
+              <span class="chip">URP</span>
+            </div>
+          </article>
+          <article class="card" data-tilt>
+            <span class="badge">C++</span>
+            <div class="thumb">PROJECT B</div>
+            <h3>Bullet Lab</h3>
+            <p>弾幕/当たり判定の実験作。自作エンジンで表現。</p>
+            <div class="chipz">
+              <span class="chip">C++</span>
+              <span class="chip">DxLib</span>
+              <span class="chip">ECS</span>
+            </div>
+          </article>
+          <article class="card" data-tilt>
+            <span class="badge">Web</span>
+            <div class="thumb">PROJECT C</div>
+            <h3>Web Visualizer</h3>
+            <p>音に反応する波形/グリッド。ネオン配色で統一。</p>
+            <div class="chipz">
+              <span class="chip">JS</span>
+              <span class="chip">Canvas</span>
+              <span class="chip">ShaderToy風</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </span>
 
     <section id="about" class="wrap">
       <h2 class="h2">About</h2>
@@ -363,14 +382,13 @@
         </div>
         <div style="display:flex; gap:10px; align-items:center;">
           <button class="btn" type="submit">送信</button>
-          <a class="btn ghost" href="#">X / GitHub</a>
         </div>
       </form>
     </section>
   </main>
 
   <footer>
-    <small>© 2025 Your Name — Neon Grid Portfolio</small>
+    <small>© 2025 Kurosawa Reo Portfolio</small>
   </footer>
 
   <div class="cursor" aria-hidden="true"><i></i></div>
@@ -385,6 +403,21 @@
           document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // ===== my追加分(アニメーション) =====
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeElements = document.querySelectorAll(".fade-in, .fade-in-left, .fade-in-right");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      }, { threshold: 0.2 }); // 画面に20%入ったら発火
+
+      fadeElements.forEach(el => observer.observe(el));
     });
 
     // ===== カードの軽いチルト効果 =====
