@@ -1,255 +1,11 @@
-<!-- 
-  元はChatGPT作のサイト。ここはテストで改造したver.
--->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio | Kurosawa Reo</title>
-  <meta name="description" content="ゲームっぽいネオンテーマのポートフォリオ" />
-  <style>
-    :root {
-      --bg: #0a0a0a;           /* ベース背景 */
-      --ink: #e6ffff;          /* 文字の薄い色 */
-      --primary: #33e7ff;      /* 指定色 */
-      --primary-2: #1bb7cb;    /* 補助の濃いシアン */
-      --card: #0f1115;         /* カード背景 */
-      --muted: #93c5d0aa;      /* 補助テキスト */
-      --danger: #ff3b3b;       /* アラートに使うなら */
-      --radius: 16px;
-      --shadow: 0 10px 40px rgba(51,231,255,0.15), 0 2px 10px rgba(51,231,255,0.2);
-      --grid: rgba(51,231,255,0.08);
-      --line: rgba(51,231,255,0.18);
-      --grad: linear-gradient(135deg, var(--primary) 0%, #5bffef 40%, #7bf2ff 100%);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      overflow-x: hidden;
-    }
-
-    /* ===== 背景: ネオングリッド + パーティクル ===== */
-    .bg-wrap {
-      position: fixed; inset: 0; z-index: -2; overflow: hidden;
-      background:
-        radial-gradient(1000px 500px at 70% -10%, rgba(51,231,255,0.25), transparent 60%),
-        radial-gradient(800px 400px at 10% 0%, rgba(51,231,255,0.18), transparent 60%),
-        #05080a;
-    }
-    .grid {
-      position: absolute; inset: 0; z-index: -1;
-      background-image:
-        linear-gradient(var(--line), var(--line)),
-        linear-gradient(90deg, var(--line), var(--line));
-      background-size: 1px 40px, 40px 1px;
-      background-repeat: repeat;
-      background-position: 0 0, 0 0;
-      transform: perspective(600px) rotateX(55deg) translateY(-20%);
-      transform-origin: top;
-      filter: drop-shadow(0 0 6px rgba(51,231,255,0.25));
-      opacity: 0.6;
-    }
-    canvas#fx {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    }
-
-    /* ===== ヘッダー ===== */
-    header {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(8px);
-      background: linear-gradient(to bottom, rgba(5,8,10,0.85), rgba(5,8,10,0.4));
-      border-bottom: 1px solid rgba(51,231,255,0.25);
-    }
-    .nav {
-      max-width: 1100px; margin: 0 auto; padding: 14px 20px;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .brand { font-weight: 800; letter-spacing: 0.4px; }
-    .brand .accent { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .spacer { flex: 1; }
-    .nav a {
-      color: var(--ink); text-decoration: none; opacity: 0.9; padding: 8px 12px; border-radius: 999px;
-      transition: 180ms ease;
-    }
-    .nav a:hover { background: rgba(51,231,255,0.12); box-shadow: var(--shadow); }
-    .cta {
-      position: relative; padding: 10px 16px; border-radius: 999px; font-weight: 700;
-      color: #001316; background: var(--grad); text-decoration: none;
-      box-shadow: 0 6px 30px rgba(51,231,255,0.35), inset 0 0 30px rgba(255,255,255,0.15);
-    }
-
-    /* ===== ヒーロー ===== */
-    .hero {
-      max-width: 1100px; margin: 40px auto 0; padding: 32px 20px 24px;
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px;
-    }
-    .title {
-      font-size: clamp(28px, 6vw, 56px); line-height: 1.06; font-weight: 900;
-      letter-spacing: 0.2px; margin: 8px 0 16px;
-      position: relative; display: inline-block;
-      text-shadow: 0 0 24px rgba(51,231,255,0.25), 0 0 2px rgba(255,255,255,0.35);
-    }
-    .title .glow {
-      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
-      filter: drop-shadow(0 0 20px rgba(51,231,255,0.35));
-    }
-    .lead { color: var(--muted); font-size: clamp(14px, 2.5vw, 18px); }
-    .pillbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 26px; }
-    .pill {
-      border: 1px solid rgba(51,231,255,0.35); padding: 8px 12px; border-radius: 999px;
-      background: linear-gradient(180deg, rgba(51,231,255,0.08), rgba(51,231,255,0));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
-      font-size: 13px; letter-spacing: 0.2px; color: #cbeff6;
-    }
-    .actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-    .btn {
-      position: relative; border: none; border-radius: 999px; padding: 12px 18px; cursor: pointer;
-      font-weight: 800; letter-spacing: 0.3px; transition: 200ms ease; isolation: isolate;
-      background: var(--grad); color: #001216; 
-      box-shadow: 0 8px 40px rgba(51,231,255,0.35), 0 1px 0 rgba(255,255,255,0.18) inset;
-    }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 50px rgba(51,231,255,0.45); }
-    .btn.ghost {
-      background: transparent; color: var(--ink); border: 1px solid rgba(51,231,255,0.35);
-    }
-    .btn.ghost:hover { background: rgba(51,231,255,0.12); }
-
-    .avatar-wrap {
-      position: relative; aspect-ratio: 1 / 1; width: min(90%, 420px); place-self: center;
-      border-radius: 24px; background: radial-gradient(120px 120px at 70% 20%, rgba(123,242,255,0.35), transparent 40%), #0a0c10;
-      border: 1px solid rgba(51,231,255,0.35); box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .avatar-decoration { position: absolute; inset: 0; pointer-events: none; }
-    .rings {
-      position: absolute; inset: -10%; border-radius: 50%;
-      border: 1px solid rgba(51,231,255,0.25); filter: drop-shadow(0 0 14px rgba(51,231,255,0.35));
-      animation: spin 28s linear infinite;
-    }
-    .rings:nth-child(2) { inset: -2%; animation-duration: 18s; }
-    .rings:nth-child(3) { inset: -6%; animation-duration: 38s; }
-    @keyframes spin { to { transform: rotate(1turn); } }
-
-    /* ===== セクション共通 ===== */
-    section { scroll-margin-top: 80px; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-    .h2 {
-      font-size: clamp(22px, 4.5vw, 32px); font-weight: 900; margin: 0 0 14px;
-      letter-spacing: 0.2px; display: inline-block; position: relative;
-    }
-    .h2::after { content: ""; position: absolute; left: 0; right: -6px; bottom: -6px; height: 3px; background: var(--grad); border-radius: 999px; }
-    .sub { color: var(--muted); margin: 6px 0 22px; }
-
-    /* ===== Projects ===== */
-    .grid-cards {
-      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
-    }
-    @media (max-width: 980px) { .hero { grid-template-columns: 1fr; } .grid-cards { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .grid-cards { grid-template-columns: 1fr; } }
-
-    .card {
-      position: relative; background: linear-gradient(180deg, rgba(11,16,22,0.9), rgba(9,13,17,0.9));
-      border: 1px solid rgba(51,231,255,0.28);
-      border-radius: var(--radius); padding: 14px; overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 180ms ease, box-shadow 180ms ease;
-      transform-style: preserve-3d;
-    }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 16px 60px rgba(51,231,255,0.35); }
-    .card::before {
-      content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 1px;
-      background: conic-gradient(from 0deg, rgba(51,231,255,0.0), rgba(51,231,255,0.35), rgba(51,231,255,0.0));
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 250ms ease;
-    }
-    .card:hover::before { opacity: 1; }
-    .thumb {
-      height: 160px; border-radius: 12px; background:
-        linear-gradient(135deg, rgba(51,231,255,0.25), rgba(11,20,22,0.8)),
-        repeating-linear-gradient(45deg, rgba(51,231,255,0.16) 0 2px, transparent 2px 6px);
-      border: 1px solid rgba(51,231,255,0.28);
-      display: grid; place-items: center; font-weight: 900; letter-spacing: 0.4px; color: #001217;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.45); background-blend-mode: screen;
-    }
-    .badge {
-      position: absolute; top: 14px; left: 14px; background: var(--grad); color: #001217; font-weight: 900;
-      padding: 4px 10px; border-radius: 999px; font-size: 12px; letter-spacing: 0.4px;
-      box-shadow: 0 6px 22px rgba(51,231,255,0.35);
-    }
-    .card h3 { margin: 12px 6px 6px; font-size: 18px; }
-    .card p { margin: 0 6px 12px; color: var(--muted); font-size: 14px; }
-    .chipz { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 6px 14px; }
-    .chip { font-size: 12px; border: 1px solid rgba(51,231,255,0.35); padding: 6px 10px; border-radius: 999px; color: #bfeef7; }
-
-    /* ===== profile ===== */
-    .profile {
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; align-items: center;
-    }
-    @media (max-width: 900px) { .profile { grid-template-columns: 1fr; } }
-    .profile .panel {
-      background: linear-gradient(180deg, rgba(11,16,22,0.9), rgba(9,13,17,0.9));
-      border: 1px solid rgba(51,231,255,0.28); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
-    }
-    .meter { height: 10px; background: #061015; border-radius: 999px; overflow: hidden; border: 1px solid rgba(51,231,255,0.35); }
-    .meter > i { display: block; height: 100%; background: var(--grad); box-shadow: 0 0 16px rgba(51,231,255,0.5) inset; }
-
-    /* ===== Contact ===== */
-    form {
-      display: grid; gap: 12px; max-width: 680px;
-    }
-    label { font-size: 14px; color: #bfeef7; }
-    input, textarea {
-      width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(51,231,255,0.35);
-      background: rgba(6, 16, 20, 0.7); color: var(--ink); outline: none;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
-    }
-    input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(51,231,255,0.22), inset 0 0 0 1px rgba(255,255,255,0.05); }
-
-    /* ===== フッター ===== */
-    footer {
-      padding: 50px 20px; text-align: center; color: var(--muted);
-      border-top: 1px solid rgba(51,231,255,0.25);
-      background: linear-gradient(to top, rgba(5,8,10,0.85), rgba(5,8,10,0));
-    }
-
-    /* カスタムカーソル（PCのみ） */
-    @media (hover: hover) and (pointer: fine) {
-      .cursor { position: fixed; inset: 0; pointer-events: none; z-index: 1000; mix-blend-mode: screen; }
-      .cursor i { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); filter: blur(10px) brightness(1.6); opacity: 0.9; transform: translate(-50%, -50%); }
-    }
-
-    /* ===== my追加分(アニメーション) ===== */
-    /* 初期状態（非表示＆位置ずらし） */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px); /* 下から */
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in-left {
-      opacity: 0;
-      transform: translateX(-40px); /* 左から */
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in-right {
-      opacity: 0;
-      transform: translateX(40px); /* 右から */
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    /* 表示時に適用されるクラス */
-    .show {
-      opacity: 1;
-      transform: translateX(0) translateY(0);
-    }
-  </style>
+  <meta name="description" content="ポートフォリオ" />
+  <link rel="stylesheet" href="portfolio.css"> <!-- cssファイル -->
 </head>
 <body>
   <div class="bg-wrap">
@@ -262,24 +18,44 @@
       <div class="brand" aria-label="サイト名"><span class="accent">PORT</span> FOLIO</div>
       <div class="spacer"></div>
       <a href="#profile">プロフィール</a>
-      <a href="#projects">作品</a>
+      <a href="#games">作品</a>
       <a href="#contact">連絡</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <!-- 概要 -->
+    <section class="overview">
+      
       <div>
         <div class="pillbar">
           <span class="pill">Unity</span>
           <span class="pill">DxLib</span>
           <span class="pill">C / C++ / C#</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">HTML / CSS</span>
         </div>
-        <h1 class="title">ゲーム感あるネオンの<br><span class="glow">ポートフォリオ</span></h1>
-        <p class="lead">#0a0a0a と #33e7ff を基調に、冷たいシアンのグラデーションとネオングリッドで「サイバーでクール」な雰囲気を演出。カードは薄い発光、ボタンはエネルギーコアのように輝きます。</p>
+
+        <span class="title_en">kurosawa reo</span><br>
+        <span class="title">黒澤 怜旺</span>
+        
+        <p>
+          <table border="2px">
+            <tr>
+              <td>学校</td>
+              <td>横浜デジタルアーツ専門学校</td>
+            </tr>
+            <tr>
+              <td>学科</td>
+              <td>ゲーム科</td>
+            </tr>
+          </table>
+        </p>
+
+        <p class="lead">あああ</p>
         <div class="actions">
-          <a class="btn ghost" href="#projects">？？？</a>
-          <a class="btn ghost" href="#profile">？？？</a>
+          <a class="btn ghost" href="">？？？</a>
+          <a class="btn ghost" href="">？？？</a>
         </div>
       </div>
       <div class="avatar-wrap">
@@ -288,45 +64,50 @@
           <div class="rings"></div>
           <div class="rings"></div>
         </div>
-        <img src="img/star_icon.png" style="height:100%;">
+        <img src="img/face_image.png" style="height:100%;">
         <div class="thumb" style="height:100%; border:none;">
           LOGO / ICON
         </div>
       </div>
     </section>
 
+    <!-- プロフィール/profile -->
     <section id="profile" class="wrap">
-      <h2 class="h2">プロフィール</h2>
-      <p class="sub">得意分野やスキルのバー。</p>
-      <div class="profile">
-        <div class="panel">
-          <p>ゲームの「気持ち良さ」を数式と試行錯誤で作る人。入力→反応のレイテンシ、画面の光/影、UIのアフォーダンスにこだわります。</p>
-          <p>最近は <strong>シェーダ</strong> と <strong>ポストエフェクト</strong>、Webでは <strong>Canvas</strong> に熱中。</p>
-        </div>
-        <div class="panel">
-          <div style="margin-bottom:10px; display:grid; gap:10px;">
-            <div>
-              <label>Gameplay Programming</label>
-              <div class="meter" aria-hidden="true"><i style="width:88%"></i></div>
-            </div>
-            <div>
-              <label>Rendering / Shaders</label>
-              <div class="meter" aria-hidden="true"><i style="width:75%"></i></div>
-            </div>
-            <div>
-              <label>Web / Canvas</label>
-              <div class="meter" aria-hidden="true"><i style="width:70%"></i></div>
+      <span class="fade-in">
+        <h2 class="h2">プロフィール</h2>
+        <p class="sub">得意分野やスキルのバー。</p>
+        <div class="profile">
+          <div class="panel">
+            <p>ゲームの「気持ち良さ」を数式と試行錯誤で作る人。入力→反応のレイテンシ、画面の光/影、UIのアフォーダンスにこだわります。</p>
+            <p>最近は <strong>シェーダ</strong> と <strong>ポストエフェクト</strong>、Webでは <strong>Canvas</strong> に熱中。</p>
+          </div>
+          <div class="panel">
+            <div style="margin-bottom:10px; display:grid; gap:10px;">
+              <div>
+                <label>Gameplay Programming</label>
+                <div class="meter" aria-hidden="true"><i style="width:88%"></i></div>
+              </div>
+              <div>
+                <label>Rendering / Shaders</label>
+                <div class="meter" aria-hidden="true"><i style="width:75%"></i></div>
+              </div>
+              <div>
+                <label>Web / Canvas</label>
+                <div class="meter" aria-hidden="true"><i style="width:70%"></i></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </span>
     </section>
 
-    <span class="fade-in">
-      <section id="projects" class="wrap">
+    <!-- 作品/games -->
+    <section id="games" class="wrap">
+      <span class="fade-in">
         <h2 class="h2">作品</h2>
         <p class="sub">最近の制作物。ホバーで薄い輪郭光が走ります。</p>
         <div class="grid-cards">
+
           <article class="card" data-tilt>
             <span class="badge">Unity</span>
             <div class="thumb">PROJECT A</div>
@@ -338,6 +119,7 @@
               <span class="chip">URP</span>
             </div>
           </article>
+
           <article class="card" data-tilt>
             <span class="badge">C++</span>
             <div class="thumb">PROJECT B</div>
@@ -349,6 +131,7 @@
               <span class="chip">ECS</span>
             </div>
           </article>
+
           <article class="card" data-tilt>
             <span class="badge">Web</span>
             <div class="thumb">PROJECT C</div>
@@ -360,173 +143,49 @@
               <span class="chip">ShaderToy風</span>
             </div>
           </article>
-        </div>
-      </section>
-    </span>
 
+        </div>
+      </span>
+    </section>
+
+    <!-- 連絡/contact -->
     <section id="contact" class="wrap">
-      <h2 class="h2">連絡</h2>
-      <p class="sub">連絡用のダミーフォーム。静的サイトでも使える見た目。</p>
-      <form onsubmit="event.preventDefault(); alert('送信テスト: ここにハンドラを実装してください');">
-        <div>
-          <label for="name">お名前</label>
-          <input id="name" name="name" required placeholder="Your Name" />
-        </div>
-        <div>
-          <label for="email">メール</label>
-          <input id="email" name="email" type="email" required placeholder="name@example.com" />
-        </div>
-        <div>
-          <label for="msg">メッセージ</label>
-          <textarea id="msg" name="message" rows="5" placeholder="ご用件をどうぞ"></textarea>
-        </div>
-        <div style="display:flex; gap:10px; align-items:center;">
-          <button class="btn" type="submit">送信</button>
-        </div>
-      </form>
+      <span class="fade-in">
+        <h2 class="h2">連絡</h2>
+        <p class="sub">Mail: kurosawareo.job@gmail.com</p>
+        <p class="sub">下記フォームからも送信できます。</p>
+  
+        <!-- netlifyと連携する(無料版は月100件まで保存されるらしい) -->
+        <!-- Projects → 使用サイト → Forms から送信内容を確認できる。 -->
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="subject" value="件名" /> <!-- 件名の変更 -->
+          <div>
+            <label for="name">お名前</label>
+            <input id="name" name="name" required placeholder="name" />
+          </div>
+          <div>
+            <label for="email">メール</label>
+            <input id="email" name="email" type="email" required placeholder="test@example.com" />
+          </div>
+          <div>
+            <label for="msg">メッセージ</label>
+            <textarea id="msg" name="message" rows="15" placeholder="ご用件をお願いします。"></textarea>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <button class="btn" type="submit">送信</button>
+          </div>
+        </form>
+      </span>
     </section>
   </main>
 
   <footer>
-    <small>© 2025 Kurosawa Reo Portfolio</small>
+    <small>最終更新日: 2025/09/24</small><br>
+    <small>© Kurosawa Reo Portfolio</small>
   </footer>
 
+  <script src="portfolio.js"></script> <!-- jsファイル -->
+
   <div class="cursor" aria-hidden="true"><i></i></div>
-
-  <script>
-    // ===== スムーススクロール =====
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if (id.length > 1) {
-          e.preventDefault();
-          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // ===== my追加分(アニメーション) =====
-    document.addEventListener("DOMContentLoaded", () => {
-      const fadeElements = document.querySelectorAll(".fade-in, .fade-in-left, .fade-in-right");
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      }, { threshold: 0.2 }); // 画面に20%入ったら発火
-
-      fadeElements.forEach(el => observer.observe(el));
-    });
-
-    // ===== カードの軽いチルト効果 =====
-    const tiltCards = document.querySelectorAll('[data-tilt]');
-    const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
-    tiltCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const r = card.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width;  // 0..1
-        const py = (e.clientY - r.top) / r.height; // 0..1
-        const rx = (py - 0.5) * -6; // rotateX
-        const ry = (px - 0.5) * 8;  // rotateY
-        card.style.transform = `translateY(-3px) rotateX(${clamp(rx,-8,8)}deg) rotateY(${clamp(ry,-10,10)}deg)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-
-    // ===== パーティクル: サイバーなフローティング =====
-    const cvs = document.getElementById('fx');
-    const ctx = cvs.getContext('2d');
-    let W, H, dpr;
-    function resize() {
-      dpr = Math.min(2, window.devicePixelRatio || 1);
-      W = cvs.width = Math.floor(innerWidth * dpr);
-      H = cvs.height = Math.floor(innerHeight * dpr);
-      cvs.style.width = innerWidth + 'px';
-      cvs.style.height = innerHeight + 'px';
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const P = [];
-    const COUNT = 90;
-    for (let i = 0; i < COUNT; i++) {
-      P.push({
-        x: Math.random() * W,
-        y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: (Math.random() - 0.5) * 0.15,
-        r: Math.random() * 2.2 + 0.6,
-        a: Math.random() * Math.PI * 2
-      });
-    }
-
-    function tick() {
-      ctx.clearRect(0, 0, W, H);
-
-      // 線で接続（近い点同士）
-      for (let i = 0; i < P.length; i++) {
-        for (let j = i + 1; j < P.length; j++) {
-          const dx = P[i].x - P[j].x;
-          const dy = P[i].y - P[j].y;
-          const d2 = dx*dx + dy*dy;
-          if (d2 < 12000) {
-            const o = 1 - d2 / 12000;
-            ctx.strokeStyle = `rgba(51,231,255,${o * 0.25})`;
-            ctx.lineWidth = 1 * dpr;
-            ctx.beginPath();
-            ctx.moveTo(P[i].x, P[i].y);
-            ctx.lineTo(P[j].x, P[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      // 粒子本体
-      for (const p of P) {
-        p.x += p.vx * dpr; p.y += p.vy * dpr; p.a += 0.02;
-        if (p.x < 0) p.x += W; if (p.x > W) p.x -= W;
-        if (p.y < 0) p.y += H; if (p.y > H) p.y -= H;
-        const r = (Math.sin(p.a) * 0.5 + 0.5) * p.r + 0.6;
-        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 6);
-        g.addColorStop(0, 'rgba(123,242,255,0.95)');
-        g.addColorStop(1, 'rgba(123,242,255,0)');
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, r * 6, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      requestAnimationFrame(tick);
-    }
-    tick();
-
-    // ===== カーソルの発光（PC） =====
-    const cursor = document.querySelector('.cursor i');
-    let mx = 0, my = 0, tx = 0, ty = 0;
-    let raf = null;
-    function loop() {
-      tx += (mx - tx) * 0.18; ty += (my - ty) * 0.18;
-      cursor.style.transform = `translate(${tx}px, ${ty}px)`;
-      raf = requestAnimationFrame(loop);
-    }
-    window.addEventListener('pointermove', (e) => { mx = e.clientX; my = e.clientY; if (!raf) loop(); });
-    window.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); raf = null; });
-
-    // ===== キーボード: G でグリッド傾斜トグル（遊び） =====
-    window.addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() === 'g') {
-        const grid = document.querySelector('.grid');
-        if (grid.style.transform.includes('rotateX(0deg)')) {
-          grid.style.transform = 'perspective(600px) rotateX(55deg) translateY(-20%)';
-        } else {
-          grid.style.transform = 'perspective(1000px) rotateX(0deg)';
-        }
-      }
-    });
-  </script>
 </body>
 </html>
