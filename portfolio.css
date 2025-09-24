@@ -112,6 +112,13 @@ header {
 }
 .btn.ghost:hover { background: rgba(51,231,255,0.12); }
 
+.ghost_text {
+    position: relative; border: none; border-radius: 5px; padding: 6px 12px;
+    font-weight: 400; letter-spacing: 0.3px; transition: 200ms ease; isolation: isolate;
+    background: transparent; color: var(--ink); border: 1px solid rgba(51,231,255,0.35);
+    box-shadow: 0 8px 40px rgba(51,231,255,0.35), 0 1px 0 rgba(255,255,255,0.18) inset; /* 周りを光らせる */
+}
+
 .avatar-wrap {
     position: relative; aspect-ratio: 1 / 1; width: min(90%, 420px); place-self: center;
     border-radius: 24px; background: radial-gradient(120px 120px at 70% 20%, rgba(123,242,255,0.35), transparent 40%), #0a0c10;
@@ -150,6 +157,26 @@ section { scroll-margin-top: 80px; }
 .meter { height: 10px; background: #061015; border-radius: 999px; overflow: hidden; border: 1px solid rgba(51,231,255,0.35); }
 .meter > i { display: block; height: 100%; background: var(--grad); box-shadow: 0 0 16px rgba(51,231,255,0.5) inset; }
 
+.info-table {
+  border-collapse: collapse; /* 枠をすっきりさせる */
+  width: 100%;               /* 幅をパネルに合わせる */
+  font-size: 18px;           /* 文字を大きめに */
+  text-align: left;
+}
+.info-table td {
+  border: 2px solid #33e7ff; /* 枠線の色をネオンシアン系に */
+  padding: 12px 16px;         /* 上下・左右の余白を追加 */
+}
+.info-table tr:nth-child(odd) {
+  background-color: rgba(51, 231, 255, 0.05); /* 奇数行に薄い背景色 */
+}
+.info-table tr:nth-child(even) {
+  background-color: rgba(51, 231, 255, 0.1);  /* 偶数行に少し濃い背景色 */
+}
+.info-table td:first-child {
+  font-weight: bold; /* 左列を強調 */
+}
+
 /* ===== 作品/games ===== */
 .grid-cards {
     display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
@@ -178,8 +205,16 @@ section { scroll-margin-top: 80px; }
     linear-gradient(135deg, rgba(51,231,255,0.25), rgba(11,20,22,0.8)),
     repeating-linear-gradient(45deg, rgba(51,231,255,0.16) 0 2px, transparent 2px 6px);
     border: 1px solid rgba(51,231,255,0.28);
-    display: grid; place-items: center; font-weight: 900; letter-spacing: 0.4px; color: #001217;
+    overflow: hidden; /* 角丸からはみ出さないようにする */
+    display: flex;    /* 中央配置用 */
+    place-items: center; font-weight: 900; letter-spacing: 0.4px; color: #001217;
     text-shadow: 0 1px 0 rgba(255,255,255,0.45); background-blend-mode: screen;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 切り抜き */
+  display: block;
 }
 .badge {
     position: absolute; top: 14px; left: 14px; background: var(--grad); color: #001217; font-weight: 900;

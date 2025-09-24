@@ -38,25 +38,17 @@
 
         <span class="title_en">kurosawa reo</span><br>
         <span class="title">黒澤 怜旺</span>
-        
-        <p>
-          <table border="2px">
-            <tr>
-              <td>学校</td>
-              <td>横浜デジタルアーツ専門学校</td>
-            </tr>
-            <tr>
-              <td>学科</td>
-              <td>ゲーム科</td>
-            </tr>
-          </table>
+        <p class="lead">
+          <span class="ghost_text">プログラマー志望</span>
+          <br><br>
+          ご覧いただきありがとうございます。本サイトは随時更新中です。
         </p>
-
-        <p class="lead">あああ</p>
-        <div class="actions">
-          <a class="btn ghost" href="">？？？</a>
-          <a class="btn ghost" href="">？？？</a>
-        </div>
+        <!-- 
+          <div class="actions">
+            <a class="btn ghost" href="">？？？</a>
+            <a class="btn ghost" href="">？？？</a>
+          </div>
+        -->
       </div>
       <div class="avatar-wrap">
         <div class="avatar-decoration">
@@ -75,12 +67,65 @@
     <section id="profile" class="wrap">
       <span class="fade-in">
         <h2 class="h2">プロフィール</h2>
-        <p class="sub">得意分野やスキルのバー。</p>
         <div class="profile">
+
           <div class="panel">
-            <p>ゲームの「気持ち良さ」を数式と試行錯誤で作る人。入力→反応のレイテンシ、画面の光/影、UIのアフォーダンスにこだわります。</p>
-            <p>最近は <strong>シェーダ</strong> と <strong>ポストエフェクト</strong>、Webでは <strong>Canvas</strong> に熱中。</p>
+            <table class="info-table">
+              <tr>
+                <td>生年月日</td>
+                <td>2005/09/18</td>
+              </tr>
+              <tr>
+                <td>学校 / 学科</td>
+                <td>横浜デジタルアーツ専門学校　ゲーム科</td>
+              </tr>
+              <tr>
+                <td>趣味</td>
+                <td>
+                  ゲーム<br>
+                  動画鑑賞<br>
+                  動画制作<br>
+                  作曲<br>
+                </td>
+              </tr>
+              <tr>
+                <td>特技</td>
+                <td>
+                  プログラミング<br>
+                  デザイン(軽いもの)<br>
+                  コンピュータ関係<br>
+                </td>
+              </tr>
+              <tr>
+                <td>取得資格</td>
+                <td>
+                  計算技術検定 3級<br>
+                  情報技術検定 3級<br>
+                  CGクリエイター検定 ベーシック<br>
+                  情報処理活用能力検定 3級<br>
+                </td>
+              </tr>
+            </table>
           </div>
+          <br>
+          <div class="panel">
+            <h3>学生活動</h3>
+            <p>
+              ゲーム制作サークルに所属し、チーム制作を通じて協働経験を積んでいます。<br>
+              学内のGameJamイベントでは参加者兼運営として、会場準備やツール開発をしています。<br>
+              また、学生自治会にも所属し、学園祭やゲーム大会イベントの運営に携わっています。
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>プライベート活動</h3>
+            <p>
+              Minecraftが好きで、長年自作ゲームの主催・運営を行った経験があります。
+              趣味でMinecraftのアドオン制作、動画制作、作曲にも取り組んでいます。
+              知人の誕生日に記念動画を作って贈るなど、クリエイティブな活動を続けています。
+            </p>
+          </div>
+          <!-- 
           <div class="panel">
             <div style="margin-bottom:10px; display:grid; gap:10px;">
               <div>
@@ -96,7 +141,8 @@
                 <div class="meter" aria-hidden="true"><i style="width:70%"></i></div>
               </div>
             </div>
-          </div>
+          </div> 
+          -->
         </div>
       </span>
     </section>
@@ -105,45 +151,85 @@
     <section id="games" class="wrap">
       <span class="fade-in">
         <h2 class="h2">作品</h2>
-        <p class="sub">最近の制作物。ホバーで薄い輪郭光が走ります。</p>
+        <p class="sub">掲載中のため、随時更新します。今後はクリックで詳細を開けるようにする予定です。</p>
+
+        <!-- 作品集 -->
         <div class="grid-cards">
 
           <article class="card" data-tilt>
-            <span class="badge">Unity</span>
-            <div class="thumb">PROJECT A</div>
-            <h3>Neon Runner</h3>
-            <p>スピード感重視のステージ攻略。粒子と残像でサイバー演出。</p>
-            <div class="chipz">
-              <span class="chip">C#</span>
-              <span class="chip">PostFX</span>
-              <span class="chip">URP</span>
-            </div>
-          </article>
-
-          <article class="card" data-tilt>
-            <span class="badge">C++</span>
-            <div class="thumb">PROJECT B</div>
-            <h3>Bullet Lab</h3>
-            <p>弾幕/当たり判定の実験作。自作エンジンで表現。</p>
+            <span class="badge">DxLib</span>
+            <div class="thumb"><img src="img/GAME1.png"></div>
+            <h3>REFLECT LINE</h3>
+            <p>
+              攻撃を避けるだけでは終わらない。<br>
+              レーザーにあえて当たり、反射させて隕石を破壊する。<br>
+              きれい×かっこいいを両立した斬新な耐久ゲームです。
+            </p>
             <div class="chipz">
               <span class="chip">C++</span>
-              <span class="chip">DxLib</span>
-              <span class="chip">ECS</span>
+              <span class="chip">デザイン</span>
+              <span class="chip">自作ライブラリ</span>
             </div>
           </article>
 
           <article class="card" data-tilt>
-            <span class="badge">Web</span>
-            <div class="thumb">PROJECT C</div>
-            <h3>Web Visualizer</h3>
-            <p>音に反応する波形/グリッド。ネオン配色で統一。</p>
+            <span class="badge">Unity</span>
+            <div class="thumb"><img src="img/GAME2.png"></div>
+            <h3>落ちものパズル (再現)</h3>
+            <p>
+              あの有名な落ちものパズルゲームを再現。<br>
+              穴の形状に沿って回転し、Tスピンなどの特殊な技も可能です。<br>
+              BGMは原作曲を自作アレンジで制作しています。
+            </p>
             <div class="chipz">
-              <span class="chip">JS</span>
-              <span class="chip">Canvas</span>
-              <span class="chip">ShaderToy風</span>
+              <span class="chip">C#</span>
+              <span class="chip">作曲</span>
             </div>
           </article>
 
+          <article class="card" data-tilt>
+            <span class="badge">Unity</span>
+            <div class="thumb"><img src="img/GAME3.png"></div>
+            <h3>PAC MUSCLE</h3>
+            <p>
+              「噛みつく」を活かして道を切り開け。<br>
+              首を伸ばしてブロックを壊したり、運んだり、時には自分が移動したりと、ちょっと面白おかしなアクションゲームです。
+            </p>
+            <div class="chipz">
+              <span class="chip">C#</span>
+              <span class="chip">拡張エディタ</span>
+              <span class="chip">学内GameJam入賞</span>
+            </div>
+          </article>
+
+          <article class="card" data-tilt>
+            <span class="badge">Unity</span>
+            <div class="thumb"><img src="img/GAME4.png"></div>
+            <h3>5host</h3>
+            <p>
+              廃病院で迷った少年が体験する、ある一時の物語。<br>
+              そこで出会う5人の少女の幽霊は、生前に五感の1つを失っていたようです。
+              少年は彼女たちの未練を晴らすため、手助けをすることに...
+            </p>
+            <div class="chipz">
+              <span class="chip">C#</span>
+              <span class="chip">アニメーション</span>
+            </div>
+          </article>
+
+          <article class="card" data-tilt>
+            <span class="badge">Unity</span>
+            <div class="thumb"><img src="img/GAME5.png"></div>
+            <h3>Trans water</h3>
+            <p>
+              氷・水・水蒸気を切り替えるアクションゲーム。 <br>
+              水蒸気で浮き、水で網をすり抜け、氷でボタンを押すなど、水の多様な特性を活かしたギミックが登場します。
+            </p>
+            <div class="chipz">
+              <span class="chip">C#</span>
+              <span class="chip">レベルデザイン</span>
+            </div>
+          </article>
         </div>
       </span>
     </section>
@@ -151,24 +237,27 @@
     <!-- 連絡/contact -->
     <section id="contact" class="wrap">
       <span class="fade-in">
-        <h2 class="h2">連絡</h2>
-        <p class="sub">Mail: kurosawareo.job@gmail.com</p>
-        <p class="sub">下記フォームからも送信できます。</p>
+        <h2 class="h2">連絡</h2><br><br>
+        <span class="ghost_text">Mail: kurosawareo.job@gmail.com</span>
+        <br><br>
+        <p class="sub">下記フォームからも送信いただけます。</p>
   
         <!-- netlifyと連携する(無料版は月100件まで保存されるらしい) -->
-        <!-- Projects → 使用サイト → Forms から送信内容を確認できる。 -->
         <form name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="subject" value="件名" /> <!-- 件名の変更 -->
           <div>
             <label for="name">お名前</label>
-            <input id="name" name="name" required placeholder="name" />
+            <input id="name" name="name" required placeholder="Your Name" />
           </div>
           <div>
             <label for="email">メール</label>
-            <input id="email" name="email" type="email" required placeholder="test@example.com" />
+            <input id="email" name="email" type="email" required placeholder="yourmail@example.com" />
           </div>
           <div>
-            <label for="msg">メッセージ</label>
+            <label for="subject">件名</label>
+            <input id="subject" name="subject" required placeholder="件名" />
+          </div>
+          <div>
+            <label for="msg">本文</label>
             <textarea id="msg" name="message" rows="15" placeholder="ご用件をお願いします。"></textarea>
           </div>
           <div style="display:flex; gap:10px; align-items:center;">
@@ -180,7 +269,7 @@
   </main>
 
   <footer>
-    <small>最終更新日: 2025/09/24</small><br>
+    <small>最終更新日: 2025/09/25</small><br>
     <small>© Kurosawa Reo Portfolio</small>
   </footer>
 
