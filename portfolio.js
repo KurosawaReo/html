@@ -1,4 +1,13 @@
 
+// ===== イントロ =====
+const intro   = document.getElementById("intro");
+const content = document.getElementById("content");
+
+intro.addEventListener("animationend", () => {
+  intro.style.display   = "none";  // 完全に非表示
+  content.style.display = "block"; // 本編表示
+});
+
 // ===== スムーススクロール =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -10,7 +19,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// ===== my追加分(アニメーション) =====
+// ===== アニメーション =====
 document.addEventListener("DOMContentLoaded", () => {
     const fadeElements = document.querySelectorAll(".fade-in, .fade-in-left, .fade-in-right");
 
@@ -134,4 +143,46 @@ window.addEventListener('keydown', (e) => {
             grid.style.transform = 'perspective(1000px) rotateX(0deg)';
         }
     }
+});
+
+// ===== modal =====
+
+const modal01 = document.getElementById('modal-01');
+const modal02 = document.getElementById('modal-02');
+const modal03 = document.getElementById('modal-03');
+const modal04 = document.getElementById('modal-04');
+const modal05 = document.getElementById('modal-05');
+
+//クリックで開く.
+document.getElementById("game-card-01").addEventListener("click", () => {
+    modal01.classList.add("open");
+});
+document.getElementById("game-card-02").addEventListener("click", () => {
+    modal02.classList.add("open");
+});
+document.getElementById("game-card-03").addEventListener("click", () => {
+    modal03.classList.add("open");
+});
+document.getElementById("game-card-04").addEventListener("click", () => {
+    modal04.classList.add("open");
+});
+document.getElementById("game-card-05").addEventListener("click", () => {
+    modal05.classList.add("open");
+});
+
+//クリックで閉じる.
+modal01.addEventListener("click", () => {
+    modal01.classList.remove("open");
+});
+modal02.addEventListener("click", () => {
+    modal02.classList.remove("open");
+});
+modal03.addEventListener("click", () => {
+    modal03.classList.remove("open");
+});
+modal04.addEventListener("click", () => {
+    modal04.classList.remove("open");
+});
+modal05.addEventListener("click", () => {
+    modal05.classList.remove("open");
 });

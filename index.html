@@ -8,6 +8,13 @@
   <link rel="stylesheet" href="portfolio.css"> <!-- cssファイル -->
 </head>
 <body>
+  <!-- イントロアニメーション -->
+  <div id="intro">
+    <h1 class="intro-text">
+      Kurosawa Reo<br>Portfolio
+    </h1>
+  </div>
+
   <div class="bg-wrap">
     <div class="grid" aria-hidden="true"></div>
     <canvas id="fx" aria-hidden="true"></canvas>
@@ -26,7 +33,6 @@
   <main>
     <!-- 概要 -->
     <section class="overview">
-      
       <div>
         <div class="pillbar">
           <span class="pill">Unity</span>
@@ -37,19 +43,18 @@
         </div>
 
         <div>
-          <span class="title_en">kurosawa reo</span><br>
-          <span class="title">黒澤 怜旺</span>
-          <p class="lead">
-            <span class="ghost_text">プログラマー志望</span>
-            <br><br>
+          <div class="title_en">kurosawa reo</div>
+          <div class="title neon slide-left">黒澤 怜旺</div>
+          <br>
+          <p class="sub_big">
             ご覧いただきありがとうございます。本サイトは随時更新中です。
           </p>
-          <!-- 
-            <div class="actions">
-              <a class="btn ghost" href="">？？？</a>
-              <a class="btn ghost" href="">？？？</a>
-            </div>
-          -->
+          <p>
+            <span class="ghost_text">プログラマー志望</span>
+          </p>
+          <p>
+            <span class="ghost_text">Mail: kurosawareo.job@gmail.com</span>
+          </p>
         </div>
       </div>
       <div class="avatar-wrap">
@@ -64,11 +69,12 @@
         </div>
       </div>
     </section>
-
+    
     <!-- プロフィール/profile -->
     <section id="profile" class="wrap">
+      <div class="neon-line"></div> <!-- グラデーション線 -->
       <span class="fade-in">
-        <h2 class="h2">プロフィール</h2>
+        <h2 class="h2 neon slide-left">プロフィール</h2>
         <div class="profile">
 
           <div class="panel">
@@ -86,16 +92,17 @@
                 <td>
                   ゲーム<br>
                   動画鑑賞<br>
-                  動画制作<br>
-                  作曲<br>
+                  アドオン開発<br>
+                  動画制作・BGM作曲<br>
                 </td>
               </tr>
               <tr>
                 <td>特技</td>
                 <td>
-                  プログラミング<br>
-                  デザイン(軽いもの)<br>
-                  コンピュータ関係<br>
+                  コンピュータを扱えること<br>
+                  ・プログラミング<br>
+                  ・動画制作<br>
+                  ・軽いデザイン etc...<br>
                 </td>
               </tr>
               <tr>
@@ -114,7 +121,7 @@
             <h3>学生活動</h3>
             <p>
               ゲーム制作サークルに所属し、チーム制作を通じて協働経験を積んでいます。<br>
-              学内のGameJamイベントでは参加者兼運営として、会場準備やツール開発をしています。<br>
+              学内のGameJamでは、参加者兼運営として会場準備やツール開発をしています。<br>
               また、学生自治会にも所属し、学園祭やゲーム大会イベントの運営に携わっています。
             </p>
           </div>
@@ -122,43 +129,26 @@
           <div class="panel">
             <h3>プライベート活動</h3>
             <p>
-              Minecraftが好きで、長年自作ゲームの主催・運営を行った経験があります。
-              趣味でMinecraftのアドオン制作、動画制作、作曲にも取り組んでいます。
+              「Minecraft」が好きで、長年自作ゲームの主催・運営を行った経験があります。
+              Minecraftをきっかけに、アドオン制作、動画制作、作曲などに取り組んでいます。
               知人の誕生日に記念動画を作って贈るなど、クリエイティブな活動を続けています。
             </p>
           </div>
-          <!-- 
-          <div class="panel">
-            <div style="margin-bottom:10px; display:grid; gap:10px;">
-              <div>
-                <label>Gameplay Programming</label>
-                <div class="meter" aria-hidden="true"><i style="width:88%"></i></div>
-              </div>
-              <div>
-                <label>Rendering / Shaders</label>
-                <div class="meter" aria-hidden="true"><i style="width:75%"></i></div>
-              </div>
-              <div>
-                <label>Web / Canvas</label>
-                <div class="meter" aria-hidden="true"><i style="width:70%"></i></div>
-              </div>
-            </div>
-          </div> 
-          -->
         </div>
       </span>
     </section>
 
     <!-- 作品/games -->
     <section id="games" class="wrap">
+      <div class="neon-line"></div> <!-- グラデーション線 -->
       <span class="fade-in">
-        <h2 class="h2">作品</h2>
+        <h2 class="h2 neon slide-left">作品</h2>
         <p class="sub">掲載中のため、随時更新します。今後はクリックで詳細を開けるようにする予定です。</p>
 
         <!-- 作品集 -->
-        <div class="grid-cards">
+        <div class="game-cards" id="game-cards">
 
-          <article class="card" data-tilt>
+          <article class="card" id="game-card-01" data-tilt>
             <span class="badge">DxLib</span>
             <div class="thumb"><img src="img/GAME1.png"></div>
             <h3>REFLECT LINE</h3>
@@ -174,12 +164,12 @@
             </div>
           </article>
 
-          <article class="card" data-tilt>
+          <article class="card" id="game-card-02" data-tilt>
             <span class="badge">Unity</span>
             <div class="thumb"><img src="img/GAME2.png"></div>
             <h3>落ちものパズル (再現)</h3>
             <p>
-              あの有名な落ちものパズルゲームを再現。<br>
+              有名な落ちものパズルゲームを再現。<br>
               穴の形状に沿って回転し、Tスピンなどの特殊な技も可能です。<br>
               BGMは原作曲を自作アレンジで制作しています。
             </p>
@@ -189,7 +179,7 @@
             </div>
           </article>
 
-          <article class="card" data-tilt>
+          <article class="card" id="game-card-03" data-tilt>
             <span class="badge">Unity</span>
             <div class="thumb"><img src="img/GAME3.png"></div>
             <h3>PAC MUSCLE</h3>
@@ -204,12 +194,12 @@
             </div>
           </article>
 
-          <article class="card" data-tilt>
+          <article class="card" id="game-card-04" data-tilt>
             <span class="badge">Unity</span>
             <div class="thumb"><img src="img/GAME4.png"></div>
             <h3>5host</h3>
             <p>
-              廃病院で迷った少年が体験する、ある一時の物語。<br>
+              廃病院で迷った少年の、ある一時の物語。<br>
               そこで出会う5人の少女の幽霊は、生前に五感の1つを失っていたようです。
               少年は彼女たちの未練を晴らすため、手助けをすることに...
             </p>
@@ -219,12 +209,12 @@
             </div>
           </article>
 
-          <article class="card" data-tilt>
+          <article class="card" id="game-card-05" data-tilt>
             <span class="badge">Unity</span>
             <div class="thumb"><img src="img/GAME5.png"></div>
             <h3>Trans water</h3>
             <p>
-              氷・水・水蒸気を切り替えるアクションゲーム。 <br>
+              主人公は水？氷・水・水蒸気を切り替えて進もう。<br>
               水蒸気で浮き、水で網をすり抜け、氷でボタンを押すなど、水の多様な特性を活かしたギミックが登場します。
             </p>
             <div class="chipz">
@@ -238,11 +228,10 @@
 
     <!-- 連絡/contact -->
     <section id="contact" class="wrap">
+      <div class="neon-line"></div> <!-- グラデーション線 -->
       <span class="fade-in">
-        <h2 class="h2">連絡</h2><br><br>
-        <span class="ghost_text">Mail: kurosawareo.job@gmail.com</span>
-        <br><br>
-        <p class="sub">下記フォームからも送信いただけます。</p>
+        <h2 class="h2 neon slide-left">連絡</h2>
+        <p class="sub">下記フォームから送信いただけます。</p>
   
         <!-- netlifyと連携する(無料版は月100件まで保存されるらしい) -->
         <form name="contact" method="POST" data-netlify="true">
@@ -270,8 +259,90 @@
     </section>
   </main>
 
+  <!-- モーダル(aria-hiddenで表示/非表示を切り替える) -->
+  <div id="modal-01" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
+    <div class="panel">
+      <div>
+        <h2 id="modal-title">REFLECT LINE</h2>
+      </div>
+      <div id="modal-body" style="color:rgba(182,252,249,0.95);line-height:1.6">
+        準備中...
+        <br>
+        <br>
+        <br>
+      </div>
+      <div>
+        <button class="close-btn" id="modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+  <div id="modal-02" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
+    <div class="panel">
+      <div>
+        <h2 id="modal-title">落ちものパズル (再現)</h2>
+      </div>
+      <div id="modal-body" style="color:rgba(182,252,249,0.95);line-height:1.6">
+        準備中...
+        <br>
+        <br>
+        <br>
+      </div>
+      <div>
+        <button class="close-btn" id="modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+  <div id="modal-03" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
+    <div class="panel">
+      <div>
+        <h2 id="modal-title">PAC MUSCLE</h2>
+      </div>
+      <div id="modal-body" style="color:rgba(182,252,249,0.95);line-height:1.6">
+        準備中...
+        <br>
+        <br>
+        <br>
+      </div>
+      <div>
+        <button class="close-btn" id="modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+  <div id="modal-04" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
+    <div class="panel">
+      <div>
+        <h2 id="modal-title">5host</h2>
+      </div>
+      <div id="modal-body" style="color:rgba(182,252,249,0.95);line-height:1.6">
+        準備中...
+        <br>
+        <br>
+        <br>
+      </div>
+      <div>
+        <button class="close-btn" id="modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+  <div id="modal-05" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
+    <div class="panel">
+      <div>
+        <h2 id="modal-title">Trans water</h2>
+      </div>
+      <div id="modal-body" style="color:rgba(182,252,249,0.95);line-height:1.6">
+        準備中...
+        <br>
+        <br>
+        <br>
+      </div>
+      <div>
+        <button class="close-btn" id="modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <small>最終更新日: 2025/09/25</small><br>
+    <small>最終更新日: 2025/09/28</small><br>
     <small>© Kurosawa Reo Portfolio</small>
   </footer>
 
