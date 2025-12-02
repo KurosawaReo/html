@@ -54,7 +54,14 @@ tiltCards.forEach(card => {
     });
 });
 
-// ===== パーティクル: サイバーなフローティング =====
+// ===== 背景演出 =====
+/*
+   [アルゴリズム]
+   光は全て独自で移動するようになっていて
+   距離がある程度近くなった光同士を線で結んでるだけ。
+*/
+
+//???
 const cvs = document.getElementById('fx');
 const ctx = cvs.getContext('2d');
 let W, H, dpr;
@@ -68,8 +75,8 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
-const P = [];
-const COUNT = 90;
+const P = [];     //光データ配列.
+const COUNT = 90; //光の数.
 for (let i = 0; i < COUNT; i++) {
     P.push({
     x: Math.random() * W,
