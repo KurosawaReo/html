@@ -1,5 +1,6 @@
-
-/* ===== 基本 ===== */
+/* 
+  ▼ ===== 基本 ===== ▼
+*/
 :root {
     --bg: #0a0a0a;           /* ベース背景 */
     --ink: #e6ffff;          /* 文字の薄い色 */
@@ -25,7 +26,21 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== 背景: ネオングリッド + パーティクル ===== */
+section { scroll-margin-top: 80px; }
+
+.sub_big { color: var(--muted); font-size: clamp(20px, 2.5vw, 20px); margin: 6px 0 22px; }
+.sub     { color: var(--muted); font-size: clamp(14px, 2.5vw, 18px); margin: 6px 0 22px; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+.h2 {
+    font-size: clamp(22px, 4.5vw, 32px); font-weight: 900; margin: 0 0 14px;
+    letter-spacing: 0.2px; display: inline-block; position: relative;
+}
+
+/* 
+  ▼ ===== 背景 ===== ▼
+  ネオングリッド + パーティクル
+*/
 .bg-wrap {
     position: fixed; inset: 0; z-index: -2; overflow: hidden;
     background:
@@ -50,7 +65,9 @@ canvas#fx {
     position: fixed; inset: 0; z-index: -1; pointer-events: none;
 }
 
-/* ===== イントロ ===== */
+/* 
+  ▼ ===== イントロ ===== ▼
+*/
 /* Intro 全画面 */
 #intro {
   position: fixed;
@@ -102,19 +119,9 @@ canvas#fx {
   100% { opacity: 0; visibility: hidden; }
 }
 
-/* ===== 共通 ===== */
-section { scroll-margin-top: 80px; }
-
-.sub_big { color: var(--muted); font-size: clamp(20px, 2.5vw, 20px); margin: 6px 0 22px; }
-.sub     { color: var(--muted); font-size: clamp(14px, 2.5vw, 18px); margin: 6px 0 22px; }
-
-.wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-.h2 {
-    font-size: clamp(22px, 4.5vw, 32px); font-weight: 900; margin: 0 0 14px;
-    letter-spacing: 0.2px; display: inline-block; position: relative;
-}
-
-/* ===== ヘッダー ===== */
+/* 
+  ▼ ===== ヘッダー ===== ▼
+*/
 header {
     position: sticky; top: 0; z-index: 20;
     backdrop-filter: blur(8px);
@@ -150,7 +157,18 @@ header {
   animation: flicker 2.5s infinite;
 }
 
-/* ===== 概要 ===== */
+/*
+  ▼ ===== フッター ===== ▼
+*/
+footer {
+    padding: 50px 20px; text-align: center; color: var(--muted);
+    border-top: 1px solid rgba(51,231,255,0.25);
+    background: linear-gradient(to top, rgba(5,8,10,0.85), rgba(5,8,10,0));
+}
+
+/* 
+  ▼ ===== 概要 ===== ▼
+*/
 .overview {
     max-width: 1100px; margin: 40px auto 0; padding: 32px 20px 24px;
     display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px;
@@ -211,7 +229,9 @@ header {
 .rings:nth-child(3) { inset: -6%; animation-duration: 38s; }
 @keyframes spin { to { transform: rotate(1turn); } }
 
-/* ===== プロフィール/profile ===== */
+/* 
+  ▼ ===== プロフィール/profile ===== ▼
+*/
 .profile {
     display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; align-items: center;
 }
@@ -231,7 +251,7 @@ header {
 }
 .info-table td {
   border: 2px solid #33e7ff; /* 枠線の色をネオンシアン系に */
-  padding: 12px 16px;         /* 上下・左右の余白を追加 */
+  padding: 12px 16px;          /* 上下・左右の余白を追加 */
 }
 .info-table tr:nth-child(odd) {
   background-color: rgba(51, 231, 255, 0.05); /* 奇数行に薄い背景色 */
@@ -243,7 +263,9 @@ header {
   font-weight: bold; /* 左列を強調 */
 }
 
-/* ===== 作品/games ===== */
+/* 
+  ▼ ===== 作品/games ===== ▼
+*/
 .game-cards {
     display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
 }
@@ -259,12 +281,23 @@ header {
     transform-style: preserve-3d;
 }
 .card:hover { transform: translateY(-3px); box-shadow: 0 16px 60px rgba(51,231,255,0.35); }
+
+/* カードの外枠のみ光らせるために、内側をmaskで切り抜く */
 .card::before {
     content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 1px;
     background: conic-gradient(from 0deg, rgba(51,231,255,0.0), rgba(51,231,255,0.35), rgba(51,231,255,0.0));
+
+    /* 標準用 */
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    /* WebKit用 (Safariなどはこれが必要らしい) */
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: 250ms ease;
+    -webkit-mask-composite: xor;
+
+    opacity: 0;
+    transition: 250ms ease;
 }
+
 .card:hover::before { opacity: 1; }
 .thumb {
     height: 160px; border-radius: 12px; background:
@@ -292,14 +325,49 @@ header {
 .chipz { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 6px 14px; }
 .chip { font-size: 12px; border: 1px solid rgba(51,231,255,0.35); padding: 6px 10px; border-radius: 999px; color: #bfeef7; }
 
-/* モーダル */
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(4,6,6,0.6);z-index:5;padding:28px}
-.modal.open{display:flex}
-.modal .panel{max-width:900px;width:100%;background:#0e1212;border-radius:12px;padding:20px;border:1px solid rgba(182,252,249,0.08)}
+/*
+  ▼ ===== モーダル ===== ▼
+*/
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(4,6,6,0.6);
+  z-index:5;padding:28px
+}
+.modal.open{
+  display:flex
+}
+.modal .panel{
+  max-width:900px;
+  width:100%;
+  max-height: calc(100vh - 56px); /* 画面からはみ出さない */
+  background:#0e1212;
+  border-radius:12px;
+  padding:20px;
+  border:1px solid rgba(182,252,249,0.08);
+  display: flex;
+  flex-direction: column;
+}
 .modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.modal-body{
+  color:rgba(182,252,249,0.95);
+  overflow-y: auto;
+  flex: 1;            /* 残り高さを全部使う */
+  margin: 16px 0;
+}
+/* モーダルの中の画像 */
+.modal-body img {
+  max-width: 100%;
+  height: auto;
+}
 .close-btn{background:transparent;border:1px solid rgba(182,252,249,0.08);padding:6px 10px;border-radius:8px;color:rgba(182,252,249,0.95)}
 
-/* ===== 連絡/contact ===== */
+/*
+  ▼ ===== 連絡/contact ===== ▼
+*/
 form {
     display: grid; gap: 12px; max-width: 680px;
 }
@@ -312,14 +380,9 @@ input, textarea {
 }
 input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(51,231,255,0.22), inset 0 0 0 1px rgba(255,255,255,0.05); }
 
-/* ===== フッター ===== */
-footer {
-    padding: 50px 20px; text-align: center; color: var(--muted);
-    border-top: 1px solid rgba(51,231,255,0.25);
-    background: linear-gradient(to top, rgba(5,8,10,0.85), rgba(5,8,10,0));
-}
-
-/* ===== アニメーション ===== */
+/*
+  ▼ ===== アニメーション ===== ▼
+*/
 /* 初期状態（非表示＆位置ずらし） */
 .fade-in {
     opacity: 0;
