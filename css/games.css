@@ -1,0 +1,33 @@
+/* 
+  ▼ ===== 作品説明 ===== ▼
+*/
+.game-logo {
+  text-align: center;
+}
+
+img{
+  max-width: 100%; 
+  height: auto;
+}
+
+/* 操作説明 */
+.control-lore {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.control-lore p {
+  text-align: center;
+}
+.control-lore p img{
+  max-width: 100%; 
+  height: auto;
+}
+/* スマホ用レイアウト */
+@media screen and (max-width: 768px) {
+  .control-lore {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

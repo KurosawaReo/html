@@ -140,30 +140,18 @@ function loop() {
 window.addEventListener('pointermove', (e) => { mx = e.clientX; my = e.clientY; if (!raf) loop(); });
 window.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); raf = null; });
 
-// ===== キーボード: G でグリッド傾斜トグル（遊び） =====
-window.addEventListener('keydown', (e) => {
-    if (e.key.toLowerCase() === 'g') {
-        const grid = document.querySelector('.grid');
-        if (grid.style.transform.includes('rotateX(0deg)')) {
-            grid.style.transform = 'perspective(600px) rotateX(55deg) translateY(-20%)';
-        } else {
-            grid.style.transform = 'perspective(1000px) rotateX(0deg)';
-        }
-    }
-});
-
 // ===== modal =====
+/*
+   HTML側でcardとmodalを予め作っておき
+   cardがクリックされたら、ここでmodalの表示/非表示を切り替える
+*/
 
-const modal01 = document.getElementById('modal-01');
 const modal02 = document.getElementById('modal-02');
 const modal03 = document.getElementById('modal-03');
 const modal04 = document.getElementById('modal-04');
 const modal05 = document.getElementById('modal-05');
 
 //クリックで開く.
-document.getElementById("game-card-01").addEventListener("click", () => {
-    modal01.classList.add("open");
-});
 document.getElementById("game-card-02").addEventListener("click", () => {
     modal02.classList.add("open");
 });
@@ -178,9 +166,6 @@ document.getElementById("game-card-05").addEventListener("click", () => {
 });
 
 //クリックで閉じる.
-modal01.addEventListener("click", () => {
-    modal01.classList.remove("open");
-});
 modal02.addEventListener("click", () => {
     modal02.classList.remove("open");
 });
