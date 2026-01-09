@@ -29,7 +29,7 @@
     <nav class="nav">
       <div class="brand"><span class="accent">PORT</span> FOLIO</div>
       <div class="spacer"></div> <!-- スペース -->
-      <a href="#profile">プロフィール</a>
+      <a href="#activity">活動</a>
       <a href="#works">作品</a>
       <a href="#contact">連絡</a>
     </nav>
@@ -40,37 +40,17 @@
     <!-- 概要 -->
     <section class="overview">
       <div>
-        <div class="pillbar">
-          <span class="pill">Unity</span>
-          <span class="pill">Unreal Engine</span>
-          <span class="pill">DxLib</span>
-          <span class="pill">C / C++ / C#</span>
-          <span class="pill">JavaScript</span>
-          <span class="pill">HTML / CSS</span>
-          <span class="pill">GitHub</span>
-          <span class="pill">Sourcetree</span>
-          <span class="pill">Visual Studio</span>
-          <span class="pill">Visual Studio Code</span>
-          <span class="pill">Adobe Photoshop</span>
-          <span class="pill">Adobe Premiere Pro</span>
-          <span class="pill">ibisPaint</span>
-        </div>
-
-        <div>
-          <div class="title_en">kurosawa reo</div>
-          <div class="title neon">黒澤 怜旺</div>
-          <br>
-          <p class="sub_big">
-            ご覧いただきありがとうございます。本サイトは随時更新中です。
-          </p>
-          <p>
-            <span class="ghost_text">プログラマー志望</span>
-          </p>
-          <p>
-            <span class="ghost_text">Mail: kurosawareo.job@gmail.com</span>
-          </p>
-        </div>
+        <div class="title_en">kurosawa reo</div>
+        <div class="title neon">黒澤 怜旺</div>
+        <br>
+        <p class="sub_big">
+          ご覧いただきありがとうございます。本サイトは随時更新中です。
+        </p>
+        <p>
+          <span class="ghost_text">プログラマー志望</span>
+        </p>
       </div>
+
       <div class="avatar-wrap">
         <div class="avatar-decoration">
           <div class="rings"></div>
@@ -82,67 +62,113 @@
           LOGO / ICON
         </div>
       </div>
+
+      <!-- プロフィール -->
+      <div class="panel">
+        <table class="info-table">
+          <tr>
+            <td>生年月日</td>
+            <td>2005/09/18</td>
+          </tr>
+          <tr>
+            <td>学校 / 学科</td>
+            <td>横浜デジタルアーツ専門学校 ゲーム科</td>
+          </tr>
+          <tr>
+            <td>メール</td>
+            <td>kurosawareo.job@gmail.com</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 経験など -->
+      <div class="panel">
+        <table class="info-table">
+          <tr>
+            <td>言語経験</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">DxLib</span>
+                <span class="pill">C</span>
+                <span class="pill">C++</span>
+                <span class="pill">C#</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">HTML</span>
+                <span class="pill">CSS</span>
+                <span class="pill">VBA</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ツール経験</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">Unity</span>
+                <span class="pill">Unreal Engine</span>
+                <span class="pill">GitHub</span>
+                <span class="pill">Sourcetree</span>
+                <span class="pill">Visual Studio</span>
+                <span class="pill">Visual Studio Code</span>
+                <span class="pill">Adobe Photoshop</span>
+                <span class="pill">Adobe Premiere Pro</span>
+                <span class="pill">DaVinci Resolve</span>
+                <span class="pill">ibisPaint</span>
+                <span class="pill">GarageBand</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>取得資格</td>
+            <td>
+              計算技術検定 3級<br>
+              情報技術検定 3級<br>
+              CGクリエイター検定 ベーシック<br>
+              情報検定 情報活用試験 3級<br>
+              CGエンジニア検定 ベーシック<br>
+            </td>
+          </tr>
+        </table>
+      </div>
     </section>
     
-    <!-- プロフィール/profile -->
-    <section id="profile" class="wrap">
+    <!-- 活動/activity -->
+    <section id="activity" class="wrap">
       <div class="neon-line"></div> <!-- グラデーション線 -->
       <div class="fade-in">
-        <h2 class="h2 neon">プロフィール</h2>
-        <div class="profile">
+        <h2 class="h2 neon">活動</h2>
 
-          <div class="panel">
-            <table class="info-table">
-              <tr>
-                <td>生年月日</td>
-                <td>2005/09/18</td>
-              </tr>
-              <tr>
-                <td>学校 / 学科</td>
-                <td>横浜デジタルアーツ専門学校 ゲーム科</td>
-              </tr>
-              <tr>
-                <td>趣味 / 特技</td>
-                <td>
-                  プログラミング<br>
-                  動画鑑賞<br>
-                  アドオン開発<br>
-                  動画制作<br>
-                  BGM作曲<br>
-                </td>
-              </tr>
-              <tr>
-                <td>取得資格</td>
-                <td>
-                  計算技術検定 3級<br>
-                  情報技術検定 3級<br>
-                  CGクリエイター検定 ベーシック<br>
-                  情報検定 情報活用試験 3級<br>
-                  CGエンジニア検定 ベーシック<br>
-                </td>
-              </tr>
-            </table>
+        <div class="card_list">
+            <!-- リアル -->
+            <article class="card" id="profiles-card-real" data-tilt>
+              <div class="thumb"><img src="img/profiles/real/card_image.png"></div>
+              <h3>学生活動</h3>
+              <p>
+                学生で行っている活動集です。
+              </p>
+              <div class="chipz">
+                <span class="chip">授業課題</span>
+                <span class="chip">サークル</span>
+                <span class="chip">学生自治会</span>
+                <span class="chip">イベント参加</span>
+                <span class="chip">イベント運営</span>
+              </div>
+            </article>
+  
+            <!-- ネット -->
+            <article class="card" id="profiles-card-net" data-tilt>
+              <div class="thumb"><img src="img/profiles/net/card_image.png"></div>
+              <h3>プライベート活動</h3>
+              <p>
+                プライベートで行っている活動集です。
+              </p>
+              <div class="chipz">
+                <span class="chip">Minecraft活動</span>
+                <span class="chip">アドオン開発</span>
+                <span class="chip">動画制作</span>
+                <span class="chip">BGM作曲</span>
+              </div>
+            </article>
           </div>
-          <br>
-
-          <div class="panel">
-            <h3>学生活動</h3>
-            <p>
-              ゲーム制作サークルに所属し、チーム制作を通じて協働経験を積んでいます。<br>
-              学内のGameJamでは、参加者兼運営として会場準備やツール開発をしています。<br>
-              また、学生自治会にも所属し、学園祭やゲーム大会イベントの運営に携わっています。
-            </p>
-          </div>
-
-          <div class="panel">
-            <h3>プライベート活動</h3>
-            <p>
-              「Minecraft」が好きで、長年自作ゲームの主催・運営を行った経験があります。
-              Minecraftをきっかけに、アドオン制作、動画制作、作曲などに取り組んでいます。
-              知人の誕生日に記念動画を作って贈るなど、クリエイティブな活動を続けています。
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -153,7 +179,8 @@
         <h2 class="h2 neon">作品</h2>
 
         <!-- 作品集 -->
-        <div class="works-cards" id="works-cards">
+        <div class="card_list">
+          
           <article class="card" id="works-card-01" data-tilt>
             <span class="badge">チーム</span>
             <div class="thumb"><img src="img/works/REFLECT_LINE/card_image.png"></div>
@@ -285,7 +312,7 @@
 
   <!-- フッター(サイトの一番下) -->
   <footer>
-    <small>最終更新日: 2026/01/09</small><br>
+    <small>最終更新日: 2026/01/10</small><br>
     <small>©2026 - Kurosawa Reo Portfolio</small>
   </footer>
 

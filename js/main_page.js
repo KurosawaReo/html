@@ -1,8 +1,15 @@
 
 /* 
   ▼ ===== ページ移動 ===== ▼
+  カードをクリックで開く。
 */
-//カードをクリックで開く.
+document.getElementById("profiles-card-real").onclick = () => {
+  location.href = "pages/profiles/real.html";
+};
+document.getElementById("profiles-card-net").onclick = () => {
+  location.href = "pages/profiles/net.html";
+};
+
 document.getElementById("works-card-01").onclick = () => {
   location.href = "pages/reflect_line.html";
 };

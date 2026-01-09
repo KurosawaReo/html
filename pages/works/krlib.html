@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- cssファイル -->
+  <link rel="stylesheet" href="../../KrLib_html/kr_common.css">
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/works_page.css">
+</head>
+<body>
+
+  <!-- イントロアニメーション -->
+  <div id="intro">
+    <h1 class="intro-text">
+      作品<br>KRライブラリ
+    </h1>
+    <!-- 六角形マスク -->
+    <div class="hex-mask"></div>
+  </div>
+
+  <!-- 背景 -->
+  <div class="bg-wrap">
+    <div class="grid" aria-hidden="true"></div>
+    <canvas id="fx" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- ヘッダー(サイトの一番上) -->
+  <header>
+    <nav class="nav">
+      <div class="brand"><span class="accent">PORT</span> FOLIO</div>
+      <div class="spacer"></div> <!-- スペース -->
+      <a href="../../">メインページ</a>
+    </nav>
+  </header>
+
+  <!-- スライド式サイド目次 -->
+  <aside class="side-toc">
+    <div class="side-toc-inner">
+
+      <h2>KRライブラリ</h2>
+
+      <!-- DxLib用 -->
+      <details open>
+        <summary>KrLib_Dx</summary>
+        <ul class="tree">
+          <li>KR_App</li>
+          <li>KR_Calc</li>
+          <li>KR_Camera</li>
+          <li>KR_Debug</li>
+          <li>KR_Draw</li>
+          <li>KR_Global</li>
+          <li>KR_Input</li>
+          <li>KR_Object</li>
+          <li>KR_ObjectMng</li>
+          <li>KR_Scene</li>
+          <li>KR_Sound</li>
+          <li>KR_Timer</li>
+        </ul>
+      </details>
+
+      <!-- C++用 -->
+      <details open>
+        <summary>KrLib_cpp</summary>
+        <ul class="tree">
+          <li>KR_File</li>
+          <li>KR_Format</li>
+          <li>KR_Global</li>
+          <li>KR_Memory</li>
+          <li>KR_Num</li>
+        </ul>
+      </details>
+
+    </div>
+  </aside>
+
+  <!-- サイト本体 -->
+  <main class="wrap">
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+    <h2>作品概要</h2>
+
+    <div class="panel">
+      <img src="../../img/works/KrLib/card_image.png" class="center-img">
+    </div>
+
+    <div class="panel">
+      <table class="info-table">
+        <tr>
+          <td>開発期間</td>
+          <td>2024/12/12 ～ 現在</td>
+        </tr>
+        <tr>
+          <td>開発人数</td>
+          <td>1人</td>
+        </tr>
+        <tr>
+          <td>使用言語</td>
+          <td>
+            <!-- 楕円 -->
+            <span class="pillbar">
+              <span class="pill">DxLib</span>
+              <span class="pill">C++</span>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+    <h2>KR_App</h2>
+    <!-- class App -->
+    <div class="panel">
+      <h3>class App</h3>
+      <table class="info-table-mini">
+        <tr>
+          <th>メンバ</th>
+          <th>返り値</th>
+          <th>static</th>
+          <th>説明</th>
+        </tr>
+        <tr>
+          <td><code>GetWindowRect()</code></td>
+          <td>INT_RECT</td>
+          <td>〇</td>
+          <td>ウィンドウサイズを四角形で取得。</td>
+        </tr>
+        <tr>
+          <td><code>GetWindowX()</code></td>
+          <td>int</td>
+          <td>〇</td>
+          <td>ウィンドウの横幅を取得。</td>
+        </tr>
+        <tr>
+          <td><code>GetWindowY()</code></td>
+          <td>int</td>
+          <td>〇</td>
+          <td>ウィンドウの縦幅を取得。</td>
+        </tr>
+        <tr>
+          <td><code>GetFps()</code></td>
+          <td>int</td>
+          <td>〇</td>
+          <td>設定したfpsを取得。</td>
+        </tr>
+        <tr>
+          <td><code>InitDx(int windowWid, int windowHei, bool isWindowMode, int fps, bool isVSync = TRUE)</code></td>
+          <td>ResultInt</td>
+          <td>〇</td>
+          <td>DxLibの初期化を行う。</td>
+        </tr>
+        <tr>
+          <td><code>LoopDx()</code></td>
+          <td>void</td>
+          <td>〇</td>
+          <td>DxLibのループ処理を行う。</td>
+        </tr>
+        <tr>
+          <td><code>Init()</code></td>
+          <td>void</td>
+          <td>〇</td>
+          <td>自動で呼ばれる。初期化処理を入れるところ。</td>
+        </tr>
+        <tr>
+          <td><code>Update()</code></td>
+          <td>void</td>
+          <td>〇</td>
+          <td>自動で呼ばれる。更新処理を入れるところ。</td>
+        </tr>
+        <tr>
+          <td><code>Draw()</code></td>
+          <td>void</td>
+          <td>〇</td>
+          <td>自動で呼ばれる。描画処理を入れるところ。</td>
+        </tr>
+        <tr>
+          <td><code>Quit()</code></td>
+          <td>void</td>
+          <td>〇</td>
+          <td>ループが一巡し終わった後、ループ処理を抜け出す。</td>
+        </tr>
+      </table>
+    </div>
+      
+    <br>
+    ※現在掲載中のため、この先は随時更新します。
+  </main>
+
+  <!-- フッター(サイトの一番下) -->
+  <footer>
+    <small>最終更新日: 2026/01/09</small><br>
+    <small>©2026 - Kurosawa Reo Portfolio</small>
+  </footer>
+
+  <!-- jsファイル -->
+  <script src="../../js/common.js"></script>
+  <script src="../../js/works_page.js"></script>
+
+  <!-- マウスカーソル -->
+  <div class="cursor" aria-hidden="true"><i></i></div>
+</body>
+</html>

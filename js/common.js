@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ▼ ===== イントロ ===== ▼
   */
   const intros = [
-    document.getElementById("intro-main"),
-    document.getElementById("intro-works")
+    document.getElementById("intro")
   ];
   const content = document.getElementById("content");
 
