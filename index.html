@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio | Kurosawa Reo</title>
   <meta name="description" content="ポートフォリオ" />
+  <title>Portfolio | Kurosawa Reo</title>
   <!-- cssファイル -->
-  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
   <!-- イントロアニメーション -->
@@ -14,6 +14,8 @@
     <h1 class="intro-text">
       Kurosawa Reo<br>Portfolio
     </h1>
+    <!-- 六角形マスク -->
+    <div class="hex-mask"></div>
   </div>
 
   <!-- 背景 -->
@@ -26,9 +28,9 @@
   <header>
     <nav class="nav">
       <div class="brand"><span class="accent">PORT</span> FOLIO</div>
-      <div class="spacer"></div>
+      <div class="spacer"></div> <!-- スペース -->
       <a href="#profile">プロフィール</a>
-      <a href="#games">作品</a>
+      <a href="#works">作品</a>
       <a href="#contact">連絡</a>
     </nav>
   </header>
@@ -56,7 +58,7 @@
 
         <div>
           <div class="title_en">kurosawa reo</div>
-          <div class="title neon slide-left">黒澤 怜旺</div>
+          <div class="title neon">黒澤 怜旺</div>
           <br>
           <p class="sub_big">
             ご覧いただきありがとうございます。本サイトは随時更新中です。
@@ -85,8 +87,8 @@
     <!-- プロフィール/profile -->
     <section id="profile" class="wrap">
       <div class="neon-line"></div> <!-- グラデーション線 -->
-      <span class="fade-in">
-        <h2 class="h2 neon slide-left">プロフィール</h2>
+      <div class="fade-in">
+        <h2 class="h2 neon">プロフィール</h2>
         <div class="profile">
 
           <div class="panel">
@@ -97,7 +99,7 @@
               </tr>
               <tr>
                 <td>学校 / 学科</td>
-                <td>横浜デジタルアーツ専門学校　ゲーム科</td>
+                <td>横浜デジタルアーツ専門学校 ゲーム科</td>
               </tr>
               <tr>
                 <td>趣味 / 特技</td>
@@ -141,41 +143,37 @@
             </p>
           </div>
         </div>
-      </span>
+      </div>
     </section>
 
-    <!-- 作品/games -->
-    <section id="games" class="wrap">
+    <!-- 作品/works -->
+    <section id="works" class="wrap">
       <div class="neon-line"></div> <!-- グラデーション線 -->
-      <span class="fade-in">
-        <h2 class="h2 neon slide-left">作品</h2>
-        <p class="sub">掲載中のため、随時更新します。今後はクリックで詳細を開けるようにする予定です。</p>
+      <div class="fade-in">
+        <h2 class="h2 neon">作品</h2>
 
         <!-- 作品集 -->
-        <div class="game-cards" id="game-cards">
+        <div class="works-cards" id="works-cards">
+          <article class="card" id="works-card-01" data-tilt>
+            <span class="badge">チーム</span>
+            <div class="thumb"><img src="img/works/REFLECT_LINE/card_image.png"></div>
+            <h3>REFLECT LINE</h3>
+            <p>
+              障害物を避けるだけではない。<br>
+              障害物にあえて当たり、反射させて別の障害物を破壊する。<br>
+              斬新なデザインの反撃型回避アクションゲームです。
+            </p>
+            <div class="chipz">
+              <span class="chip">DxLib</span>
+              <span class="chip">C++</span>
+              <span class="chip">デザイン</span>
+              <span class="chip">自作ライブラリ</span>
+            </div>
+          </article>
 
-          <a href="pages/reflect_line.html">
-            <article class="card" id="game-card-01" data-tilt>
-              <span class="badge">チーム</span>
-              <div class="thumb"><img src="img/games/REFLECT_LINE/card_image.png"></div>
-              <h3>REFLECT LINE</h3>
-              <p>
-                障害物を避けるだけではない。<br>
-                障害物にあえて当たり、反射させて別の障害物を破壊する。<br>
-                斬新なデザインの反撃型回避アクションゲームです。
-              </p>
-              <div class="chipz">
-                <span class="chip">DxLib</span>
-                <span class="chip">C++</span>
-                <span class="chip">デザイン</span>
-                <span class="chip">自作ライブラリ</span>
-              </div>
-            </article>
-          </a>
-
-          <article class="card" id="game-card-02" data-tilt>
+          <article class="card" id="works-card-02" data-tilt>
             <span class="badge">個人</span>
-            <div class="thumb"><img src="img/games/TETRIS/card_image.png"></div>
+            <div class="thumb"><img src="img/works/TETRIS/card_image.png"></div>
             <h3>TETRIS (再現)</h3>
             <p>
               有名な落ちものパズルゲームを再現。<br>
@@ -189,74 +187,74 @@
             </div>
           </article>
 
-          <article class="card" id="game-card-03" data-tilt>
-            <span class="badge">チーム</span>
-            <div class="thumb"><img src="img/games/PAC_MUSCLE/card_image.png"></div>
-            <h3>PAC MUSCLE</h3>
-            <p>
-              「噛みつく」を活かして道を切り開け。<br>
-              首を伸ばしてブロックを壊したり、運んだり、時には自分が移動したりと、ちょっと面白おかしなアクションゲームです。
-            </p>
-            <div class="chipz">
-              <span class="chip">Unity</span>
-              <span class="chip">C#</span>
-              <span class="chip">拡張エディタ</span>
-              <span class="chip">学内GameJam入賞</span>
-            </div>
+          <article class="card" id="works-card-03" data-tilt>
+          <span class="badge">チーム</span>
+          <div class="thumb"><img src="img/works/PAC_MUSCLE/card_image.png"></div>
+          <h3>PAC MUSCLE</h3>
+          <p>
+            「噛みつく」を活かして道を切り開け。<br>
+            首を伸ばしてブロックを壊したり、運んだり、時には自分が移動したりと、ちょっと面白おかしなアクションゲームです。
+          </p>
+          <div class="chipz">
+            <span class="chip">Unity</span>
+            <span class="chip">C#</span>
+            <span class="chip">拡張エディタ</span>
+            <span class="chip">学内ゲームジャム入賞</span>
+          </div>
           </article>
 
-          <article class="card" id="game-card-04" data-tilt>
-            <span class="badge">チーム</span>
-            <div class="thumb"><img src="img/games/5host/card_image.png"></div>
-            <h3>5host</h3>
-            <p>
-              廃病院で迷った少年の、ある一時の物語。<br>
-              そこで出会う5人の少女の幽霊は、生前に五感の1つを失っていたようです。
-              少年は彼女たちの未練を晴らすため、手助けをすることに...
-            </p>
-            <div class="chipz">
-              <span class="chip">Unity</span>
-              <span class="chip">C#</span>
-              <span class="chip">アニメーション</span>
-            </div>
+          <article class="card" id="works-card-04" data-tilt>
+          <span class="badge">チーム</span>
+          <div class="thumb"><img src="img/works/5host/card_image.png"></div>
+          <h3>5host</h3>
+          <p>
+            廃病院で迷った少年の、ある一時の物語。<br>
+            そこで出会う5人の少女の幽霊は、生前に五感の1つを失っていたようです。
+            少年は彼女たちの未練を晴らすため、手助けをすることに...
+          </p>
+          <div class="chipz">
+            <span class="chip">Unity</span>
+            <span class="chip">C#</span>
+            <span class="chip">アニメーション</span>
+          </div>
           </article>
 
-          <article class="card" id="game-card-05" data-tilt>
-            <span class="badge">チーム</span>
-            <div class="thumb"><img src="img/games/Trans_water/card_image.png"></div>
-            <h3>Trans water</h3>
-            <p>
-              主人公は水？氷・水・水蒸気を切り替えて進もう。<br>
-              水蒸気で浮き、水で網をすり抜け、氷でボタンを押すなど、水の多様な特性を活かしたギミックが登場します。
-            </p>
-            <div class="chipz">
-              <span class="chip">Unity</span>
-              <span class="chip">C#</span>
-              <span class="chip">レベルデザイン</span>
-            </div>
+          <article class="card" id="works-card-05" data-tilt>
+          <span class="badge">チーム</span>
+          <div class="thumb"><img src="img/works/Trans_water/card_image.png"></div>
+          <h3>Trans water</h3>
+          <p>
+            主人公は水？氷・水・水蒸気を切り替えて進もう。<br>
+            水蒸気で浮き、水で網をすり抜け、氷でボタンを押すなど、水の多様な特性を活かしたギミックが登場します。
+          </p>
+          <div class="chipz">
+            <span class="chip">Unity</span>
+            <span class="chip">C#</span>
+            <span class="chip">レベルデザイン</span>
+          </div>
           </article>
 
-          <article class="card" id="game-card-06" data-tilt>
-            <span class="badge">個人</span>
-            <div class="thumb"><img src="img/games/Trans_water/card_image.png"></div>
-            <h3>KRライブラリ</h3>
-            <p>
-              DXライブラリ用の自作ラッパーライブラリです。<br>
-            </p>
-            <div class="chipz">
-              <span class="chip">DxLib</span>
-              <span class="chip">C++</span>
-            </div>
+          <article class="card" id="works-card-06" data-tilt>
+          <span class="badge">個人</span>
+          <div class="thumb"><img src="img/works/KrLib/card_image.png"></div>
+          <h3>KRライブラリ</h3>
+          <p>
+            ゲーム開発を楽にすることを目的とした、自作のラッパーライブラリ集です。<br>
+          </p>
+          <div class="chipz">
+            <span class="chip">DxLib</span>
+            <span class="chip">C++</span>
+          </div>
           </article>
         </div>
-      </span>
+      </div>
     </section>
 
     <!-- 連絡/contact -->
     <section id="contact" class="wrap">
       <div class="neon-line"></div> <!-- グラデーション線 -->
-      <span class="fade-in">
-        <h2 class="h2 neon slide-left">連絡</h2>
+      <div class="fade-in">
+        <h2 class="h2 neon">連絡</h2>
         <p class="sub">下記フォームから送信いただけます。</p>
   
         <!-- Netlifyと連携する(無料版は月100件まで保存されるらしい) -->
@@ -281,99 +279,21 @@
             <button class="btn" type="submit">送信</button>
           </div>
         </form>
-      </span>
+      </div>
     </section>
   </main>
 
-  <!-- modal基本形 -->
-  <!-- aria-hiddenで表示/非表示を切り替える -->
-  <!-- 
-    <div id="modal-01" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
-      内容
-    </div> 
-  -->
-
-  <!-- modal: TETRIS -->
-  <div id="modal-02" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
-    <div class="panel">
-      <div>
-        <h2 id="modal-title">TETRIS (再現)</h2>
-      </div>
-      <div class="modal-body" id="modal-body">
-        準備中...
-        <br>
-        <br>
-        <br>
-      </div>
-      <div>
-        <button class="close-btn" id="modal-close">閉じる</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- modal: PAC  MUSCLE -->
-  <div id="modal-03" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
-    <div class="panel">
-      <div>
-        <h2 id="modal-title">PAC MUSCLE</h2>
-      </div>
-      <div class="modal-body" id="modal-body">
-        準備中...
-        <br>
-        <br>
-        <br>
-      </div>
-      <div>
-        <button class="close-btn" id="modal-close">閉じる</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- modal: 5host -->
-  <div id="modal-04" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
-    <div class="panel">
-      <div>
-        <h2 id="modal-title">5host</h2>
-      </div>
-      <div class="modal-body" id="modal-body">
-        準備中...
-        <br>
-        <br>
-        <br>
-      </div>
-      <div>
-        <button class="close-btn" id="modal-close">閉じる</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- modal: Trans water -->
-  <div id="modal-05" class="modal" role="dialog" aria-hidden="false" aria-labelledby="modal-title">
-    <div class="panel">
-      <div>
-        <h2 id="modal-title">Trans water</h2>
-      </div>
-      <div class="modal-body" id="modal-body">
-        準備中...
-        <br>
-        <br>
-        <br>
-      </div>
-      <div>
-        <button class="close-btn" id="modal-close">閉じる</button>
-      </div>
-    </div>
-  </div>
-
   <!-- フッター(サイトの一番下) -->
   <footer>
-    <small>最終更新日: 2026/01/06</small><br>
-    <small>©2025 - Kurosawa Reo Portfolio</small>
+    <small>最終更新日: 2026/01/09</small><br>
+    <small>©2026 - Kurosawa Reo Portfolio</small>
   </footer>
 
   <!-- jsファイル -->
-  <script src="js/portfolio.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/main_page.js"></script>
 
-  <div class="cursor" aria-hidden="true"></div>
+  <!-- マウスカーソル -->
+  <div class="cursor" aria-hidden="true"><i></i></div>
 </body>
 </html>

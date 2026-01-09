@@ -1,0 +1,126 @@
+/*
+  ▼ ===== 基本 ===== ▼
+*/
+@charset "utf-8";
+
+/* 変数定義 */
+:root {
+  /* レイヤー */
+  --z-side-toc: 100;
+}
+
+/* imgタグ全て */
+img {
+  max-width: 100%; 
+  height: auto;
+}
+
+/* 戻るボタン */
+.back-button {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+}
+.back-button:hover {
+  opacity: 0.8;
+}
+
+/*
+  ▼ ===== サイド目次 ===== ▼
+*/
+/* 全体 */
+.side-toc {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  transform: translateX(-200px); /* ほぼ隠す */
+  transition: transform 0.35s ease;
+  z-index: var(--z-side-toc);
+}
+/* 帯のグラデーション */
+.side-toc::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -16px;
+  width: 16px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(51,231,255,0.25),
+    rgba(51,231,255,0)
+  );
+}
+/* 目次背景 */
+.side-toc-inner {
+  height: 100%;
+  padding: 20px;
+  background: rgba(21, 77, 98, 0.39);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(51,231,255,0.3);
+  box-shadow: 6px 0 30px rgba(0,0,0,0.4);
+  color: #e6f4f7;
+  overflow-y: auto;
+}
+/* 表示状態 */
+.side-toc.open {
+  transform: translateX(0);
+}
+
+/* 見た目調整 */
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* ツリー表現 */
+.tree {
+  list-style: none;
+  padding-left: 14px;
+  margin: 6px 0 0;
+}
+.tree li {
+  position: relative;
+  padding-left: 10px;
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+.tree li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+  color: rgba(123,242,255,0.5);
+}
+
+/* 開閉を示すインジケータ */
+.side-toc::before {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  right: -28px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: rgba(123,242,255,0.8);
+
+  background: rgba(21, 77, 98, 0.6);
+  border-radius: 6px;
+  padding: 6px 4px;
+
+  box-shadow: 0 0 18px rgba(51,231,255,0.7);
+
+  transition:
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.35s ease;
+  pointer-events: none; /* クリック邪魔しない */
+}
+/* 開いたときは向きを変える */
+.side-toc.open::before {
+  content: '◀';
+}

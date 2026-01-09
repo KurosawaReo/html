@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- cssファイル -->
+  <link rel="stylesheet" href="../KrLib_html/kr_common.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/works_page.css">
+</head>
+<body>
+
+  <!-- イントロアニメーション -->
+  <div id="intro">
+    <h1 class="intro-text">
+      作品<br>Trans water
+    </h1>
+    <!-- 六角形マスク -->
+    <div class="hex-mask"></div>
+  </div>
+
+  <!-- 背景 -->
+  <div class="bg-wrap">
+    <div class="grid" aria-hidden="true"></div>
+    <canvas id="fx" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- ヘッダー(サイトの一番上) -->
+  <header>
+    <nav class="nav">
+      <div class="brand"><span class="accent">PORT</span> FOLIO</div>
+      <div class="spacer"></div> <!-- スペース -->
+      <a href="../">メインページ</a>
+    </nav>
+  </header>
+
+  <!-- サイト本体 -->
+  <main class="wrap">
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+    <div class="fade-in">
+      <h2>作品概要</h2>
+
+      <div class="panel">;
+        <img src="../img/works/Trans_water/card_image.png" class="center-img">
+      </div>
+
+      <div class="panel">
+        <table class="info-table">
+          <tr>
+            <td>開発期間</td>
+            <td>2024/07/22 ~ 24</td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td>アクション</td>
+          </tr>
+          <tr>
+            <td>プレイ人数</td>
+            <td>1人</td>
+          </tr>
+          <tr>
+            <td>開発人数</td>
+            <td>4人</td>
+          </tr>
+          <tr>
+            <td>操作端末</td>
+            <td>
+              <!-- 楕円 -->
+              <span class="pillbar">
+                <span class="pill">キーボード</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>使用言語</td>
+            <td>
+              <!-- 楕円 -->
+              <span class="pillbar">
+                <span class="pill">Unity</span>
+                <span class="pill">C#</span>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+    <div class="fade-in">
+      <h2>テーマ</h2>
+      <div class="panel">
+        その場でランダムで決められたチームと、ランダムで決められたお題で3日間で作るイベント「ゲームジャム」の作品です。<br>
+        テーマは「みず」で、水の三態へ連想しました。
+      </div>
+
+      <h2>レベルデザイン</h2>
+      <div class="panel">
+        <div class="kr-layout_grid">
+          <p>
+            改修前
+            <img src="../img/works/Trans_water/old_version.png">
+          </p>
+          <p>
+            改修後
+            <img src="../img/works/Trans_water/card_image.png">
+          </p>
+        </div>
+      
+        <p> 
+          ステージは1つのみですが、一通り遊べる段階まで作り終えることができました。<br>
+          しかし、3日間で作ったものは背景がなくデザインがシンプルだったので、後日レベルデザインを改修し、背景追加と地形の変更を行いました。<br>
+          <br>
+          このように、今あるパーツを組み合わせて新たなものを作ることが得意です。
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- フッター(サイトの一番下) -->
+  <footer>
+    <small>最終更新日: 2026/01/09</small><br>
+    <small>©2026 - Kurosawa Reo Portfolio</small>
+  </footer>
+
+  <!-- jsファイル -->
+  <script src="../js/common.js"></script>
+
+  <!-- マウスカーソル -->
+  <div class="cursor" aria-hidden="true"><i></i></div>
+</body>
+</html>
