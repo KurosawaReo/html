@@ -1,6 +1,6 @@
 /*
-  - kr_common.css - (CSS)
-  ver.2026/01/08
+  - kr_common.css - (HTML)
+  ver.2026/01/10
 
   汎用的に使えるデザインやレイアウトの設定
 */
@@ -8,7 +8,7 @@
 
 /* 
   [レイアウト]
-  複数の画像などを並べる。PCでは横並び、スマホでは縦並びにする。
+  PCでは横並び(2つまで)、スマホでは縦並びにする。
 */
 .kr-layout_grid {
   display: flex;
@@ -38,6 +38,30 @@
   }
   .kr-layout_grid p {
     max-width: 100%;
+  }
+}
+
+/* 
+  [レイアウト]
+  PCでは横並び(いくつでも)、スマホでは縦並びにする。
+*/
+.kr-layout_grid-nolimit {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* PCでは横に並び続ける */
+}
+
+/* 各アイテムの見た目調整（任意） */
+.kr-layout_grid-nolimit p {
+  text-align: center;
+}
+
+/* スマホでは縦並び */
+@media (max-width: 768px) {
+  .kr-layout_grid-nolimit {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
