@@ -124,3 +124,20 @@ details summary {
 .side-toc.open::before {
   content: '◀';
 }
+
+/* スマホ用：画面左端のタップ領域 */
+.side-toc-touch-area {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  width: 20px;      /* 端だけ反応 */
+  height: 100vh;
+  z-index: calc(var(--z-side-toc) + 1);
+}
+
+/* PCでは不要 */
+@media (hover: hover) {
+  .side-toc-touch-area {
+    display: none;
+  }
+}

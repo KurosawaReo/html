@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <!-- cssファイル -->
-  <link rel="stylesheet" href="../../KrLib_html/kr_common.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="../../plugins/lightbox2/css/lightbox.min.css">
+  <link rel="stylesheet" href="../../plugins/KrLib_html/kr_common.css">
   <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/works_page.css">
+  <!-- jsファイル -->
+  <script src="../../plugins/jquery/jquery-3.7.0.min.js"></script>
+  <script src="../../plugins/slick/slick.min.js"></script>
+  <script src="../../plugins/lightbox2/js/lightbox.min.js"></script>
 </head>
 <body>
 
@@ -37,11 +44,16 @@
 
   <!-- サイト本体 -->
   <main class="wrap">
-    <div class="neon-line"></div> <!-- グラデーション線 -->
     <h2>作品概要</h2>
 
     <div class="panel">
-      <img src="../../img/works/REFLECT_LINE/card_image.png" class="center-img">
+      <!-- 画像スライダー -->
+      <section id="img-slider">
+        <img src="../../img/works/reflect_line/card_image.png">
+        <img src="../../img/works/reflect_line/image_menu.png">
+        <img src="../../img/works/reflect_line/image_endless.png">
+        <img src="../../img/works/reflect_line/image_tutorial.png">
+      </section>
     </div>
 
     <div class="panel">
@@ -96,11 +108,15 @@
       <div class="panel kr-layout_grid">
         <p>
           <b>キーボード</b><br>
-          <img src="../../img/works/REFLECT_LINE/desc_keyboard.png">
+          <a href="../../img/works/reflect_line/desc_keyboard.png" data-lightbox="reflect_line">
+            <img src="../../img/works/reflect_line/desc_keyboard.png">
+          </a>
         </p>
         <p>
           <b>Xboxコントローラ</b><br>
-          <img src="../../img/works/REFLECT_LINE/desc_xbox_controller.png">
+          <a href="../../img/works/reflect_line/desc_xbox_controller.png" data-lightbox="reflect_line">
+            <img src="../../img/works/reflect_line/desc_xbox_controller.png">
+          </a>
         </p>
       </div>
     </div>
@@ -114,7 +130,7 @@
         </p>
       
         <div class="kr-layout_img-and-desc">
-          <img src="../../img/works/REFLECT_LINE/rule1_sakeru.gif" width=200>
+          <img src="../../img/works/reflect_line/rule1_sakeru.gif" width=200>
           <div>
             <b>1. 避ける</b><br>
             レーザーや隕石などの障害物に1回でも当たるとゲームオーバー。<br>
@@ -124,7 +140,7 @@
         <br>
   
         <div class="kr-layout_img-and-desc">
-          <img src="../../img/works/REFLECT_LINE/rule2_toru.gif" width=200>
+          <img src="../../img/works/reflect_line/rule2_toru.gif" width=200>
           <div>
             <b>2. 取る</b><br>
             画面上部からアイテムが降ってきます。<br>
@@ -135,7 +151,7 @@
         <br>
   
         <div class="kr-layout_img-and-desc">
-          <img src="../../img/works/REFLECT_LINE/rule3_hansya.gif" width=200>
+          <img src="../../img/works/reflect_line/rule3_hansya.gif" width=200>
           <div>
             <b>3. 反射</b><br>
             反射モード中は、レーザーにわざと当たりに行くことで反射することができます。<br>
@@ -146,7 +162,7 @@
         <br>
   
         <div class="kr-layout_img-and-desc">
-          <img src="../../img/works/REFLECT_LINE/rule4_kowasu.gif" width=200>
+          <img src="../../img/works/reflect_line/rule4_kowasu.gif" width=200>
           <div>
             <b>4. 壊す</b><br>
             反射したレーザーは、近くの隕石に向かって自動で追尾します。<br>
@@ -158,7 +174,7 @@
         <p>
           これらのルールは、ゲーム本編の 『チュートリアル』 でも確認できます。
         </p>
-        <img src="../../img/works/REFLECT_LINE/menu_tutorial.png">
+        <img src="../../img/works/reflect_line/menu_tutorial.png">
       </div>
     </div>
     
@@ -175,15 +191,22 @@
         <div class="kr-layout_grid">
           <p>
             <font color=00ffff><b>通常モード</b></font>
-            <img src="../../img/works/REFLECT_LINE/color_blue.png">
+            <a href="../../img/works/reflect_line/color_blue.png" data-lightbox="reflect_line">
+              <img src="../../img/works/reflect_line/color_blue.png">
+            </a>
           </p>
           <p>
             <font color=ff00ff><b>反射モード</b></font>
-            <img src="../../img/works/REFLECT_LINE/color_pink.png">
+            <a href="../../img/works/reflect_line/color_pink.png" data-lightbox="reflect_line">
+              <img src="../../img/works/reflect_line/color_pink.png">
+            </a>
           </p>
         </div>
   
-        特にレーザーは通った軌道が残像のように残ります。徐々に薄くなって色が変化するのもこだわりです。
+        レーザーは痕跡が残像のように残ります。徐々に薄くなって色が変化するのもこだわりです。
+        <p>
+          <img src="../../img/works/reflect_line/anim_laser_color.gif">
+        </p>
       </div>
     
       <div class="panel">
@@ -194,7 +217,7 @@
         </p>
         <p>
           ▼レベルアップアニメーション<br>
-          <img src="../../img/works/REFLECT_LINE/anim_levelup.gif">
+          <img src="../../img/works/reflect_line/anim_levelup.gif">
         </p>
       </div>
 
@@ -206,12 +229,12 @@
             1. 隕石の頂点の数を抽選<br>
             2. 隕石の中心から頂点までの距離を抽選
           </p>
-          <img src="../../img/works/REFLECT_LINE/meteor1.png"> <img src="../../img/works/REFLECT_LINE/meteor2.png"> <img src="../../img/works/REFLECT_LINE/meteor3.png">
+          <img src="../../img/works/reflect_line/meteor1.png"> <img src="../../img/works/reflect_line/meteor2.png"> <img src="../../img/works/reflect_line/meteor3.png">
         </p>  
         <p>
-          また、隕石が壊れた時の演出にもこだわり、壊した時の気持ち良さが出るよう工夫しました。
+          また、隕石が壊れた時にガラス片のような演出を出し、サウンドと合わせて壊した時の気持ち良さが出るよう工夫しました。
         </p>  
-        <img src="../../img/works/REFLECT_LINE/anim_break_meteor.gif">
+        <img src="../../img/works/reflect_line/anim_break_meteor.gif">
       </div>
     </div>
 
@@ -228,6 +251,7 @@
 
   <!-- jsファイル -->
   <script src="../../js/common.js"></script>
+  <script src="../../js/works_page.js"></script>
 
   <!-- マウスカーソル -->
   <div class="cursor" aria-hidden="true"><i></i></div>
