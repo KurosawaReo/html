@@ -14,17 +14,20 @@ document.getElementById("works-card-01").onclick = () => {
   location.href = "pages/works/reflect_line.html";
 };
 document.getElementById("works-card-02").onclick = () => {
-  location.href = "pages/works/tetris.html";
+  location.href = "pages/works/gun_action.html";
 };
 document.getElementById("works-card-03").onclick = () => {
-  location.href = "pages/works/pac_muscle.html";
+  location.href = "pages/works/krlib.html";
 };
 document.getElementById("works-card-04").onclick = () => {
-  location.href = "pages/works/5host.html";
+  location.href = "pages/works/tetris.html";
 };
 document.getElementById("works-card-05").onclick = () => {
-  location.href = "pages/works/trans_water.html";
+  location.href = "pages/works/pac_muscle.html";
 };
 document.getElementById("works-card-06").onclick = () => {
-  location.href = "pages/works/krlib.html";
+  location.href = "pages/works/5host.html";
+};
+document.getElementById("works-card-07").onclick = () => {
+  location.href = "pages/works/trans_water.html";
 };
