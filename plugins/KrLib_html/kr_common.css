@@ -7,8 +7,7 @@
 @charset "utf-8";
 
 /* 
-  [レイアウト]
-  PCでは横並び(2つまで)、スマホでは縦並びにする。
+  [レイアウト] PCでは横並び(2つまで)、スマホでは縦並びにする
 */
 .kr-layout_grid {
   display: flex;
@@ -42,8 +41,7 @@
 }
 
 /* 
-  [レイアウト]
-  PCでは横並び(いくつでも)、スマホでは縦並びにする。
+  [レイアウト] PCでは横並び(いくつでも)、スマホでは縦並びにする
 */
 .kr-layout_grid-nolimit {
   display: flex;
@@ -66,8 +64,7 @@
 }
 
 /* 
-  [レイアウト]
-  画像と説明テキストを並べる。
+  [レイアウト] 画像と説明テキストを並べる
 */
 .kr-layout_img-and-desc {
   display: flex;
@@ -90,9 +87,22 @@
   }
 }
 
+/*
+  [レイアウト] 中央基準用
+*/
+/* 画像 */
+.kr-layout_center-img {
+  display: block;
+  margin: 0 auto;
+}
+/* 動画(YouTube) */
+.kr-layout_center-iframe {
+  height: 100%;       /* 横幅に縦幅を合わせる */
+  aspect-ratio: 16/9; /* アスペクト比 */
+}
+
 /* 
-  [デザイン]
-  コードブロック。
+  [デザイン] コードブロック
 */
 pre {
   background: #081318;

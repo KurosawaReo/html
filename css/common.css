@@ -5,6 +5,7 @@
 
 /* 変数定義 */
 :root {
+  /* 色 */
   --bg: #0a0a0a;           /* ベース背景 */
   --ink: #e6ffff;          /* 文字の薄い色 */
   --primary: #33e7ff;      /* 指定色 */
@@ -44,19 +45,17 @@ body {
 
 section { scroll-margin-top: 80px; }
 
-.sub_big { color: var(--muted); font-size: clamp(20px, 2.5vw, 20px); margin: 6px 0 22px; }
-.sub     { color: var(--muted); font-size: clamp(14px, 2.5vw, 18px); margin: 6px 0 22px; }
-
 /* 画面左右に余白を作る */
 .wrap { 
   z-index: var(--z-content);
   position: relative;
   max-width: 1100px; margin: 0 auto; padding: 40px 20px;
 }
-/* 画像を中央基準にする */
-.center-img {
-  display: block;
-  margin: 0 auto;
+
+/* 区切り用パネル */
+.panel {
+  background: linear-gradient(180deg, rgba(11,16,22,0.9), rgba(9,13,17,0.9));
+  border: 1px solid rgba(51,231,255,0.28); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
 }
 
 .h2 {
@@ -72,12 +71,6 @@ section { scroll-margin-top: 80px; }
     0 0 15px var(--primary),
     0 0 30px #5967ff,
     0 0 50px #5967ff;
-}
-
-/* 区切り用パネル */
-.panel {
-  background: linear-gradient(180deg, rgba(11,16,22,0.9), rgba(9,13,17,0.9));
-  border: 1px solid rgba(51,231,255,0.28); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
 }
 
 /* 
@@ -207,14 +200,15 @@ header {
   margin: 0 auto; padding: 14px 20px;
   display: flex; align-items: center; gap: 16px;
 }
-.brand { font-weight: 800; letter-spacing: 0.4px; }
-.brand .accent { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.spacer { flex: 1; }
 .nav a {
   color: var(--ink); text-decoration: none; opacity: 0.9; padding: 8px 12px; border-radius: 999px;
   transition: 180ms ease;
 }
 .nav a:hover { background: rgba(51,231,255,0.12); box-shadow: var(--shadow); }
+.spacer { flex: 1; }
+
+.brand { font-weight: 800; letter-spacing: 0.4px; }
+.brand .accent { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .cta {
   position: relative; padding: 10px 16px; border-radius: 999px; font-weight: 700;
   color: #001316; background: var(--grad); text-decoration: none;
@@ -232,25 +226,32 @@ footer {
 }
 
 /* 
-  ▼ ===== 概要 ===== ▼
+  ▼ ===== プロフィール ===== ▼
 */
-.overview {
-  max-width: 1100px; margin: 40px auto 0; padding: 32px 20px 24px;
-  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px;
+.profile {
+  padding: 32px 0 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* 1.1 : 0.9 の比で並べる */
 }
-@media (max-width: 900px) { .overview { grid-template-columns: 1fr; } }
-.title {
+@media (max-width: 900px) {
+  .profile { grid-template-columns: 1fr; } /* 全て1.0 */
+}
+
+.profile .title {
   font-size: clamp(60px, 6vw, 60px); line-height: 1.06; font-weight: 900;
   background: var(--grad); -webkit-background-clip: text; background-clip: text;
   color: #abeeff;
   filter: drop-shadow(0 0 20px rgba(51,231,255,0.35));
 }
-.title_en {
+.profile .title_en {
   font-size: clamp(26px, 6vw, 26px); line-height: 1.06; font-weight: 900;
   letter-spacing: 0.2px; margin: 8px 0 16px;
   position: relative; display: inline-block;
   text-shadow: 0 0 24px rgba(51,231,255,0.25), 0 0 2px rgba(255,255,255,0.35);
 }
+
+.profile .sub { color: var(--muted); font-size: clamp(20px, 2.5vw, 20px); margin: 6px 0 22px; }
+
 .pillbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 0px 0 0px; }
 .pill {
   border: 1px solid rgba(51,231,255,0.35); padding: 8px 12px; border-radius: 999px;

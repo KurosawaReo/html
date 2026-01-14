@@ -5,6 +5,10 @@
 
 /* 変数定義 */
 :root {
+  /* 色 */
+  --ink: #e6ffff;          /* 文字の薄い色 */
+  --shadow: 0 10px 40px rgba(51,231,255,0.15), 0 2px 10px rgba(51,231,255,0.2);
+
   /* レイヤー */
   --z-side-toc: 100;
 }
@@ -72,6 +76,12 @@ img {
   transform: translateX(0);
 }
 
+/* aタグ用 */
+.side-toc-inner .contents a {
+  color: var(--ink); text-decoration: none; opacity: 0.9; padding: 8px 12px; border-radius: 999px;
+  transition: 180ms ease;
+}
+.side-toc-inner .contents a:hover { background: rgba(51,231,255,0.12); box-shadow: var(--shadow); }
 /* 見た目調整 */
 details summary {
   cursor: pointer;
@@ -105,12 +115,18 @@ details summary {
   top: 50%;
   right: -28px;
   transform: translateY(-50%);
-  font-size: 18px;
-  color: rgba(123,242,255,0.8);
+  font-size: 20px;
+  color: rgba(123,242,255,0.9);
 
-  background: rgba(21, 77, 98, 0.6);
-  border-radius: 6px;
-  padding: 6px 4px;
+  width: 30px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(21, 77, 98, 0.7);
+  border-radius: 0 8px 8px 0; /* 「D」みたいな形にする */
 
   box-shadow: 0 0 18px rgba(51,231,255,0.7);
 
@@ -118,7 +134,8 @@ details summary {
     color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.35s ease;
-  pointer-events: none; /* クリック邪魔しない */
+
+  pointer-events: none;
 }
 /* 開いたときは向きを変える */
 .side-toc.open::before {
@@ -134,7 +151,6 @@ details summary {
   height: 100vh;
   z-index: calc(var(--z-side-toc) + 1);
 }
-
 /* PCでは不要 */
 @media (hover: hover) {
   .side-toc-touch-area {

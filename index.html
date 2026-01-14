@@ -7,6 +7,7 @@
   <title>Portfolio | Kurosawa Reo</title>
   <!-- cssファイル -->
   <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="plugins/KrLib_html/kr_common.css">
 </head>
 <body>
   <!-- イントロアニメーション -->
@@ -29,20 +30,20 @@
     <nav class="nav">
       <div class="brand"><span class="accent">PORT</span> FOLIO</div>
       <div class="spacer"></div> <!-- スペース -->
-      <a href="#activity">活動</a>
-      <a href="#works">作品</a>
+      <a href="#contents-activity">活動</a>
+      <a href="#contents-works">作品</a>
     </nav>
   </header>
 
   <!-- サイト本体 -->
-  <main>
+  <main class="wrap">
     <!-- 概要 -->
-    <section class="overview">
+    <section class="profile">
       <div>
         <div class="title_en">kurosawa reo</div>
         <div class="title neon">黒澤 怜旺</div>
         <br>
-        <p class="sub_big">
+        <p class="sub">
           ご覧いただきありがとうございます。本サイトは随時更新中です。
         </p>
         <p>
@@ -62,8 +63,8 @@
         </div>
       </div>
 
+      <!-- プロフィール -->
       <div class="panel">
-        <!-- プロフィール -->
         <p> 
           <table class="info-table">
             <tr>
@@ -71,50 +72,20 @@
               <td>2005/09/18</td>
             </tr>
             <tr>
-              <td>学校 / 学科</td>
+              <td>学校・学科</td>
               <td>横浜デジタルアーツ専門学校 ゲーム科</td>
             </tr>
             <tr>
               <td>メール</td>
               <td>kurosawareo.job@gmail.com</td>
             </tr>
-          </table>
-        </p>
-
-        <!-- 経験など -->
-        <p>
-          <table class="info-table">
-          <tr>
-            <td>言語経験</td>
+            <tr>
+            <td>趣味</td>
             <td>
-              <div class="pillbar">
-                <span class="pill">DxLib</span>
-                <span class="pill">C</span>
-                <span class="pill">C++</span>
-                <span class="pill">C#</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">HTML</span>
-                <span class="pill">CSS</span>
-                <span class="pill">VBA</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>ツール経験</td>
-            <td>
-              <div class="pillbar">
-                <span class="pill">Unity</span>
-                <span class="pill">Unreal Engine</span>
-                <span class="pill">GitHub</span>
-                <span class="pill">Sourcetree</span>
-                <span class="pill">Visual Studio</span>
-                <span class="pill">Visual Studio Code</span>
-                <span class="pill">Adobe Photoshop</span>
-                <span class="pill">Adobe Premiere Pro</span>
-                <span class="pill">DaVinci Resolve</span>
-                <span class="pill">ibisPaint</span>
-                <span class="pill">GarageBand</span>
-              </div>
+              ゲーム実況視聴<br>
+              アドオン開発<br>
+              動画制作<br>
+              BGM作曲
             </td>
           </tr>
           <tr>
@@ -127,13 +98,93 @@
               CGエンジニア検定 ベーシック<br>
             </td>
           </tr>
+          </table>
+        </p>
+      </div>
+
+      <!-- 経験など -->
+      <div class="panel">
+        <p>
+          <table class="info-table">
+          <tr>
+            <td>言語経験</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">C</span>
+                <span class="pill">C++</span>
+                <span class="pill">C#</span>
+                <span class="pill">DxLib</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">HTML</span>
+                <span class="pill">CSS</span>
+                <span class="pill">VBA</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ツール経験(ゲーム開発)</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">Unity</span>
+                <span class="pill">Unreal Engine</span>
+                <span class="pill">Visual Studio</span>
+                <span class="pill">Visual Studio Code</span>
+                <span class="pill">GitHub</span>
+                <span class="pill">Sourcetree</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ツール経験(動画)</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">Adobe Premiere Pro</span>
+                <span class="pill">DaVinci Resolve</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ツール経験(デザイン)</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">Adobe Photoshop</span>
+                <span class="pill">ibisPaint</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ツール経験(モデル)</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">Blockbench</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ツール経験(サウンド)</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">GarageBand</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ツール経験(連絡)</td>
+            <td>
+              <div class="pillbar">
+                <span class="pill">LINE</span>
+                <span class="pill">Discord</span>
+                <span class="pill">slack</span>
+              </div>
+            </td>
+          </tr>
         </table>
         </p>
       </div>
     </section>
     
     <!-- 活動/activity -->
-    <section id="activity" class="wrap">
+    <section id="contents-activity">
       <div class="neon-line"></div> <!-- グラデーション線 -->
       <div class="fade-in">
         <h2 class="h2 neon">活動</h2>
@@ -172,7 +223,7 @@
     </section>
 
     <!-- 作品/works -->
-    <section id="works" class="wrap">
+    <section id="contents-works">
       <div class="neon-line"></div> <!-- グラデーション線 -->
       <div class="fade-in">
         <h2 class="h2 neon">作品</h2>
@@ -180,6 +231,16 @@
         <p>
           <div class="panel">
             ここにダイジェスト動画
+            <p>
+              <iframe
+                src="..."
+                width="100%"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                class="kr-layout_center-iframe"
+              ></iframe>
+            </p>
           </div>
         </p>
 
@@ -300,7 +361,7 @@
   <!-- フッター(サイトの一番下) -->
   <footer>
     <small>最終更新日: 2026/01/14</small><br>
-    <small>©2026 - Kurosawa Reo Portfolio</small>
+    <small>©2025-2026 Kurosawa Reo Portfolio</small>
   </footer>
 
   <!-- jsファイル -->
