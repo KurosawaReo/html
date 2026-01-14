@@ -5,7 +5,7 @@
 const tocElems  = document.getElementsByClassName('side-toc');
 const touchArea = document.querySelector('.side-toc-touch-area');
 
-/* ===== 開く（スマホ：端タップ） ===== */
+/* 開く（スマホ：端タップ）*/
 if (touchArea) {
   touchArea.addEventListener('click', (e) => {
     e.stopPropagation(); // 外タップ判定に流さない
@@ -15,7 +15,7 @@ if (touchArea) {
   });
 }
 
-/* ===== サイド目次内部をタップしても閉じない ===== */
+/* サイド目次内部をタップしても閉じない */
 for (let toc of tocElems) {
   toc.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -30,12 +30,17 @@ for (let toc of tocElems) {
   });
 }
 
-/* ===== 外側タップで閉じる ===== */
+/* 外側タップで閉じる */
 document.addEventListener('click', () => {
   for (let toc of tocElems) {
     toc.classList.remove('open');
   }
 });
+
+// github用.
+document.getElementById("github-reflect-line").onclick = () => {
+  location.href = "https://github.com/KurosawaReo/2025_shinkyu_zenki";
+};
 
 /* 
   ▼ ===== slick ===== ▼
