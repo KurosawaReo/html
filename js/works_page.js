@@ -37,9 +37,12 @@ document.addEventListener('click', () => {
   }
 });
 
-// github用.
+//github用.
 document.getElementById("github-reflect-line").onclick = () => {
   location.href = "https://github.com/KurosawaReo/2025_shinkyu_zenki";
+};
+document.getElementById("github-gun-action").onclick = () => {
+  location.href = "https://github.com/KurosawaReo/2GM_shinkyu_kouki02";
 };
 
 /* 
