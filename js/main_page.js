@@ -1,8 +1,8 @@
 
-/* 
-  ▼ ===== ページ移動 ===== ▼
+/* =============================== 
+  ▼ ページ移動 ▼
   カードをクリックで開く。
-*/
+================================ */
 document.getElementById("profiles-card-real").onclick = () => {
   location.href = "pages/profiles/real.html";
 };

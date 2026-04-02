@@ -1,45 +1,41 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+/* =============================== 
+  ▼ イントロ ▼
+================================ */
+const intros = [
+  document.getElementById("intro")
+];
+const content = document.getElementById("content");
 
-  /* 
-    ▼ ===== イントロ ===== ▼
-  */
-  const intros = [
-    document.getElementById("intro")
-  ];
-  const content = document.getElementById("content");
-
-  intros.forEach(intro => {
-    if (!intro || !content) return;
-      intro.addEventListener("animationend", () => {
-        intro.style.display   = "none";
-        content.style.display = "block";
-      }
-    );
-  });
-
-  /* 
-    ▼ ===== アニメーション ===== ▼
-  */
-  const fadeElements = document.querySelectorAll(".fade-in, .fade-in-left, .fade-in-right");
-
-  const observer = new IntersectionObserver((entries) => 
-    {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, 
-    { threshold: 0.2 } // 1.0 = 100% | 画面に一定割合入ったら発火.
+intros.forEach(intro => {
+  if (!intro || !content) return;
+    intro.addEventListener("animationend", () => {
+      intro.style.display   = "none";
+      content.style.display = "block";
+    }
   );
-
-  fadeElements.forEach(el => observer.observe(el));
 });
 
-/* 
-  ▼ ===== スムーススクロール ===== ▼
-*/
+/* ===============================
+  スクロールアニメーション
+================================ */
+const sections = document.querySelectorAll(".fade-in, .fade-in-left, .fade-in-right");
+
+//画面に入ったら出現.
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.1 // 1.0 = 100% | 画面に一定割合入ったら発火.
+});
+sections.forEach(sec => observer.observe(sec));
+
+/* =============================== 
+  ▼ スムーススクロール ▼
+================================ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
@@ -50,9 +46,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* 
-  ▼ ===== カードの軽いチルト効果 ===== ▼
-*/
+/* =============================== 
+  ▼ カードの軽いチルト効果 ▼
+================================ */
 const tiltCards = document.querySelectorAll('[data-tilt]');
 const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
 tiltCards.forEach(card => {
@@ -69,11 +65,11 @@ tiltCards.forEach(card => {
   });
 });
 
-/* 
-  ▼ ===== 背景演出 ===== ▼
+/* =============================== 
+  ▼ 背景演出 ▼
   光は全て独自で移動するようになっていて
   距離がある程度近くなった光同士を線で結んでる。
-*/
+================================ */
 const cvs = document.getElementById('fx');
 const ctx = cvs.getContext('2d');
 let W, H, dpr;
@@ -140,9 +136,9 @@ function tick() {
 }
 tick();
 
-/* 
-  ▼ ===== カーソルの発光(PC用) ===== ▼
-*/
+/* =============================== 
+  ▼ カーソルの発光(PC用) ▼
+================================ */
 const cursor = document.querySelector('.cursor i');
 let mx = 0, my = 0, tx = 0, ty = 0;
 let raf = null;

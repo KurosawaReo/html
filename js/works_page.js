@@ -1,7 +1,7 @@
 
-/* 
-  ▼ ===== スライド式サイド目次 ===== ▼
-*/
+/* =============================== 
+  ▼ スライド式サイド目次 ▼
+================================ */
 const tocElems  = document.getElementsByClassName('side-toc');
 const touchArea = document.querySelector('.side-toc-touch-area');
 
@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/* 
-  ▼ ===== slick ===== ▼
-*/
+/* =============================== 
+  ▼ slick ▼
+================================ */
 $(function(){
   //これを実行することでスライダーが動くようになる.
   $('#img-slider').slick({
