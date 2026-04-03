@@ -37,24 +37,6 @@ document.addEventListener('click', () => {
   }
 });
 
-//github用.
-document.addEventListener("DOMContentLoaded", () => {
-
-    const reflect = document.getElementById("github-reflect-line"); //REFLECT LINE
-    const gun     = document.getElementById("github-gun-action");   //Gun Action
-
-    if (reflect) {
-        reflect.onclick = () => {
-            location.href = "https://github.com/KurosawaReo/2025_shinkyu_zenki";
-        };
-    }
-    if (gun) {
-        gun.onclick = () => {
-            location.href = "https://github.com/KurosawaReo/2GM_shinkyu_kouki02";
-        };
-    }
-});
-
 /* =============================== 
   ▼ slick ▼
 ================================ */

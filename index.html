@@ -33,7 +33,6 @@
       <a href="#contents-activity">活動</a>
       <a href="#contents-works-team">チーム作品</a>
       <a href="#contents-works-one">個人作品</a>
-
     </nav>
   </header>
 
@@ -51,25 +50,17 @@
         「誰にも真似できない自分らしさを表現する」
       </p>
       <!-- 画像 -->
-      <div class="avatar-outer">
-        <div class="avatar-wrap">
-          <div class="avatar-decoration">
-            <div class="rings"></div>
-            <div class="rings"></div>
-            <div class="rings"></div>
-          </div>
-          <img src="img/face_image.jpg">
-          <div class="thumb">
-            LOGO / ICON
-          </div>
+      <div class="avatar-wrap">
+        <div class="avatar-decoration">
+          <div class="rings"></div>
+          <div class="rings"></div>
+          <div class="rings"></div>
+        </div>
+        <img src="img/face_image.jpg">
+        <div class="thumb">
+          LOGO / ICON
         </div>
       </div>
-      <!-- ダイジェスト動画 -->
-      <div class="panel">
-        ダイジェスト動画<br>
-        準備中...
-      </div>
-
     </div>
   </section>
 
@@ -77,9 +68,9 @@
   <main class="wrap">
     <!-- プロフィール -->
     <section id="profile">
-      <div class="fade-in">
-
+      <div class="fade-in">        
         <div class="panel">
+          <b class="subtitle">プロフィール</b>
           <table class="info-table">
             <tr>
               <td>生年月日</td>
@@ -114,12 +105,10 @@
           </tr>
           </table>
         </div>
-  
-        <!-- 経験など -->
+      </div>
+      <div class="fade-in">
         <div class="panel">
-          <p>
-            経験
-          </p>
+          <b class="subtitle">経験</b>
           <table class="info-table">
             <tr>
               <td>プログラム言語</td>
@@ -139,7 +128,7 @@
               </td>
             </tr>
             <tr>
-              <td>ゲーム開発ツール</td>
+              <td>ゲーム開発</td>
               <td>
                 <div class="pillbar">
                   <span class="pill">Unity</span>
@@ -214,13 +203,12 @@
             <div class="thumb"><img src="img/profiles/real/card_image.png"></div>
             <h3>学生活動</h3>
             <p>
-              学内での取り組みと成果の一覧です。<br>
+              学内・学外で行っている活動一覧です。<br>
               <br>
-              ・全教科で最高評価を取得 (1・2年次)<br>
-              ・ゲーム展示イベントに出展し、アイデア賞を受賞<br>
-              ・ゲーム制作サークルで活動し、会計を担当<br>
-              ・学生自治会のイベント運営に参加<br>
-              ・学内ゲームジャムの運営に参加<br>
+              ・2年間、全教科で最高評価を取得<br>
+              ・外部のゲーム展示イベントに出展<br>
+              ・ゲーム制作サークルの活動と、会計を担当<br>
+              ・イベント運営に参加<br>
             </p>
           </article>
 
@@ -229,12 +217,11 @@
             <div class="thumb"><img src="img/profiles/net/card_image.png"></div>
             <h3>プライベート活動</h3>
             <p>
-              プライベートで行っている活動集です。<br>
+              趣味で行っている活動一覧です。<br>
               <br>
-              ・Minecraft活動<br>
-              ・アドオン開発<br>
-              ・動画制作<br>
-              ・BGM作曲<br>
+              ・Minecraftでのオリジナルゲーム制作<br>
+              ・Minecraftのアドオン開発<br>
+              ・動画制作、BGM作曲<br>
             </p>
           </article>
         </div>
@@ -247,12 +234,14 @@
     <section id="contents-works-team">
       <div class="fade-in">
         <h2 class="h2 neon">チーム作品</h2>
-
+        <p>
+          作品の成果に応じて★をつけています。
+        </p>
         <!-- 作品集 -->
         <div class="card_list">
           
           <article class="card" id="works-card-01" data-tilt>
-            <span class="badge">チーム</span>
+            <span class="badge">★★★</span>
             <div class="thumb"><img src="img/works/reflect_line/card_image.png"></div>
             <h3>REFLECT LINE</h3>
             <p>
@@ -265,25 +254,12 @@
               <span class="chip">C++</span>
               <span class="chip">デザイン</span>
               <span class="chip">自作ライブラリ</span>
-            </div>
-          </article>
-
-          <article class="card" id="works-card-02" data-tilt>
-            <span class="badge">チーム</span>
-            <div class="thumb"><img src="img/works/gun_action/card_image.png"></div>
-            <h3>Gun Action (制作中)</h3>
-            <p>
-              現在制作中の3DアクションFPSです。
-            </p>
-            <div class="chipz">
-              <span class="chip">Unreal Engine</span>
-              <span class="chip">C++</span>
-              <span class="chip">3D</span>
+              <span class="chip">アイデア賞受賞</span>
             </div>
           </article>
 
           <article class="card" id="works-card-05" data-tilt>
-          <span class="badge">チーム</span>
+          <span class="badge">★★</span>
           <div class="thumb"><img src="img/works/pac_muscle/card_image.png"></div>
           <h3>PAC MUSCLE</h3>
           <p>
@@ -299,7 +275,7 @@
           </article>
 
           <article class="card" id="works-card-06" data-tilt>
-          <span class="badge">チーム</span>
+          <span class="badge">★</span>
           <div class="thumb"><img src="img/works/5host/card_image.png"></div>
           <h3>5host</h3>
           <p>
@@ -315,7 +291,7 @@
           </article>
 
           <article class="card" id="works-card-07" data-tilt>
-          <span class="badge">チーム</span>
+          <span class="badge">★</span>
           <div class="thumb"><img src="img/works/trans_water/card_image.png"></div>
           <h3>Trans water</h3>
           <p>
@@ -328,6 +304,20 @@
             <span class="chip">レベルデザイン</span>
           </div>
           </article>
+
+          <article class="card" id="works-card-02" data-tilt>
+            <span class="badge">★</span>
+            <div class="thumb"><img src="img/works/gun_action/card_image.png"></div>
+            <h3>Gun Action (制作中)</h3>
+            <p>
+              現在制作中の3DアクションFPSです。
+            </p>
+            <div class="chipz">
+              <span class="chip">Unreal Engine</span>
+              <span class="chip">C++</span>
+              <span class="chip">3D</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -338,12 +328,14 @@
     <section id="contents-works-one">
       <div class="fade-in">
         <h2 class="h2 neon">個人作品</h2>
-
+        <p>
+          作品の成果に応じて★をつけています。
+        </p>
         <!-- 作品集 -->
         <div class="card_list">
           
           <article class="card" id="works-card-03" data-tilt>
-          <span class="badge">個人</span>
+          <span class="badge">★★</span>
           <div class="thumb"><img src="img/works/krlib/card_image.png"></div>
           <h3>KRライブラリ</h3>
           <p>
@@ -356,7 +348,7 @@
           </article>
 
           <article class="card" id="works-card-04" data-tilt>
-            <span class="badge">個人</span>
+            <span class="badge">★★</span>
             <div class="thumb"><img src="img/works/tetris/card_image.png"></div>
             <h3>TETRIS (再現)</h3>
             <p>
@@ -379,7 +371,7 @@
   <!-- フッター(サイトの一番下) -->
   <footer>
     <small>
-      最終更新日: 2026/04/02<br>
+      最終更新日: 2026/04/04<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio

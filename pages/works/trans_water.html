@@ -40,10 +40,32 @@
     </nav>
   </header>
 
+  <!-- スライド式サイド目次 -->
+  <aside class="side-toc">
+    <div class="side-toc-inner">
+
+      <h2>目次</h2>
+
+      <div class="contents">
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-overview">作品概要</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-theme">テーマ</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-commitment">こだわりポイント</a>
+        </p>
+      </div>
+    </div>
+  </aside>
+  <!-- サイド目次 | スマホ用タップ判定 -->
+  <div class="side-toc-touch-area" aria-hidden="true"></div>
+
   <!-- サイト本体 -->
   <main class="wrap">
 
-    <div>
+    <section id="contents-overview">
       <h2 class="h2 neon">作品概要</h2>
       <!-- 画像 -->
       <div class="panel">
@@ -54,7 +76,7 @@
         <table class="info-table">
           <tr>
             <td>開発期間</td>
-            <td>2024/07/22 ~ 24</td>
+            <td>3日間 (2024/07/22 ~ 07/24)</td>
           </tr>
           <tr>
             <td>ジャンル</td>
@@ -62,11 +84,24 @@
           </tr>
           <tr>
             <td>プレイ人数</td>
-            <td>1人</td>
+            <td>
+              1人
+              <span class="person-icons">
+                <span class="person-icon"></span>
+              </span>
+            </td>
           </tr>
           <tr>
             <td>開発人数</td>
-            <td>4人</td>
+            <td>
+              4人
+              <span class="person-icons">
+                <span class="person-icon"></span>
+                <span class="person-icon"></span>
+                <span class="person-icon"></span>
+                <span class="person-icon"></span>
+              </span>
+            </td>
           </tr>
           <tr>
             <td>操作端末</td>
@@ -78,7 +113,7 @@
             </td>
           </tr>
           <tr>
-            <td>使用言語</td>
+            <td>使用技術</td>
             <td>
               <!-- 楕円 -->
               <span class="pillbar">
@@ -89,83 +124,87 @@
           </tr>
         </table>
       </div>
-    </div>
+    </section>
 
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
-    <div class="fade-in">
-      <h2 class="h2 neon">テーマ</h2>
-      <div class="panel">
-        このゲームは、即興で決められたチーム・テーマで3日間で作りました。<br>
-        <br>
-        テーマ「みず」<br>
-        みず → 水の三態 → 氷・水・水蒸気<br>
+    <section id="contents-theme">
+      <div class="fade-in">
+        <h2 class="h2 neon">テーマ</h2>
+
+        <div class="panel">
+          このゲームは、即興で決められたチーム・テーマで3日間で作りました。<br>
+          <br>
+          テーマ「みず」<br>
+          みず → 水の三態 → 氷・水・水蒸気<br>
+        </div>
       </div>
-    </div>
+    </section>
 
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
-    <div class="fade-in">
-      <h2 class="h2 neon">レベルデザイン</h2>
-      <div class="panel">
-        <div class="kr-layout_grid">
-          <p>
-            3日経過時点
-            <img src="../../img/works/trans_water/old_version.png">
+    <section id="contents-commitment">
+      <div class="fade-in">
+        <h2 class="h2 neon">こだわりポイント</h2>
+
+        <div class="panel">
+          <b class="subtitle">レベルデザイン</b>
+          <div class="kr-layout_grid">
+            <p>
+              3日経過時点
+              <img src="../../img/works/trans_water/old_version.png">
+            </p>
+            <p>
+              完全版
+              <img src="../../img/works/trans_water/card_image.png">
+            </p>
+          </div>
+        
+          <p> 
+            アセットを使い、レベルデザインは全て自分が担当しました。<br>
+            <br>
+            ステージは1つのみですが、一通り遊べる段階まで作り終えました。<br>
+            しかし、3日間で作ったものは背景がなく質素だったので、後日レベルデザインを改修し、背景追加と地形の変更を行いました。<br>
+            <br>
+            このように、今あるパーツを組み合わせて作ることが得意です。
           </p>
+  
+          <div class="kr-layout_grid">
+            <p>
+              レイヤー1<br>
+              <img src="../../img/works/trans_water/stage_layer1.png">
+            </p>
+            <p>
+              レイヤー2<br>
+              <img src="../../img/works/trans_water/stage_layer2.png">
+            </p>
+          </div>
+  
           <p>
-            完全版
-            <img src="../../img/works/trans_water/card_image.png">
+            TilePalleteを使い、ステージを作りました。<br>
+            2つのレイヤーで使い分けていて、レイヤー1の地形のみ当たり判定があり、レイヤー2に当たり判定はありません。<br>
           </p>
         </div>
-      
-        <p> 
-          アセットを使い、レベルデザインは全て自分が担当しました。<br>
-          <br>
-          ステージは1つのみですが、一通り遊べる段階まで作り終えました。<br>
-          しかし、3日間で作ったものは背景がなく質素だったので、後日レベルデザインを改修し、背景追加と地形の変更を行いました。<br>
-          <br>
-          このように、今あるパーツを組み合わせて作ることが得意です。
-        </p>
-
-        <div class="kr-layout_grid">
+        
+        <div class="panel">
+          <b class="subtitle">ふわっとした雲の動き</b>
           <p>
-            レイヤー1<br>
-            <img src="../../img/works/trans_water/stage_layer1.png">
+            <img src="../../img/works/trans_water/cloud.gif">
           </p>
-          <p>
-            レイヤー2<br>
-            <img src="../../img/works/trans_water/stage_layer2.png">
+          <p> 
+            プレイヤー(水蒸気)の制御も担当しました。
+            雲のようにゆっくり動く表現をするため、慣性を入れています。
           </p>
         </div>
 
-        <p>
-          TilePalleteを使い、ステージを作りました。<br>
-          2つのレイヤーで使い分けていて、レイヤー1の地形のみ当たり判定があり、レイヤー2に当たり判定はありません。<br>
-        </p>
       </div>
-    </div>
-
-    <div class="neon-line"></div> <!-- グラデーション線 -->
-
-    <div class="fade-in">
-      <h2 class="h2 neon">ふわっとした雲の動き</h2>
-      <div class="panel">
-        <p>
-          <img src="../../img/works/trans_water/cloud.gif">
-        </p>
-        <p> 
-          プレイヤー(水蒸気)の制御も担当しました。
-          雲のようにゆっくり動く表現をするため、慣性を入れています。
-        </p>
-      </div>
-    </div>
+    </section>
   </main>
 
   <!-- フッター(サイトの一番下) -->
   <footer>
     <small>
-      最終更新日: 2026/04/02<br>
+      最終更新日: 2026/04/04<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio
@@ -174,6 +213,7 @@
 
   <!-- jsファイル -->
   <script src="../../js/common.js"></script>
+  <script src="../../js/works_page.js"></script>
 
   <!-- マウスカーソル -->
   <div class="cursor" aria-hidden="true"><i></i></div>

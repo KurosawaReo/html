@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <!--ソースコード色付け用 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+
   <!-- cssファイル -->
   <link rel="stylesheet" href="../../plugins/slick/slick.css">
   <link rel="stylesheet" href="../../plugins/slick/slick-theme.css">
@@ -44,70 +52,81 @@
   <aside class="side-toc">
     <div class="side-toc-inner">
 
-      <h2>KRライブラリ</h2>
+      <h2>目次</h2>
+      <p>
+        ※現在掲載中です
+      </p>
 
       <div class="contents">
-        <span class="side-toc-dot">・</span><a href="#contents-overview">作品概要</a><br><br>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-overview">作品概要</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-example">実用例</a>
+        </p>
 
-      <!-- DxLib用 -->
-      <details>
-        <summary>DxLib用</summary>
-        <ul class="tree">
-          <li><a href="#contents-dx-app">KR_App</a></li>
-          <li><a href="#contents-dx-bezier">KR_Bezier</a></li>
-          <li><a href="#contents-dx-calc">KR_Calc</a></li>
-          <li><a href="#contents-dx-camera">KR_Camera</a></li>
-          <li><a href="#contents-dx-debug">KR_Debug</a></li>
-          <li><a href="#contents-dx-draw">KR_Draw</a></li>
-          <li><a href="#contents-dx-global">KR_Global</a></li>
-          <li><a href="#contents-dx-input">KR_Input</a></li>
-          <li><a href="#contents-dx-managerbase">KR_ManagerBase</a></li>
-          <li><a href="#contents-dx-object">KR_Object</a></li>
-          <li><a href="#contents-dx-objectmng">KR_ObjectMng</a></li>
-          <li><a href="#contents-dx-scenemng">KR_SceneMng</a></li>
-          <li><a href="#contents-dx-sound">KR_Sound</a></li>
-          <li><a href="#contents-dx-statemachine">KR_StateMachine</a></li>
-          <li><a href="#contents-dx-timer">KR_Timer</a></li>
-        </ul>
-      </details>
+        <!-- DxLib -->
+        <details>
+          <summary>DxLib用</summary>
+          <ul class="tree">
+            <li><a href="#contents-dx-app">KR_App</a></li>
+            <li><a href="#contents-dx-bezier">KR_Bezier</a></li>
+            <li><a href="#contents-dx-calc">KR_Calc</a></li>
+            <li><a href="#contents-dx-camera">KR_Camera</a></li>
+            <li><a href="#contents-dx-debug">KR_Debug</a></li>
+            <li><a href="#contents-dx-draw">KR_Draw</a></li>
+            <li><a href="#contents-dx-global">KR_Global</a></li>
+            <li><a href="#contents-dx-input">KR_Input</a></li>
+            <li><a href="#contents-dx-managerbase">KR_ManagerBase</a></li>
+            <li><a href="#contents-dx-object">KR_Object</a></li>
+            <li><a href="#contents-dx-objectmng">KR_ObjectMng</a></li>
+            <li><a href="#contents-dx-scenemng">KR_SceneMng</a></li>
+            <li><a href="#contents-dx-sound">KR_Sound</a></li>
+            <li><a href="#contents-dx-statemachine">KR_StateMachine</a></li>
+            <li><a href="#contents-dx-timer">KR_Timer</a></li>
+          </ul>
+        </details>
 
-      <!-- C++用 -->
-      <details>
-        <summary>C++用</summary>
-        <ul class="tree">
-          <li><a href="#contents-cpp-file">KR_File</a></li>
-          <li><a href="#contents-cpp-format">KR_Format</a></li>
-          <li><a href="#contents-cpp-global">KR_Global</a></li>
-          <li><a href="#contents-cpp-memory">KR_Memory</a></li>
-          <li><a href="#contents-cpp-bigint">KR_BitInt</a></li>
-        </ul>
-      </details>
+        <!-- C++ -->
+        <details>
+          <summary>C++用</summary>
+          <ul class="tree">
+            <li><a href="#contents-cpp-file">KR_File</a></li>
+            <li><a href="#contents-cpp-format">KR_Format</a></li>
+            <li><a href="#contents-cpp-global">KR_Global</a></li>
+            <li><a href="#contents-cpp-memory">KR_Memory</a></li>
+            <li><a href="#contents-cpp-bigint">KR_BigInt</a></li>
+          </ul>
+        </details>
 
-      <!-- Unity用 -->
-      <details>
-        <summary>Unity用</summary>
-        <ul class="tree">
-          <li><a href="#contents-unity-animation">KR.Animation</a></li>
-          <li><a href="#contents-unity-calc">KR.Calc</a></li>
-          <li><a href="#contents-unity-input">KR.Input</a></li>
-          <li><a href="#contents-unity-inspector">KR.Inspector</a></li>
-          <li><a href="#contents-unity-jsonfile">KR.JsonFile</a></li>
-          <li><a href="#contents-unity-object">KR.Object</a></li>
-          <li><a href="#contents-unity-position">KR.Position</a></li>
-          <li><a href="#contents-unity-registerscript">KR.RegisterScript</a></li>
-          <li><a href="#contents-unity-sound">KR.Sound</a></li>
-          <li><a href="#contents-unity-tap">KR.Tap</a></li>
-          <li><a href="#contents-unity-timer">KR.Timer</a></li>
-          <li><a href="#contents-unity-variable">KR.Variable</a></li>
-        </ul>
-      </details>
-      <details>
-        <summary>Unity Editor用</summary>
-        <ul class="tree">
-          <li><a href="#contents-unity-inspectoreditor">KR.InspectorEditor</a></li>
-          <li><a href="#contents-unity-mapeditor">KR.MapEditor</a></li>
-        </ul>
-      </details>
+        <!-- Unity -->
+        <details>
+          <summary>Unity用</summary>
+          <ul class="tree">
+            <li><a href="#contents-unity-animation">KR.Animation</a></li>
+            <li><a href="#contents-unity-calc">KR.Calc</a></li>
+            <li><a href="#contents-unity-input">KR.Input</a></li>
+            <li><a href="#contents-unity-inspector">KR.Inspector</a></li>
+            <li><a href="#contents-unity-jsonfile">KR.JsonFile</a></li>
+            <li><a href="#contents-unity-object">KR.Object</a></li>
+            <li><a href="#contents-unity-position">KR.Position</a></li>
+            <li><a href="#contents-unity-registerscript">KR.RegisterScript</a></li>
+            <li><a href="#contents-unity-sound">KR.Sound</a></li>
+            <li><a href="#contents-unity-tap">KR.Tap</a></li>
+            <li><a href="#contents-unity-timer">KR.Timer</a></li>
+            <li><a href="#contents-unity-variable">KR.Variable</a></li>
+          </ul>
+        </details>
+
+        <!-- Unity Editor -->
+        <details>
+          <summary>Unity Editor用</summary>
+          <ul class="tree">
+            <li><a href="#contents-unity-inspectoreditor">KR.InspectorEditor</a></li>
+            <li><a href="#contents-unity-mapeditor">KR.MapEditor</a></li>
+          </ul>
+        </details>
+      </div>
     </div>
   </aside>
   <!-- サイド目次 | スマホ用タップ判定 -->
@@ -127,14 +146,19 @@
         <table class="info-table">
           <tr>
             <td>開発期間</td>
-            <td>2024/12/12 ～ 現在</td>
+            <td>開発中 (2024/12/12 ~ 現在)</td>
           </tr>
           <tr>
             <td>開発人数</td>
-            <td>1人</td>
+            <td>
+              1人
+              <span class="person-icons">
+                <span class="person-icon"></span>
+              </span>
+            </td>
           </tr>
           <tr>
-            <td>使用言語</td>
+            <td>使用技術</td>
             <td>
               <!-- 楕円 -->
               <span class="pillbar">
@@ -149,11 +173,14 @@
 
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
-    <section>
+    <section id="contents-example">
       <h2 class="h2 neon">実用例</h2>
+
       <div class="panel">
+        <b class="subtitle">動画</b>
         <p>
-          KRライブラリを使用すると、約100行のプログラムでベジエ曲線の実装と、プレイヤー画像切り替えをシンプルに実装できます。
+          ベジエ曲線と、プレイヤー歩行アニメーションを実装した動画です。<br>
+          KRライブラリを使用すると、約100行のプログラムだけで記述できます。
         </p>
         <iframe
           src="https://www.youtube.com/embed/LXFWupACuU0"
@@ -163,129 +190,126 @@
           allowfullscreen
           class="kr-layout_center-iframe"
         ></iframe>
+
+        <b class="subtitle">ソースコード</b>
+        <pre><code class="language-cpp">/*
+    ベジエ曲線の制御点をマウスカーソルで操作する。
+    KRライブラリ ver.2026/02/05
+*/
+#include "KrLib_Dx/KR_Global.h"
+#include "KrLib_Dx/KR_App.h"
+#include "KrLib_Dx/KR_Bezier.h"
+#include "KrLib_Dx/KR_Calc.h"
+#include "KrLib_Dx/KR_Camera.h"
+#include "KrLib_Dx/KR_Debug.h"
+#include "KrLib_Dx/KR_Input.h"
+#include "KrLib_Dx/KR_ManagerBase.h"
+#include "KrLib_Dx/KR_Object.h"
+using namespace KR;
+
+constexpr double MOVE_SPEED = 0.02;
+
+//プレイヤー.
+class Player : public ManagerBase, public ObjectBox
+{
+public:
+    //コンストラクタ.
+    Player() : ManagerBase(1) {}
+
+    void Init() override {
+        SetDrawImgs({ "player1", "player2", "player3" }, 0.2); //3つの画像を0.2秒で切り替え.
+    }
+    void Reset() override {
+    }
+    void Update() override {
+    }
+    void Draw() override {
+        DrawGraph();
+    }
+};
+
+//ゲームマネージャー.
+class GameManager : public ManagerBase
+{
+private:
+    BezierLineContr bLine; //ベジエ曲線(制御点操作可能)
+    Player player;
+
+    double timer; //タイマー.
+
+public:
+    //コンストラクタ.
+    GameManager() : ManagerBase(0), timer(0), bLine(true, true) {}
+
+    //初期化.
+    void Init() override {
+        //camera
+        Camera::SetPos(App::GetWindowRect().GetMid().ToDbl());
+        //image
+        DrawImgMng::LoadFileDiv(
+            _T("Images/gazou01all.png"), { 64, 64 }, { 3, 4 }, //64×64のサイズで横3つ縦4つに分割.
+            { //登録名.
+                "player1", 
+                "player2", 
+                "player3"
+            }
+        );
+
+        bLine.Init();
+        bLine.SetPos({ -100, -100 }, { 100, 100 }, { -100, 100 }, { 100, -100 });
+    }
+    //リセット.
+    void Reset() override {
+    }
+    //更新.
+    void Update() override {
+        bLine.Update();
+        //ベジエ曲線から一点を取得.
+        DBL_XY pos = bLine.GetBezierTime(timer);
+        player.SetPos(pos);
+        //タイマー経過.
+        timer += MOVE_SPEED;
+        if (timer > 1) { timer = 0; }
+    }
+    //描画.
+    void Draw() override {
+        bLine.Draw();
+    }
+};
+GameManager gameMng;
+
+int WINAPI WinMain(
+    _In_     HINSTANCE hinstance,
+    _In_opt_ HINSTANCE hPrevinstance,
+    _In_     LPSTR     lpCmdLine,
+    _In_     int       nCmdShow
+) {
+    //初期化処理.
+    ResultInt err = App::InitDx(800, 600, true, 60, false);
+    if (err.GetCode() < 0) { return -1; } //初期化エラー.
+    //ループ処理.
+    App::LoopDx();
+
+    return 0;
+}</code></pre>
       </div>
-        ↓ KRライブラリを使用したコード
-      <pre>
-        <code>
-  /*
-      ベジエ曲線の制御点をマウスカーソルで操作する。
-      KRライブラリ ver.2026/02/05
-  */
-  #include "KrLib_Dx/KR_Global.h"
-  #include "KrLib_Dx/KR_App.h"
-  #include "KrLib_Dx/KR_Bezier.h"
-  #include "KrLib_Dx/KR_Calc.h"
-  #include "KrLib_Dx/KR_Camera.h"
-  #include "KrLib_Dx/KR_Debug.h"
-  #include "KrLib_Dx/KR_Input.h"
-  #include "KrLib_Dx/KR_ManagerBase.h"
-  #include "KrLib_Dx/KR_Object.h"
-  using namespace KR;
-  
-  constexpr double MOVE_SPEED = 0.02;
-  
-  //プレイヤー.
-  class Player : public ManagerBase, public ObjectBox
-  {
-  private:
-  public:
-      //コンストラクタ.
-      Player() : ManagerBase(1) {}
-  
-      void Init() override {
-          SetDrawImgs({ "player1", "player2", "player3" }, 0.2); //3つの画像を0.2秒で切り替え.
-      }
-      void Reset() override {
-      }
-      void Update() override {
-      }
-      void Draw() override {
-          DrawGraph();
-      }
-  };
-  
-  //ゲームマネージャー.
-  class GameManager : public ManagerBase
-  {
-  private:
-      BezierLineContr bLine; //ベジエ曲線(制御点操作可能)
-      Player player;
-  
-      double timer; //タイマー.
-  
-  public:
-      //コンストラクタ.
-      GameManager() : ManagerBase(0), timer(0), bLine(true, true) {}
-  
-      //初期化.
-      void Init() override {
-          //camera
-          Camera::SetPos(App::GetWindowRect().GetMid().ToDbl());
-          //image
-          DrawImgMng::LoadFileDiv(
-              _T("Images/gazou01all.png"), { 64, 64 }, { 3, 4 }, //64×64のサイズで横3つ縦4つに分割.
-              { //登録名.
-                  "player1", 
-                  "player2", 
-                  "player3"
-              }
-          );
-  
-          bLine.Init();
-          bLine.SetPos({ -100, -100 }, { 100, 100 }, { -100, 100 }, { 100, -100 });
-      }
-      //リセット.
-      void Reset() override {
-      }
-      //更新.
-      void Update() override {
-          bLine.Update();
-          //ベジエ曲線から一点を取得.
-          DBL_XY pos = bLine.GetBezierTime(timer);
-          player.SetPos(pos);
-          //タイマー経過.
-          timer += MOVE_SPEED;
-          if (timer > 1) { timer = 0; }
-      }
-      //描画.
-      void Draw() override {
-          bLine.Draw();
-      }
-  };
-  GameManager gameMng;
-  
-  int WINAPI WinMain(
-      _In_     HINSTANCE hinstance,
-      _In_opt_ HINSTANCE hPrevinstance,
-      _In_     LPSTR     lpCmdLine,
-      _In_     int       nCmdShow
-  ) {
-      //初期化処理.
-      ResultInt err = App::InitDx(800, 600, true, 60, false);
-      if (err.GetCode() < 0) { return -1; } //初期化エラー.
-      //ループ処理.
-      App::LoopDx();
-  
-      return 0;
-  }
-        </code>
-      </pre>
     </section>
 
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
     <section id="contents-dx-app">
-      <h2 class="h2 neon">KR::App</h2>
-      <p>
-        DxLibを使用したアプリケーション全体の管理クラスです。<br>
-        初期化・メインループ・終了処理を一括で制御します。
-      </p>
+      <h2 class="h2 neon">DxLib用 > KR_App</h2>
 
-      <h2>使い方</h2>
-      main関数内で、このような処理を入れます。
-      <pre>
-        <code>
-int WINAPI WinMain(
+      <div class="panel">
+        <b class="subtitle">[class] App</b> (仮)
+        <p>
+          DxLibを使用したアプリケーション全体の管理クラスです。<br>
+          初期化・メインループ・終了処理を一括で制御します。
+        </p>
+  
+        <h2>使い方</h2>
+        main関数内で、このような処理を入れます。
+        <pre><code>int WINAPI WinMain(
   _In_     HINSTANCE hinstance,
   _In_opt_ HINSTANCE hPrevinstance,
   _In_     LPSTR     lpCmdLine,
@@ -298,101 +322,79 @@ int WINAPI WinMain(
   App::LoopDx();
 
   return 0;
-}
-        </code>
-      </pre>
-      InitDxとLoopDxを入れることで、以下3つの関数が自動で呼ばれるようになります。<br>
-      この中に入れたい処理を記述します。
-      <pre>
-        <code>
-//初期化処理.
-void App::Init() {
-}
-
-//更新処理.
-void App::Update() {
-}
-
-//描画処理.
-void App::Draw() {
-}
-        </code>
-      </pre>
-int windowWid, int windowHei, bool isWindowMode, int fps, bool isVSync = TRUE
-      <h2>InitDx</h2>
-      <table>
-        <tr>
-          <th>引数</th>
-          <td>int</td>
-          <td>windowWid</td>
-          <td>画面の横幅</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>int</td>
-          <td>windowHei</td>
-          <td>画面の縦幅</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>bool</td>
-          <td>isWindowMode</td>
-          <td>全画面にするか</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>int</td>
-          <td>fps</td>
-          <td>Update / Draw処理を行うフレームレート</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>bool</td>
-          <td>isVSync</td>
-          <td>垂直同期</td>
-        </tr>
-        <tr>
-          <th>返り値</th>
-          <td>ResultInt</td>
-          <td>処理の結果</td>
-        </tr>
-      </table>
-
-      <h2>LoopDx</h2>
-      <p>
-        毎フレーム呼び出す関数です。<br>
-        内部で Update / Draw が実行されます。
-      </p>
-
-      <h2>Init</h2>
-      <p>アプリ開始時に一度だけ呼ばれます。</p>
-
-      <h2>Update</h2>
-      <p>毎フレームの更新処理を記述します。</p>
-
-      <h2>Draw</h2>
-      <p>描画処理を記述します。</p>
-
-      <!-- Getter -->
-      <h2>取得できる情報</h2>
-      <table>
-        <tr><th>関数</th><th>内容</th></tr>
-        <tr><td>GetWindowX()</td><td>画面幅</td></tr>
-        <tr><td>GetWindowY()</td><td>画面高さ</td></tr>
-        <tr><td>GetWindowRect()</td><td>画面矩形</td></tr>
-        <tr><td>GetFps()</td><td>現在のFPS</td></tr>
-      </table>
+}</code></pre>
+        <h2>InitDx</h2>
+        <table>
+          <tr>
+            <th>引数</th>
+            <td>int</td>
+            <td>windowWid</td>
+            <td>画面の横幅</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>int</td>
+            <td>windowHei</td>
+            <td>画面の縦幅</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>bool</td>
+            <td>isWindowMode</td>
+            <td>全画面にするか</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>int</td>
+            <td>fps</td>
+            <td>Update / Draw処理を行うフレームレート</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>bool</td>
+            <td>isVSync</td>
+            <td>垂直同期</td>
+          </tr>
+          <tr>
+            <th>返り値</th>
+            <td>ResultInt</td>
+            <td>処理の結果</td>
+          </tr>
+        </table>
+  
+        <h2>LoopDx</h2>
+        <p>
+          毎フレーム呼び出す関数です。<br>
+          内部で Update / Draw が実行されます。
+        </p>
+  
+        <h2>Init</h2>
+        <p>アプリ開始時に一度だけ呼ばれます。</p>
+  
+        <h2>Update</h2>
+        <p>毎フレームの更新処理を記述します。</p>
+  
+        <h2>Draw</h2>
+        <p>描画処理を記述します。</p>
+  
+        <!-- Getter -->
+        <h2>取得できる情報</h2>
+        <table>
+          <tr><th>関数</th><th>内容</th></tr>
+          <tr><td>GetWindowX()</td><td>画面幅</td></tr>
+          <tr><td>GetWindowY()</td><td>画面高さ</td></tr>
+          <tr><td>GetWindowRect()</td><td>画面矩形</td></tr>
+          <tr><td>GetFps()</td><td>現在のFPS</td></tr>
+        </table>
+      </div>
 
     </section>
-      
-    <br>
-    ※現在掲載中のため、この先は随時更新します。
   </main>
 
   <!-- フッター(サイトの一番下) -->
   <footer>
     <small>
-      最終更新日: 2026/04/02<br>
+      最終更新日: 2026/04/04<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio

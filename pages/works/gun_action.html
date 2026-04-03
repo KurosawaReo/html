@@ -40,10 +40,32 @@
     </nav>
   </header>
 
+  <!-- スライド式サイド目次 -->
+  <aside class="side-toc">
+    <div class="side-toc-inner">
+
+      <h2>目次</h2>
+
+      <div class="contents">
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-overview">作品概要</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-proposal">一枚企画書</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-production">制作様子</a>
+        </p>
+      </div>
+    </div>
+  </aside>
+  <!-- サイド目次 | スマホ用タップ判定 -->
+  <div class="side-toc-touch-area" aria-hidden="true"></div>
+
   <!-- サイト本体 -->
   <main class="wrap">
 
-    <div>
+    <section id="contents-overview">
       <h2 class="h2 neon">作品概要</h2>
       <!-- 画像 -->
       <div class="panel">
@@ -58,19 +80,21 @@
         <table class="info-table">
           <tr>
             <td>開発期間</td>
-            <td>2025/10 ～ 現在</td>
+            <td>開発中 (2025/10 ~ 現在)</td>
           </tr>
           <tr>
             <td>ジャンル</td>
             <td>アクション、TPS</td>
           </tr>
           <tr>
-            <td>プレイ人数</td>
-            <td>1人</td>
-          </tr>
-          <tr>
             <td>開発人数</td>
-            <td>2人</td>
+            <td>
+              2人
+              <span class="person-icons">
+                <span class="person-icon"></span>
+                <span class="person-icon"></span>
+              </span>
+            </td>
           </tr>
           <tr>
             <td>操作端末</td>
@@ -82,7 +106,7 @@
             </td>
           </tr>
           <tr>
-            <td>使用言語</td>
+            <td>使用技術</td>
             <td>
               <!-- 楕円 -->
               <span class="pillbar">
@@ -92,37 +116,47 @@
             </td>
           </tr>
         </table>
-  
-        <br>
-        <span class="ghost_text" id="github-gun-action">
-          GitHubはこちら
-        </span>
       </div>
-    </div>
+      <!-- リンク -->
+      <div class="panel">
+        <b class="subtitle">リンク</b>
+        <p>
+          <a href="https://github.com/KurosawaReo/2GM_shinkyu_kouki02" target="_blank" class="btn-link">
+            GitHub>>
+          </a>
+        </p>
+      </div>
+    </section>
 
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
-    <div class="fade-in">
-      <h2 class="h2 neon">一枚企画書</h2>
-      <div class="panel">
-        <img src="../../img/works/gun_action/proposal.png">
+    <section id="contents-proposal">
+      <div class="fade-in">
+        <h2 class="h2 neon">一枚企画書</h2>
+
+        <div class="panel">
+          <img src="../../img/works/gun_action/proposal.png">
+        </div>
       </div>
-    </div>
+    </section>
     
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
-    <div class="fade-in">
-      <h2 class="h2 neon">制作様子</h2>
-      <div class="panel">
-        <img src="../../img/works/gun_action/editor.png">
+    <section id="contents-production">
+      <div class="fade-in">
+        <h2 class="h2 neon">制作様子</h2>
+
+        <div class="panel">
+          <img src="../../img/works/gun_action/editor.png">
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <!-- フッター(サイトの一番下) -->
   <footer>
     <small>
-      最終更新日: 2026/04/02<br>
+      最終更新日: 2026/04/04<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio

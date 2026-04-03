@@ -40,15 +40,135 @@
     </nav>
   </header>
 
+  <!-- スライド式サイド目次 -->
+  <aside class="side-toc">
+    <div class="side-toc-inner">
+
+      <h2>目次</h2>
+
+      <div class="contents">
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-overview">作品概要</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-commitment">こだわりポイント</a>
+        </p>
+      </div>
+    </div>
+  </aside>
+  <!-- サイド目次 | スマホ用タップ判定 -->
+  <div class="side-toc-touch-area" aria-hidden="true"></div>
+
   <!-- サイト本体 -->
   <main class="wrap">
-    準備中です。随時更新します。
+
+    <section id="contents-overview">
+      <h2 class="h2 neon">作品概要</h2>
+      <!-- 画像 -->
+      <div class="panel">
+        <img src="../../img/works/tetris/card_image.png">
+      </div>
+      <!-- 表 -->
+      <div class="panel">
+        <table class="info-table">
+          <tr>
+            <td>開発期間</td>
+            <td>約2週間 (2024/10/02 ~ 10/15)</td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td>落ち物パズル</td>
+          </tr>
+          <tr>
+            <td>プレイ人数</td>
+            <td>
+              1人
+              <span class="person-icons">
+                <span class="person-icon"></span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>開発人数</td>
+            <td>
+              1人
+              <span class="person-icons">
+                <span class="person-icon"></span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>操作端末</td>
+            <td>
+              <!-- 楕円 -->
+              <span class="pillbar">
+                <span class="pill">キーボード</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>使用技術</td>
+            <td>
+              <!-- 楕円 -->
+              <span class="pillbar">
+                <span class="pill">Unity</span>
+                <span class="pill">C#</span>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- リンク -->
+      <div class="panel">
+        <b class="subtitle">リンク</b>
+        <p>
+          <a href="https://unityroom.com/games/tetris_hyper_star" target="_blank" class="btn-link">
+            unityroom>>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+
+    <section id="contents-commitment">
+      <div class="fade-in">
+        <h2 class="h2 neon">こだわりポイント</h2>
+
+        <div class="panel">
+          <b class="subtitle">7種1巡のミノ生成</b>
+          <p>
+            次に出てくるミノは、全7種類のミノが順番に出てくるようにしています。<br>
+            同じミノばかり出てくることはありません。
+          </p>
+        </div>
+
+        <div class="panel">
+          <b class="subtitle">ミノ回転補正</b>
+          <p>
+            ミノを回転させる時、壁や他ミノに埋まらないよう、穴の形状に沿って回転するようにしています。<br>
+            これにより、原作のように「Tスピン」などの技を使うことができます。
+          </p>
+        </div>
+
+        <div class="panel">
+          <b class="subtitle">アレンジBGM</b>
+          <p>
+            使っているBGMは、テトリスのテーマ曲を自作アレンジして作ったものです。<br>
+            趣味で行っている作曲を実際に取り入れた作品でもあります。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TODO: DT砲の動画撮って乗せる -->
   </main>
 
   <!-- フッター(サイトの一番下) -->
   <footer>
     <small>
-      最終更新日: 2026/04/02<br>
+      最終更新日: 2026/04/04<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio
@@ -57,6 +177,7 @@
 
   <!-- jsファイル -->
   <script src="../../js/common.js"></script>
+  <script src="../../js/works_page.js"></script>
 
   <!-- マウスカーソル -->
   <div class="cursor" aria-hidden="true"><i></i></div>
