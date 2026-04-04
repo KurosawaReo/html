@@ -71,72 +71,128 @@ img {
 /* =============================== 
   ▼ サイド目次 ▼
 ================================ */
-/* 全体 */
+/* === 本体 === */
 .side-toc {
   position: fixed;
   top: var(--header-h);
   left: 0;
-  height: 100vh;
+
   width: 200px;
-  transform: translateX(-200px); /* ほぼ隠す */
+  height: calc(100vh - var(--header-h));
+
+  transform: translateX(-200px); 
   transition: transform 0.35s ease;
+
   z-index: var(--z-side-toc);
 }
-/* 帯のグラデーション */
-.side-toc::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -16px;
-  width: 16px;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(51,231,255,0.25),
-    rgba(51,231,255,0)
-  );
-}
-/* 目次背景 */
-.side-toc-inner {
-  height: 100%;
-  padding: 20px;
-  background: rgba(21, 77, 98, 0.39);
-  backdrop-filter: blur(8px);
-  border-right: 1px solid rgba(51,231,255,0.3);
-  box-shadow: 6px 0 30px rgba(0,0,0,0.4);
-  color: #e6f4f7;
-  overflow-y: auto;
-}
-/* 表示状態 */
+
+/* 開いた状態 */
 .side-toc.open {
   transform: translateX(0);
 }
 
-/* aタグ用 */
-.side-toc-inner .contents a {
-  color: var(--ink); text-decoration: none; opacity: 0.9; padding: 8px 12px; border-radius: 999px;
-  transition: 180ms ease;
-}
-.side-toc-inner .contents a:hover { background: rgba(51,231,255,0.12); box-shadow: var(--shadow); }
-/* 見た目調整 */
-details summary {
-  cursor: pointer;
-  font-weight: 600;
-  margin-bottom: 6px;
+/* === 開閉インジケーター（縦線） === */
+.side-toc::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+
+  width: 4px;
+  height: 80px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(59, 232, 255, 0.6),
+    rgba(59, 232, 255, 1.0),
+    rgba(59, 232, 255, 0.6)
+  );
+
+  box-shadow:
+    0 0 6px rgba(59, 232, 255, 0.6),
+    0 0 12px rgba(55, 232, 255, 0.4);
+
+  opacity: 0.9;
+
+  pointer-events: none;
 }
 
-/* ツリー表現 */
+/* === 目次パネル全体 === */
+.side-toc-inner {
+  height: 100%;
+  padding: 20px;
+
+  background: rgba(21, 77, 98, 0.4);
+  backdrop-filter: blur(8px);
+
+  border-right: 1px solid rgba(51,231,255,0.3);
+  box-shadow: 6px 0 30px rgba(0,0,0,0.4);
+
+  color: #e6f4f7;
+  overflow-y: auto;
+
+  /* ← フェード用 */
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* 開いたら表示 */
+.side-toc.open .side-toc-inner {
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+/* === 目次タイトル === */
+.side-toc .title {
+  font-size: 18px;
+  font-weight: 900;
+
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+
+  color: var(--ink);
+
+  text-shadow:
+    0 0 6px var(--primary),
+    0 0 14px rgba(51,231,255,0.4);
+
+  border-bottom: 1px solid rgba(51,231,255,0.3);
+}
+
+/* === リンク === */
+.side-toc-inner .contents a {
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  transition: 180ms ease;
+}
+
+.side-toc-inner .contents a:hover {
+  background: rgba(51,231,255,0.12);
+  box-shadow: var(--shadow);
+}
+
+/* === ツリー === */
 .tree {
   list-style: none;
   padding-left: 14px;
   margin: 6px 0 0;
 }
+
 .tree li {
   position: relative;
   padding-left: 10px;
   margin: 4px 0;
   font-size: 0.9rem;
 }
+
 .tree li::before {
   content: '・';
   position: absolute;
@@ -144,53 +200,17 @@ details summary {
   color: var(--sidetoc-dot);
 }
 
-.side-toc-dot{
-  color: var(--sidetoc-dot);
-}
-
-/* 開閉を示すインジケータ */
-.side-toc::before {
-  content: '▶';
-  position: absolute;
-  top: 50%;
-  right: -28px;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: rgba(123,242,255,0.9);
-
-  width: 30px;
-  height: 100px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(21, 77, 98, 0.7);
-  border-radius: 0 8px 8px 0; /* 「D」みたいな形にする */
-
-  box-shadow: 0 0 18px rgba(51,231,255,0.7);
-
-  transition:
-    color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.35s ease;
-
-  pointer-events: none;
-}
-/* 開いたときは向きを変える */
-.side-toc.open::before {
-  content: '◀';
-}
-
-/* スマホ用：画面左端のタップ領域 */
+/* === スマホタップ領域 === */
 .side-toc-touch-area {
   position: fixed;
   top: var(--header-h);
   left: 0;
-  width: 20px;      /* 端だけ反応 */
+  width: 20px;
   height: 100vh;
+
   z-index: calc(var(--z-side-toc) + 1);
 }
+
 /* PCでは不要 */
 @media (hover: hover) {
   .side-toc-touch-area {
@@ -306,6 +326,31 @@ details summary {
     rgba(51,231,255,0.4)
   );
   box-shadow: 0 0 calc(var(--ui-scale) * 0.6) rgba(51,231,255,0.4);
+}
+
+/* ===============================
+  ▼ 画像拡大マーク ▼
+================================ */
+/* 親 */
+.zoom-icon-parent {
+  position: relative;
+  display: inline-block;
+}
+
+/* 右上アイコン */
+.zoom-icon {
+  position: absolute;
+  top: clamp(0px, 4vw, 7px);
+  right: clamp(0px, 4vw, 7px);
+
+  width: clamp(30px, 4vw, 34px);
+
+  pointer-events: none; /* クリック邪魔しない */
+
+  /* 軽くなじませる */
+  filter:
+    drop-shadow(0 0 6px rgba(51,231,255,0.7))
+    drop-shadow(0 0 12px rgba(51,231,255,0.4));
 }
 
 /* ===============================

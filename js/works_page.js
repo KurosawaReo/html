@@ -5,7 +5,7 @@
 const tocElems  = document.getElementsByClassName('side-toc');
 const touchArea = document.querySelector('.side-toc-touch-area');
 
-/* 開く（スマホ：端タップ）*/
+/* スマホ操作 | タップで開く */
 if (touchArea) {
   touchArea.addEventListener('click', (e) => {
     e.stopPropagation(); // 外タップ判定に流さない
@@ -14,28 +14,37 @@ if (touchArea) {
     }
   });
 }
-
-/* サイド目次内部をタップしても閉じない */
+/* スマホ操作 | サイド目次内部をタップしても閉じない */
 for (let toc of tocElems) {
   toc.addEventListener('click', (e) => {
     e.stopPropagation();
   });
-
-  // PC用 hover
-  toc.addEventListener('mouseenter', () => {
-    toc.classList.add('open');
-  });
-  toc.addEventListener('mouseleave', () => {
-    toc.classList.remove('open');
-  });
 }
-
-/* 外側タップで閉じる */
+/* スマホ操作 | 外側タップで閉じる */
 document.addEventListener('click', () => {
   for (let toc of tocElems) {
     toc.classList.remove('open');
   }
 });
+
+/* PC操作 */
+if (window.matchMedia('(hover: hover)').matches) {
+  
+  const EDGE_SIZE = 20; // 左端の判定幅（px）
+  const CLOSE_OFFSET = 220; // パネル幅くらい
+
+  document.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+
+    for (let toc of tocElems) {
+      if (x <= EDGE_SIZE) {
+        toc.classList.add('open');
+      } else if (x > CLOSE_OFFSET) {
+        toc.classList.remove('open');
+      }
+    }
+  });
+}
 
 /* =============================== 
   ▼ slick ▼
