@@ -67,86 +67,83 @@ tiltCards.forEach(card => {
 
 /* =============================== 
   ▼ 背景演出 ▼
-  光は全て独自で移動するようになっていて
-  距離がある程度近くなった光同士を線で結んでる。
 ================================ */
-const cvs = document.getElementById('fx');
-const ctx = cvs.getContext('2d');
-let W, H, dpr;
-function resize() {
-  dpr = Math.min(2, window.devicePixelRatio || 1);
-  W = cvs.width = Math.floor(innerWidth * dpr);
-  H = cvs.height = Math.floor(innerHeight * dpr);
-  cvs.style.width = innerWidth + 'px';
-  cvs.style.height = innerHeight + 'px';
-}
-resize();
-window.addEventListener('resize', resize);
+const canvas = document.getElementById("fx");
+const ctx = canvas.getContext("2d");
 
-const P = [];     //光データ配列.
-const COUNT = 90; //光の数.
-for (let i = 0; i < COUNT; i++) {
-  P.push({
-    x: Math.random() * W,
-    y: Math.random() * H,
-    vx: (Math.random() - 0.5) * 0.15,
-    vy: (Math.random() - 0.5) * 0.15,
-    r: Math.random() * 2.2 + 0.6,
-    a: Math.random() * Math.PI * 2
+let w, h;
+let particles = [];
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+//粒子生成.
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 2 + 0.5,
+    speed: Math.random() * 0.3 + 0.1,
+    alpha: Math.random() * 0.5 + 0.2,
+    drift: (Math.random() - 0.5) * 0.2 // ← 横揺れ追加
   });
 }
 
-function tick() {
-  ctx.clearRect(0, 0, W, H);
+function bgDraw() {
+  ctx.clearRect(0, 0, w, h);
 
-  //線で接続(近い点同士)
-  for (let i = 0; i < P.length; i++) {
-    for (let j = i + 1; j < P.length; j++) {
-      const dx = P[i].x - P[j].x;
-      const dy = P[i].y - P[j].y;
-      const d2 = dx*dx + dy*dy;
-      if (d2 < 12000) {
-        const o = 1 - d2 / 12000;
-        ctx.strokeStyle = `rgba(51,231,255,${o * 0.25})`;
-        ctx.lineWidth = 1 * dpr;
-        ctx.beginPath();
-        ctx.moveTo(P[i].x, P[i].y);
-        ctx.lineTo(P[j].x, P[j].y);
-        ctx.stroke();
-      }
+  /* =====================
+    ▼ 粒子
+  ===================== */
+  particles.forEach(p => {
+    p.y -= p.speed;
+    p.x += p.drift;
+
+    if (p.y < 0 || p.x < 0 || p.x > w) {
+      p.y = h + Math.random() * 50;
+      p.x = Math.random() * w;
     }
-  }
 
-  //粒子本体.
-  for (const p of P) {
-    p.x += p.vx * dpr; p.y += p.vy * dpr; p.a += 0.02;
-    if (p.x < 0) p.x += W; if (p.x > W) p.x -= W;
-    if (p.y < 0) p.y += H; if (p.y > H) p.y -= H;
-    const r = (Math.sin(p.a) * 0.5 + 0.5) * p.r + 0.6;
-    const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 6);
-    g.addColorStop(0, 'rgba(123,242,255,0.95)');
-    g.addColorStop(1, 'rgba(123,242,255,0)');
-    ctx.fillStyle = g;
     ctx.beginPath();
-    ctx.arc(p.x, p.y, r * 6, 0, Math.PI * 2);
-    ctx.fill();
-  }
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
 
-  requestAnimationFrame(tick);
+    ctx.fillStyle = `rgba(51,231,255,${p.alpha})`;
+    ctx.shadowColor = "#33e7ff";
+    ctx.shadowBlur = 10;
+
+    ctx.fill();
+  });
+
+  requestAnimationFrame(bgDraw);
 }
-tick();
+bgDraw();
 
 /* =============================== 
   ▼ カーソルの発光(PC用) ▼
 ================================ */
-const cursor = document.querySelector('.cursor i');
-let mx = 0, my = 0, tx = 0, ty = 0;
-let raf = null;
-function loop() {
-  tx += (mx - tx) * 0.18; ty += (my - ty) * 0.18;
-  if (!cursor) return;
-  cursor.style.transform = `translate(${tx}px, ${ty}px)`;
-  raf = requestAnimationFrame(loop);
-}
-window.addEventListener('pointermove', (e) => { mx = e.clientX; my = e.clientY; if (!raf) loop(); });
-window.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); raf = null; });
+document.addEventListener("DOMContentLoaded", () => {
+
+  const cursorWrap = document.querySelector('.cursor');
+  if (!cursorWrap) return;
+
+  // クリック時だけ波紋
+  window.addEventListener('click', (e) => {
+    createRipple(e.clientX, e.clientY);
+  });
+
+  function createRipple(x, y) {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+
+    cursorWrap.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 800);
+  }
+});

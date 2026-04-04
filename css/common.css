@@ -19,6 +19,7 @@
   --line: rgba(51,231,255,0.18);
   --grad: linear-gradient(135deg, var(--primary) 0%, #5bffef 40%, #7bf2ff 100%);
   --ui-scale: clamp(12px, 2.2vw, 18px);
+  --panel-back: linear-gradient(180deg, rgba(20,26,34,0.9), rgba(12,18,24,0.9));
 
   /* レイヤー */
   --z-bg     : -2;
@@ -108,18 +109,14 @@ section { scroll-margin-top: 80px; }
 ================================ */
 /* 区切り用パネル */
 .panel {
-  background: linear-gradient(
-    180deg,
-    rgba(20,26,34,0.95),   /* ← 少し明るく */
-    rgba(12,18,24,0.95)
-  );
+  background: var(--panel-back);
 
   border: 1px solid rgba(51,231,255,0.4); /* ← 少し強く */
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: var(--shadow);
 
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(14px, 2vw, 16px);
   line-height: 1.7;
 
   margin-bottom: 20px; /* ← これで間隔 */
@@ -132,7 +129,7 @@ section { scroll-margin-top: 80px; }
 /* パネル内の小見出し */
 .panel .subtitle {
   display: inline-block;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 800;
   margin-bottom: 8px;
 
@@ -157,33 +154,61 @@ section { scroll-margin-top: 80px; }
 
 /* =============================== 
   ▼ 背景 ▼
-  ネオングリッド + パーティクル
 ================================ */ 
 .bg-wrap {
   z-index: var(--z-bg);
   position: fixed; inset: 0; overflow: hidden;
+
   background:
-    radial-gradient(1000px 500px at 70% -10%, rgba(51,231,255,0.25), transparent 60%),
-    radial-gradient(800px 400px at 10% 0%, rgba(51,231,255,0.18), transparent 60%),
+    radial-gradient(800px 500px at 50% -20%, rgba(51,231,255,0.25), transparent 60%),
+    radial-gradient(600px 400px at 20% 0%, rgba(51,231,255,0.12), transparent 70%),
     #05080a;
 }
-.grid {
-  z-index: var(--z-bg-grid);
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(var(--line), var(--line)),
-    linear-gradient(90deg, var(--line), var(--line));
-  background-size: 1px 40px, 40px 1px;
-  background-repeat: repeat;
-  background-position: 0 0, 0 0;
-  transform: perspective(600px) rotateX(55deg) translateY(-20%);
-  transform-origin: top;
-  filter: drop-shadow(0 0 6px rgba(51,231,255,0.25));
-  opacity: 0.6;
+
+/* 光の柱 */
+.light-beams {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
-canvas#fx {
-  z-index: var(--z-bg-grid);
-  position: fixed; inset: 0; pointer-events: none;
+
+.light-beams::before,
+.light-beams::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  width: 40%;
+  height: 140%;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(51,231,255,0.15),
+    rgba(51,231,255,0.05),
+    transparent
+  );
+
+  filter: blur(40px);
+  opacity: 0.6;
+  animation: beamMove 12s ease-in-out infinite alternate;
+}
+
+/* 左 */
+.light-beams::before {
+  left: 10%;
+  transform: rotate(10deg);
+}
+
+/* 右 */
+.light-beams::after {
+  right: 10%;
+  transform: rotate(-10deg);
+  animation-delay: 2s;
+}
+
+@keyframes beamMove {
+  from { transform: translateY(-30px) rotate(8deg); }
+  to   { transform: translateY(30px) rotate(12deg); }
 }
 
 /* =============================== 
@@ -198,59 +223,78 @@ canvas#fx {
   place-items: center;
   z-index: var(--z-intro);
   overflow: hidden;
-  /* 終わり */
-  animation: intro-end 1.0s ease forwards;
-  animation-delay: 1.2s;
+  /* フェードアウト */
+  animation: intro-end 1.5s ease forwards;
+  animation-delay: 1.3s;
 }
 
 .intro-text {
   position: relative;
   z-index: 1;
-  font-size: 3rem;
+
+  font-size: clamp(35px, 6vw, 48px);
   font-weight: 900;
   text-align: center;
   color: #59fffc;
+
   text-shadow:
     0 0 6px #59fffc,
     0 0 18px #13aabe,
     0 0 36px rgba(51,231,255,0.25);
+
+  display: inline-block;
+  padding-bottom: 10px;
+  opacity: 0;
+
+  /* フェードイン */
+  animation: introFade 1.0s ease forwards;
 }
 
-.hex-mask {
+.intro-text::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
+  left: 0;
+  bottom: 0;
 
-  background:
-    repeating-linear-gradient(
-      60deg,
-      rgba(10,12,15,1) 0 18px,
-      transparent 18px 36px
-    ),
-    repeating-linear-gradient(
-      -60deg,
-      rgba(10,12,15,1) 0 18px,
-      transparent 18px 36px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(10,12,15,1) 0 18px,
-      transparent 18px 36px
-    );
+  width: 100%;
+  height: 2px;
 
-  animation: hex-wipe 0.8s ease-in forwards;
+  /* ▼ ベースライン（薄い） */
+  background: rgba(51,231,255,0.2);
+  overflow: hidden;
 }
 
-@keyframes hex-wipe {
-  0% {
-    mask-position: 100% 0;
-    opacity: 1;
-  }
-  100% {
-    mask-position: -120% 0;
-    opacity: 0;
-  }
+/* ▼ 動く光 */
+.intro-text::before {
+  content: "";
+  position: absolute;
+  left: 0%; /* 初期位置 */
+  bottom: 0;
+  
+  width: 50%;
+  height: 2px;
+  
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary),
+    transparent
+    );
+    
+  filter: blur(2px);
+  clip-path: inset(0 0 0 0);
+
+  animation: introLine 1.8s linear forwards;
+}
+
+@keyframes introFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes introLine {
+  0%   { left: -10%; }
+  80%  { left: 50%; }
+  100% { left: 50%; opacity: 0.6; }
 }
 @keyframes intro-end {
   to {
@@ -539,7 +583,9 @@ footer {
 @media (max-width: 640px) { .card_list { grid-template-columns: 1fr; } }
 
 .card {
-  position: relative; background: linear-gradient(180deg, rgba(11,16,22,0.9), rgba(9,13,17,0.9));
+  position: relative; 
+  background: var(--panel-back);
+
   border: 1px solid rgba(51,231,255,0.28);
   border-radius: var(--radius); padding: 14px; overflow: hidden;
   box-shadow: var(--shadow);
@@ -596,7 +642,7 @@ footer {
   letter-spacing: 0.4px;
 
   /* 背景 */
-  background: rgb(31, 59, 74);
+  background: rgba(13, 56, 62, 0.9);
   /* 枠 */
   border: 1px solid rgba(51,231,255,0.6);
   /* 文字を発光 */
@@ -660,8 +706,36 @@ footer {
   to { transform: translateX(100%); }
 }
 
-/* カスタムカーソル（PCのみ） */
-@media (hover: hover) and (pointer: fine) {
-  .cursor   { position: fixed; inset: 0; pointer-events: none; z-index: 1000; mix-blend-mode: screen; }
-  .cursor i { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); filter: blur(10px) brightness(1.6); opacity: 0.9; transform: translate(-50%, -50%); }
+/* =============================== 
+  ▼ タップ演出 ▼
+================================ */
+.cursor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(51,231,255,0.8);
+
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0.8;
+
+  animation: rippleAnim 0.8s ease-out forwards;
+
+  box-shadow:
+    0 0 10px rgba(51,231,255,0.8),
+    0 0 20px rgba(51,231,255,0.4);
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
 }
