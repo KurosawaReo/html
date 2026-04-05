@@ -93,6 +93,30 @@ img {
     inset 0 0 4px rgba(51,231,255,0.15);
 }
 
+/* 強調テキスト */
+.notice-text {
+  display: inline-block;
+
+  margin-bottom: 12px;
+  padding: 6px 12px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #ffdede; /* ← 薄赤文字 */
+
+  border-left: 3px solid rgba(255,120,120,0.7);
+
+  background: rgba(255,80,80,0.06);
+
+  border-radius: 6px;
+
+  /* ▼ ほんのり発光 */
+  box-shadow:
+    0 0 8px rgba(255,120,120,0.25),
+    inset 0 0 6px rgba(255,120,120,0.15);
+}
+
 .pillbar { 
   display: flex; 
   gap: calc(var(--ui-scale) * 0.4);
