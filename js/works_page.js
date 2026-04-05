@@ -47,6 +47,20 @@ if (window.matchMedia('(hover: hover)').matches) {
 }
 
 /* =============================== 
+  ▼ サウンドボタン ▼
+================================ */
+document.querySelectorAll(".sound-btn").forEach(btn => {
+  const se = btn.querySelector("audio");
+
+  btn.addEventListener("click", () => {
+    if (!se) return;
+
+    se.currentTime = 0; //連打対応.
+    se.play();
+  });
+});
+
+/* =============================== 
   ▼ slick ▼
 ================================ */
 $(function(){

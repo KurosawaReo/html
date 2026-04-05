@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <!-- cssファイル -->
-  <link rel="stylesheet" href="../../plugins/slick/slick.css">
-  <link rel="stylesheet" href="../../plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="../../plugins/lightbox2/css/lightbox.min.css">
   <link rel="stylesheet" href="../../plugins/KrLib_html/kr_common.css">
   <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/works_page.css">
   <!-- jsファイル -->
   <script src="../../plugins/jquery/jquery-3.7.0.min.js"></script>
-  <script src="../../plugins/slick/slick.min.js"></script>
+  <script src="../../plugins/lightbox2/js/lightbox.min.js"></script>
 </head>
 <body>
 
@@ -162,11 +161,17 @@
           <div class="kr-layout_grid">
             <p>
               3日経過時点
-              <img src="../../img/works/trans_water/old_version.png">
+              <a href="../../img/works/trans_water/old_version.png" data-lightbox="trans_water" class="zoom-icon-parent">
+                <img src="../../img/works/trans_water/old_version.png" class="panel-img">
+                <img src="../../img/works/zoom-icon.png" class="zoom-icon">
+              </a>
             </p>
             <p>
               完全版
-              <img src="../../img/works/trans_water/card_image.png">
+              <a href="../../img/works/trans_water/card_image.png" data-lightbox="trans_water" class="zoom-icon-parent">
+                <img src="../../img/works/trans_water/card_image.png" class="panel-img">
+                <img src="../../img/works/zoom-icon.png" class="zoom-icon">
+              </a>
             </p>
           </div>
         
@@ -182,11 +187,17 @@
           <div class="kr-layout_grid">
             <p>
               レイヤー1<br>
-              <img src="../../img/works/trans_water/stage_layer1.png">
+              <a href="../../img/works/trans_water/stage_layer1.png" data-lightbox="trans_water" class="zoom-icon-parent">
+                <img src="../../img/works/trans_water/stage_layer1.png" class="panel-img">
+                <img src="../../img/works/zoom-icon.png" class="zoom-icon">
+              </a>
             </p>
             <p>
               レイヤー2<br>
-              <img src="../../img/works/trans_water/stage_layer2.png">
+              <a href="../../img/works/trans_water/stage_layer2.png" data-lightbox="trans_water" class="zoom-icon-parent">
+                <img src="../../img/works/trans_water/stage_layer2.png" class="panel-img">
+                <img src="../../img/works/zoom-icon.png" class="zoom-icon">
+              </a>
             </p>
           </div>
   
@@ -199,7 +210,7 @@
         <div class="panel">
           <b class="subtitle">ふわっとした雲の動き</b>
           <p>
-            <img src="../../img/works/trans_water/cloud.gif">
+            <img src="../../img/works/trans_water/cloud.gif" class="panel-img">
           </p>
           <p> 
             プレイヤー(水蒸気)の制御も担当しました。
@@ -230,6 +241,6 @@
   <script src="../../js/works_page.js"></script>
 
   <!-- マウスカーソル -->
-  <div class="cursor" aria-hidden="true"><i></i></div>
+  <div class="cursor"></div>
 </body>
 </html>

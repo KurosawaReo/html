@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <!-- cssファイル -->
-  <link rel="stylesheet" href="../../plugins/slick/slick.css">
-  <link rel="stylesheet" href="../../plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="../../plugins/lightbox2/css/lightbox.min.css">
   <link rel="stylesheet" href="../../plugins/KrLib_html/kr_common.css">
   <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/works_page.css">
   <!-- jsファイル -->
   <script src="../../plugins/jquery/jquery-3.7.0.min.js"></script>
-  <script src="../../plugins/slick/slick.min.js"></script>
+  <script src="../../plugins/lightbox2/js/lightbox.min.js"></script>
 </head>
 <body>
 
@@ -74,7 +73,7 @@
           <p>
             「首が伸びる」「噛みつく」というユニークな発想を卒業生の方々に評価され、OB賞に選ばれました！
           </p>
-          <img src="../../img/works/pac_muscle/ob_award.jpg" width="500">
+          <img src="../../img/works/pac_muscle/ob_award.jpg" class="panel-img" width="500">
         </div>
       </div>
     </section>
@@ -183,13 +182,24 @@
           <p> 
             チームメンバーと協力し、CSVでマップを生成する拡張機能を即興で開発しました。<br>
           </p>
-          <img src="../../img/works/pac_muscle/map_editor_old.png" width="500">
+          <p class="image-row">
+            <a href="../../img/works/pac_muscle/map_editor_old.png" data-lightbox="pac_muscle" class="zoom-icon-parent">
+              <img src="../../img/works/pac_muscle/map_editor_old.png" class="panel-img">
+              <img src="../../img/works/zoom-icon.png" class="zoom-icon">
+            </a>
+          </p>
           <p>
             後日、レイアウトを整えて完全版に仕上げました。
           </p>
-          <p>
-            <img src="../../img/works/pac_muscle/map_editor_new1.png" width="500">
-            <img src="../../img/works/pac_muscle/map_editor_new2.png" width="500">
+          <p class="image-row">
+            <a href="../../img/works/pac_muscle/map_editor_new1.png" data-lightbox="pac_muscle" class="zoom-icon-parent">
+              <img src="../../img/works/pac_muscle/map_editor_new1.png" class="panel-img">
+              <img src="../../img/works/zoom-icon.png" class="zoom-icon">
+            </a>
+            <a href="../../img/works/pac_muscle/map_editor_new2.png" data-lightbox="pac_muscle" class="zoom-icon-parent">
+              <img src="../../img/works/pac_muscle/map_editor_new2.png" class="panel-img">
+              <img src="../../img/works/zoom-icon.png" class="zoom-icon">
+            </a>
           </p>
         </div>
       </div>
@@ -215,6 +225,6 @@
   <script src="../../js/works_page.js"></script>
 
   <!-- マウスカーソル -->
-  <div class="cursor" aria-hidden="true"><i></i></div>
+  <div class="cursor"></div>
 </body>
 </html>

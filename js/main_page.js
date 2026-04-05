@@ -31,3 +31,6 @@ document.getElementById("works-card-06").onclick = () => {
 document.getElementById("works-card-07").onclick = () => {
   location.href = "pages/works/trans_water.html";
 };
+document.getElementById("works-card-08").onclick = () => {
+  location.href = "pages/works/ai_goal.html";
+};

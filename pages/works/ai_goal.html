@@ -19,7 +19,7 @@
   <!-- イントロアニメーション -->
   <div id="intro">
     <h1 class="intro-text">
-      5host
+      AI Goal
     </h1>
   </div>
 
@@ -49,10 +49,7 @@
           <span class="side-toc-dot">・</span><a href="#contents-overview">作品概要</a>
         </p>
         <p>
-          <span class="side-toc-dot">・</span><a href="#contents-theme">テーマ</a>
-        </p>
-        <p>
-          <span class="side-toc-dot">・</span><a href="#contents-commitment">こだわりポイント</a>
+          <span class="side-toc-dot">・</span><a href="#contents-results">研究結果</a>
         </p>
       </div>
     </div>
@@ -62,55 +59,36 @@
 
   <!-- サイト本体 -->
   <main class="wrap">
- 
+
     <section id="contents-overview">
       <h2 class="h2 neon">作品概要</h2>
       <!-- 画像 -->
       <div class="panel">
-        <img src="../../img/works/5host/card_image.png" class="kr-layout_center-img">
+        <section id="img-slider">
+          <iframe
+            src="https://www.youtube.com/embed/SJM3kYxhm34"
+            width="100%"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            class="kr-layout_center-iframe"
+          ></iframe>
+          <img src="../../img/works/ai_goal/card_image.png">
+        </section>
       </div>
       <!-- 表 -->
       <div class="panel">
         <table class="info-table">
           <tr>
             <td>開発期間</td>
-            <td>3日間 (2024/08/09 ~ 08/11)</td>
-          </tr>
-          <tr>
-            <td>プレイ人数</td>
-            <td>
-              1人
-              <span class="person-icons">
-                <span class="person-icon"></span>
-              </span>
-            </td>
+            <td>3日間 (2026/02/13 ~ 02/15)</td>
           </tr>
           <tr>
             <td>開発人数</td>
             <td>
-              5人
+              1人
               <span class="person-icons">
                 <span class="person-icon"></span>
-                <span class="person-icon"></span>
-                <span class="person-icon"></span>
-                <span class="person-icon"></span>
-                <span class="person-icon"></span>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>ジャンル</td>
-            <td>
-              <span class="pillbar">
-                <span class="pill">脱出</span>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>操作端末</td>
-            <td>
-              <span class="pillbar">
-                <span class="pill">キーボード</span>
               </span>
             </td>
           </tr>
@@ -120,51 +98,50 @@
               <span class="pillbar">
                 <span class="pill">Unity</span>
                 <span class="pill">C#</span>
+                <span class="pill">Python</span>
+                <span class="pill">venv</span>
+                <span class="pill">ML Agents</span>
               </span>
             </td>
           </tr>
         </table>
       </div>
-      <!-- リンク -->
-      <div class="panel">
-        <b class="subtitle">リンク</b>
-        <p>
-          <a href="https://unityroom.com/games/5host" target="_blank" class="btn-link">
-            unityroom>>
-          </a>
-        </p>
-      </div>
     </section>
 
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
-    <section id="contents-theme">
+    <section id="contents-results">
       <div class="fade-in">
-        <h2 class="h2 neon">テーマ</h2>
-        <div class="panel">
-          このゲームは、即興で決められたチーム・テーマで3日間で作りました。<br>
-          <br>
-          テーマ「5」<br>
-          5 → 五つ子・五感<br>
-        </div>
-      </div>
-    </section>
-
-    <div class="neon-line"></div> <!-- グラデーション線 -->
-
-    <section id="contents-commitment">
-      <div class="fade-in">
-        <h2 class="h2 neon">こだわりポイント</h2>
+        <h2 class="h2 neon">研究結果</h2>
 
         <div class="panel">
-          <b class="subtitle">アニメーション</b>
+          <b class="subtitle">報酬設計</b>
           <p>
-            セリフや部屋移動のアニメーションを作りました。
-            Unityのアニメーション機能は使わず、プログラムで座標を計算しています。
+            ・ターゲットに近づけば加点(近づくほど)<br>
+            ・敵に近づけば減点(近づくほど)<br>
+            ・壁に当たると-0.5<br>
+            ・ターゲットに当たると+1.5<br>
+            ・敵に当たると-3.0<br>
+            敵に当たった場合と、ターゲットに当たった場合はチームで報酬を共有
+          </p>
+          <b class="subtitle">失敗例</b>
+          <p>
+            ・壁がない → 外に逃げ続けてしまう<br>
+            ・敵に近づいてもペナルティがない → 敵を避けない<br>
+            ・敵がひたすらAIを追いかける → 進展が少ない
+          </p>
+          <b class="subtitle">強化学習のコツ</b>          
+          <p>
+            ・各オブジェクトの座標を伝えるより、相対座標を伝えた方が学びやすい<br>
+            　→AI目線で考えられるように<br>
+            ・最初は簡単にして、ある程度学ばせてから難易度を上げると学びやすい<br>
+            　→まずは目標に向かうところから、次に敵を追加
           </p>
         </div>
       </div>
     </section>
+
+    <!-- TODO: DT砲の動画撮って乗せる -->
 
     <p>
       <a href="../../" class="back-button">メインページへ戻る</a>
