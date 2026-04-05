@@ -109,69 +109,76 @@
           }
         </code></pre>
 
-        <h2>InitDx</h2>
-        <table>
-          <tr>
-            <th>引数</th>
-            <td>int</td>
-            <td>windowWid</td>
-            <td>画面の横幅</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td>int</td>
-            <td>windowHei</td>
-            <td>画面の縦幅</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td>bool</td>
-            <td>isWindowMode</td>
-            <td>全画面にするか</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td>int</td>
-            <td>fps</td>
-            <td>Update / Draw処理を行うフレームレート</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td>bool</td>
-            <td>isVSync</td>
-            <td>垂直同期</td>
-          </tr>
-          <tr>
-            <th>返り値</th>
-            <td>ResultInt</td>
-            <td>処理の結果</td>
-          </tr>
-        </table>
-  
-        <h2>LoopDx</h2>
-        <p>
-          毎フレーム呼び出す関数です。<br>
-          内部で Update / Draw が実行されます。
+        <p class="subtitle">
+          InitDx
+          <span class="label">static</span>
         </p>
+        <!-- 関数データ -->
+        <div class="fn-meta">
+          <div class="fn-block">
+            <!-- 引数 -->
+            <div class="fn-title">引数</div>
+            <dl class="fn-list">
+              <div class="fn-item">
+                <dt><span class="type">int</span> windowWid</dt>
+                <dd>画面の横幅</dd>
+              </div>
+              <div class="fn-item">
+                <dt><span class="type">int</span> windowHei</dt>
+                <dd>画面の縦幅</dd>
+              </div>
+              <div class="fn-item">
+                <dt><span class="type">bool</span> isWindowMode</dt>
+                <dd>全画面にするか</dd>
+              </div>
+              <div class="fn-item">
+                <dt><span class="type">int</span> fps</dt>
+                <dd>Update / Draw処理のフレームレート</dd>
+              </div>
+              <div class="fn-item">
+                <dt><span class="type">bool</span> isVSync</dt>
+                <dd>垂直同期</dd>
+              </div>
+            </dl>
+          </div>
+          <!-- 返り値 -->
+          <div class="fn-block">
+            <div class="fn-title">返り値</div>
+            <dl class="fn-list">
+              <div class="fn-item">
+                <dt><span class="type">ResultInt</span></dt>
+                <dd>処理の結果</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
   
-        <h2>Init</h2>
-        <p>アプリ開始時に一度だけ呼ばれます。</p>
+        <p class="subtitle">
+          LoopDx
+          <span class="label">static</span>
+        </p>
+        <!-- 関数データ -->
+        <div class="fn-meta">
+          <div class="fn-block">
+            <!-- 引数 -->
+            <div class="fn-title">引数</div>
+            <dl class="fn-list">
+              <div class="fn-item">
+                <dt>なし</dt>
+              </div>
+            </dl>
+          </div>
+          <!-- 返り値 -->
+          <div class="fn-block">
+            <div class="fn-title">返り値</div>
+            <dl class="fn-list">
+              <div class="fn-item">
+                <dt>なし</dt>
+              </div>
+            </dl>
+          </div>
+        </div>
   
-        <h2>Update</h2>
-        <p>毎フレームの更新処理を記述します。</p>
-  
-        <h2>Draw</h2>
-        <p>描画処理を記述します。</p>
-  
-        <!-- Getter -->
-        <h2>取得できる情報</h2>
-        <table>
-          <tr><th>関数</th><th>内容</th></tr>
-          <tr><td>GetWindowX()</td><td>画面幅</td></tr>
-          <tr><td>GetWindowY()</td><td>画面高さ</td></tr>
-          <tr><td>GetWindowRect()</td><td>画面矩形</td></tr>
-          <tr><td>GetFps()</td><td>現在のFPS</td></tr>
-        </table>
       </div>
 
     </section>

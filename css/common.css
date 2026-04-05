@@ -75,9 +75,11 @@ img {
 
 /* インラインコード */
 .inline-code {
-  padding: 4px 5px;
+  padding: 0px 5px;
   border-radius: 6px;
 
+  display: inline-flex;
+  align-items: center;
   font-family: monospace;
   font-size: 0.85em;
 
@@ -89,9 +91,6 @@ img {
   box-shadow:
     0 0 6px rgba(51,231,255,0.25),
     inset 0 0 4px rgba(51,231,255,0.15);
-
-  /* ▼ これ追加 */
-  vertical-align: middle;
 }
 
 .pillbar { 
@@ -172,7 +171,7 @@ img {
 /* パネル内の見出し */
 .panel .title {
   display: inline-block;
-  font-size: clamp(20px, 3vw, 22px);
+  font-size: clamp(18px, 3vw, 22px);
   font-weight: 800;
   margin-bottom: 8px;
 
@@ -193,7 +192,7 @@ img {
   align-items: center;
   gap: 4px;
 
-  font-size: clamp(20px, 3vw, 22px);
+  font-size: clamp(20px, 3vw, 24px);
   font-weight: 800;
 
   margin-bottom: 10px;
@@ -250,12 +249,12 @@ img {
 .panel .subtitle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: clamp(10px, 2vw, 12px);
 
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(18px, 2vw, 22px);
   font-weight: 800;
 
-  margin: 20px 0 8px;
+  margin: 5px 0 8px;
 
   /* ▼ titleと同系色 */
   color: var(--ink);
@@ -267,8 +266,7 @@ img {
 
   position: relative;
 }
-
-/* ▼ 左アクセントバー（トーン統一） */
+/* ▼ 左アクセントバー */
 .panel .subtitle::before {
   content: "";
   width: 3px;
@@ -283,6 +281,33 @@ img {
   box-shadow:
     0 0 6px rgba(51,231,255,0.6),
     0 0 10px rgba(51,231,255,0.3);
+}
+/* ▼ subtitleの右ラベル */
+.subtitle .label {
+  padding: 1px clamp(8px, 2vw, 10px);
+
+  font-size: clamp(12px, 2vw, 15px);
+  font-weight: 700;
+
+  border-radius: 999px;
+
+  color: #aef6ff;
+
+  background: rgba(51,231,255,0.08);
+  border: 1px solid rgba(51,231,255,0.35);
+
+  /* ▼ 控えめな発光 */
+  box-shadow:
+    0 0 6px rgba(51,231,255,0.3),
+    inset 0 0 4px rgba(51,231,255,0.15);
+
+  /* ▼ 高さ合わせ */
+  display: inline-flex;
+  align-items: center;
+
+  /* ▼ 少しだけ下げて中央補正 */
+  position: relative;
+  top: 1px;
 }
 
 /* =============================== 
