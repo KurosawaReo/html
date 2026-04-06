@@ -1,70 +1,83 @@
 /*
   - kr_common.css - (HTML)
-  ver.2026/04/05
+  ver.2026/04/06
 
   汎用的に使えるデザインやレイアウトの設定。
 */
 @charset "utf-8";
 
 /* =============================== 
-  PCでは横並び(2つまで)、スマホでは縦並びにする
+  [レイアウト] 
+  左側基準。PCでは2つまで横並び、スマホでは縦並びにする。
 ================================ */
 .kr-layout_grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start; /* ← 左から配置 */
   align-items: flex-start;
-  padding: 10px; /* 外側の余白 */
-  gap: 15px;     /* 画像間の余白 */
+  padding: 10px;
+  gap: 15px;
   box-sizing: border-box;
 }
-.kr-layout_grid p {
-  flex: 1 1 45%;  /* widthの代わり */
+
+.kr-layout_grid > div {
+  flex: 1 1 45%;
   max-width: 50%;
   text-align: center;
-  margin: 0;
 }
-.kr-layout_grid p img {
+
+.kr-layout_grid img {
   max-width: 100%;
   height: auto;
 }
 
-/* スマホ用 */
+/* スマホ */
 @media screen and (max-width: 768px) {
   .kr-layout_grid {
     flex-direction: column;
-    gap: 15px;
   }
-  .kr-layout_grid p {
+  .kr-layout_grid > div {
     max-width: 100%;
   }
 }
 
 /* =============================== 
-  PCでは横並び(いくつでも)、スマホでは縦並びにする
+  [レイアウト]
+  左側基準。可能な限り横に並べる。
+  画面サイズが小さくなると改行する。
 ================================ */
 .kr-layout_grid-nolimit {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* PCでは横に並び続ける */
+}
+
+/* 各アイテムの見た目調整 */
+.kr-layout_grid-nolimit div {
+  text-align: center;
+}
+
+/* =============================== 
+  [レイアウト]
+  中央基準。可能な限り横に並べる。
+  画面サイズが小さくなると改行する。
+================================ */
+.kr-layout_grid-nolimit-center {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap; /* PCでは横に並び続ける */
 }
 
-/* 各アイテムの見た目調整（任意） */
-.kr-layout_grid-nolimit p {
+/* 各アイテムの見た目調整 */
+.kr-layout_grid-nolimit-center div {
   text-align: center;
 }
 
-/* スマホでは縦並び */
-@media (max-width: 768px) {
-  .kr-layout_grid-nolimit {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 /* =============================== 
-  画像と説明テキストを並べる
+  [レイアウト]
+  画像の右に説明テキスト。
 ================================ */
 .kr-layout_img-and-desc {
   display: flex;
@@ -88,7 +101,8 @@
 }
 
 /* =============================== 
-  中央基準用
+  [レイアウト]
+  中央基準用。
 ================================ */
 /* 画像 */
 .kr-layout_center-img {

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Kurosawa Reo</title>
+  <!-- cssファイル -->
+  <link rel="stylesheet" href="../../plugins/KrLib_html/kr_common.css">
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/details_page.css">
+</head>
+<body>
+
+  <!-- イントロアニメーション -->
+  <div id="intro">
+    <h1 class="intro-text">
+      学生活動
+    </h1>
+  </div>
+
+  <!-- 背景 -->
+  <div class="bg-wrap">
+    <div class="light-beams"></div>
+    <canvas id="fx"></canvas>
+  </div>
+
+  <!-- ヘッダー -->
+  <header>
+    <nav class="nav">
+      <div class="brand">PORTFOLIO</div>
+      <div class="spacer"></div> <!-- スペース -->
+      <a href="../../">メインページ</a>
+    </nav>
+  </header>
+
+  <!-- スライド式サイド目次 -->
+  <aside class="side-toc">
+    <div class="side-toc-inner">
+
+      <h2 class="title">目次</h2>
+
+      <div class="contents">
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-overview">概要</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-award">実績</a>
+        </p>
+      </div>
+    </div>
+  </aside>
+  <!-- サイド目次 | スマホ用タップ判定 -->
+  <div class="side-toc-touch-area" aria-hidden="true"></div>
+
+  <!-- サイト本体 -->
+  <main class="wrap">
+
+    <section id="contents-overview">
+      <h2 class="h2 neon">概要</h2>
+      <!-- 画像 -->
+      <div class="panel">
+        <img src="../../img/activity/real/card_image.png" class="kr-layout_center-img">
+      </div>  
+    </section>
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+
+    <section id="contents-award">
+      <div class="fade-in">
+        <h2 class="h2 neon">実績</h2>
+        
+        <div class="panel">
+          <b class="title">アイデア賞受賞</b>
+          <p>
+            「全国専門学校ゲームコンペティション」にて、チームで制作した作品が全196作品の中から選抜され、受賞しました！
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <img src="../../img/activity/real/idea_arard.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <b class="title">全教科最高評価</b>
+          <p>
+            学校の成績で、1・2年次で全教科最高評価を取得しました！<br>
+            1年次の賞状はこちらです。
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <img src="../../img/activity/real/yda1_special_award.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+
+    <section id="contents-award">
+      <div class="fade-in">
+        <h2 class="h2 neon">掲載中</h2>
+
+        <div class="panel">
+          TODO
+        </div>
+      </div>
+    </section>
+
+    <p>
+      <a href="../../" class="back-button">メインページ</a>
+    </p>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <small>
+      最終更新日: 2026/04/06<br>
+      随時更新中<br>
+      <br>
+      ©2025-2026 Kurosawa Reo Portfolio
+    </small>
+  </footer>
+
+  <!-- jsファイル -->
+  <script src="../../js/common.js"></script>
+  <script src="../../js/details_page.js"></script>
+
+  <!-- マウスカーソル -->
+  <div class="cursor"></div>
+</body>
+</html>

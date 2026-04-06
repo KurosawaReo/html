@@ -3,11 +3,11 @@
   ▼ ページ移動 ▼
   カードをクリックで開く。
 ================================ */
-document.getElementById("profiles-card-real").onclick = () => {
-  location.href = "pages/profiles/real.html";
+document.getElementById("activity-card-real").onclick = () => {
+  location.href = "pages/activity/real.html";
 };
-document.getElementById("profiles-card-net").onclick = () => {
-  location.href = "pages/profiles/net.html";
+document.getElementById("activity-card-net").onclick = () => {
+  location.href = "pages/activity/net.html";
 };
 
 document.getElementById("works-card-01").onclick = () => {
