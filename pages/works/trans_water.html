@@ -72,26 +72,10 @@
       <div class="panel">
         <table class="info-table">
           <tr>
-            <td>開発期間</td>
-            <td>3日間 (2024/07/22 ~ 07/24)</td>
-          </tr>
-          <tr>
             <td>プレイ人数</td>
             <td>
               1人
               <span class="person-icons">
-                <span class="person-icon"></span>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>開発人数</td>
-            <td>
-              4人
-              <span class="person-icons">
-                <span class="person-icon"></span>
-                <span class="person-icon"></span>
-                <span class="person-icon"></span>
                 <span class="person-icon"></span>
               </span>
             </td>
@@ -112,12 +96,41 @@
               </span>
             </td>
           </tr>
+        </table>
+      </div>
+      <div class="panel">
+        <table class="info-table">
+          <tr>
+            <td>開発期間</td>
+            <td>3日間 (2024/07/22 ~ 07/24)</td>
+          </tr>
+          <tr>
+            <td>開発人数</td>
+            <td>
+              4人
+              <span class="person-icons">
+                <span class="person-icon"></span>
+                <span class="person-icon"></span>
+                <span class="person-icon"></span>
+                <span class="person-icon"></span>
+              </span>
+            </td>
+          </tr>
           <tr>
             <td>使用技術</td>
             <td>
               <span class="pillbar">
                 <span class="pill">Unity</span>
                 <span class="pill">C#</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>担当</td>
+            <td>
+              <span class="pillbar">
+                <span class="pill">プレイヤー (水蒸気)</span>
+                <span class="pill">レベルデザイン</span>
               </span>
             </td>
           </tr>
@@ -158,20 +171,23 @@
 
         <div class="panel">
           <b class="title">レベルデザイン</b>
+          <p>
+            レベルデザインは、アセットを使って制作しました。<br>
+            ステージは1つのみですが、一通り遊べる段階まで作り終えました。<br>
+            <br>
+            3日間で作ったステージは背景がなく質素だったので、後日レベルデザインを改修し、緑豊かなステージにしました。
+          </p>
+
           <div class="kr-layout_grid">
             <div>
-              <p>
-                3日経過時点
-              </p>
+              <b>3日経過時点</b>
               <a href="../../img/works/trans_water/old_version.webp" data-lightbox="trans_water" class="zoom-icon-parent">
                 <img src="../../img/works/trans_water/old_version.webp" class="panel-img">
                 <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
               </a>
             </div>
             <div>
-              <p>
-                完全版
-              </p>
+              <b>完全版</b>
               <a href="../../img/works/trans_water/card_image.webp" data-lightbox="trans_water" class="zoom-icon-parent">
                 <img src="../../img/works/trans_water/card_image.webp" class="panel-img">
                 <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
@@ -179,50 +195,36 @@
             </div>
           </div>
         
-          <p> 
-            アセットを使い、レベルデザインは全て自分が担当しました。<br>
-            <br>
-            ステージは1つのみですが、一通り遊べる段階まで作り終えました。<br>
-            しかし、3日間で作ったものは背景がなく質素だったので、後日レベルデザインを改修し、背景追加と地形の変更を行いました。<br>
-            <br>
-            このように、今あるパーツを組み合わせて作ることが得意です。
+          <p>
+            TilePalleteを2つ重ねて地形を表現しています。<br>
+            レイヤー1の地形のみ当たり判定があり、レイヤー2に当たり判定はありません。<br>
           </p>
-  
           <div class="kr-layout_grid">
             <div>
-              <p>
-                レイヤー1
-              </p>
+              <b>レイヤー1</b>
               <a href="../../img/works/trans_water/stage_layer1.webp" data-lightbox="trans_water" class="zoom-icon-parent">
                 <img src="../../img/works/trans_water/stage_layer1.webp" class="panel-img">
                 <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
               </a>
             </div>
             <div>
-              <p>
-                レイヤー2
-              </p>
+              <b>レイヤー2</b>
               <a href="../../img/works/trans_water/stage_layer2.webp" data-lightbox="trans_water" class="zoom-icon-parent">
                 <img src="../../img/works/trans_water/stage_layer2.webp" class="panel-img">
                 <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
               </a>
             </div>
           </div>
-  
-          <p>
-            TilePalleteを使い、ステージを作りました。<br>
-            2つのレイヤーで使い分けていて、レイヤー1の地形のみ当たり判定があり、レイヤー2に当たり判定はありません。<br>
-          </p>
         </div>
         
         <div class="panel">
           <b class="title">ふわっとした雲の動き</b>
-          <p>
-            <img src="../../img/works/trans_water/cloud.gif" class="panel-img">
-          </p>
           <p> 
             プレイヤー(水蒸気)の制御も担当しました。
             雲のようにゆっくり動く表現をするため、慣性を入れています。
+          </p>
+          <p>
+            <img src="../../img/works/trans_water/cloud.gif" class="panel-img">
           </p>
         </div>
 
@@ -237,7 +239,7 @@
   <!-- フッター -->
   <footer>
     <small>
-      最終更新日: 2026/04/05<br>
+      最終更新日: 2026/04/09<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio
