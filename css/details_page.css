@@ -629,3 +629,57 @@ pre::-webkit-scrollbar-thumb:active {
     #33e7ff
   );
 }
+
+/* ===============================
+  ▼ 参考リンク ▼
+================================ */
+.ref-box {
+  padding: 6px 10px;
+
+  font-size: 13x;
+  line-height: 1.2;
+
+
+  color: #aaa;
+
+  border-left: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.02);
+}
+
+.ref-label {
+  margin-right: 6px;
+  font-weight: 600;
+  color: #888;
+}
+
+.ref-box a {
+  color: #888;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.ref-box a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+/* ===============================
+  ▼ プレゼン資料 ▼
+================================ */
+.ppt-frame {
+  width: 100%;
+  height: 500px; /* PC */
+}
+
+.ppt-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* スマホ */
+@media (max-width: 768px) {
+  .ppt-frame {
+    height: 320px;
+  }
+}
