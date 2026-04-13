@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Kurosawa Reo</title>
   <!-- cssファイル -->
+  <link rel="stylesheet" href="../../plugins/lightbox2/css/lightbox.min.css">
   <link rel="stylesheet" href="../../plugins/KrLib_html/kr_common.css">
   <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/details_page.css">
+  <!-- jsファイル -->
+  <script src="../../plugins/jquery/jquery-3.7.0.min.js"></script>
+  <script src="../../plugins/lightbox2/js/lightbox.min.js"></script>
 </head>
 <body>
 
@@ -46,6 +50,15 @@
         <p>
           <span class="side-toc-dot">・</span><a href="#contents-award">実績</a>
         </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-exhibition">作品展示</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-game-circle">サークル活動</a>
+        </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-gamejam">ゲームジャム運営</a>
+        </p>
       </div>
     </div>
   </aside>
@@ -76,20 +89,33 @@
           </p>
           <div class="kr-layout_grid">
             <div>
-              <img src="../../img/activity/real/idea_arard.webp">
+              <a href="../../img/activity/real/idea_arard.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/idea_arard.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
             </div>
           </div>
         </div>
-
+        
         <div class="panel">
-          <b class="title">全教科最高評価</b>
+          <b class="title">学年成績一位</b>
           <p>
-            学校の成績で、1・2年次で全教科最高評価を取得しました！<br>
-            1年次の賞状はこちらです。
+            学校の成績で、1・2年次で全教科最高評価を取得し、学年で成績一位になりました！<br>
           </p>
           <div class="kr-layout_grid">
             <div>
-              <img src="../../img/activity/real/yda1_special_award.webp">
+              <b>1年次</b>
+              <a href="../../img/activity/real/yda1_special_award.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/yda1_special_award.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+            <div>
+              <b>2年次</b>
+              <a href="../../img/activity/real/yda2_special_award.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/yda2_special_award.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
             </div>
           </div>
         </div>
@@ -98,13 +124,191 @@
 
     <div class="neon-line"></div> <!-- グラデーション線 -->
 
-    <section id="contents-award">
+    <section id="contents-exhibition">
       <div class="fade-in">
-        <h2 class="h2 neon">掲載中</h2>
+        <h2 class="h2 neon">作品展示</h2>
 
         <div class="panel">
-          TODO
+          <b class="title">Game Pit TOKYO 2026</b>
+          <p>
+            東京へ出張し、代表作「REFLECT LINE」を展示しました。
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/exhibition/game_pit_tokyo.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/exhibition/game_pit_tokyo.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+          <p>
+            展示を終えた後は、振り返りのためレポートを作成しました。
+          </p>
+          <div class="ppt-frame">
+            <embed src="../../pdf/activity/game_pit_tokyo.pdf" type="application/pdf" class="panel-img">
+          </div>
         </div>
+
+        <div class="panel">
+          <b class="title">東京ゲームショウ2025</b>
+          <p>
+            学校全体の出展に参加し、代表作「REFLECT LINE」を展示しました。
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <img src="../../img/activity/real/exhibition/tokyo_game_show_1.webp" class="panel-img">
+            </div>
+            <div>
+              <img src="../../img/activity/real/exhibition/tokyo_game_show_2.webp" class="panel-img">
+            </div>
+            <div>
+              <img src="../../img/activity/real/exhibition/tokyo_game_show_3.webp" class="panel-img">
+            </div>
+            <div>
+              <img src="../../img/activity/real/exhibition/tokyo_game_show_4.webp" class="panel-img">
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+
+    <section id="contents-game-circle">
+      <div class="fade-in">
+        <h2 class="h2 neon">サークル活動</h2>
+        
+        <div class="panel">
+          <p>
+            ゲーム制作サークルに所属しています。<br>
+            授業外でも先輩後輩とチームを組み、チーム制作経験を積む活動をしています。
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/game_circle/game_circle_team.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/game_circle/game_circle_team.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+            <div>
+              <a href="../../img/activity/real/game_circle/game_circle_memo.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/game_circle/game_circle_memo.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <b class="title">会計</b>
+          <p>
+            サークルの幹部として、サークル費の管理を1年間担当しました。
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/game_circle/game_circle_accounting.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/game_circle/game_circle_accounting.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+
+    <section id="contents-gamejam">
+      <div class="fade-in">
+        <h2 class="h2 neon">ゲームジャム運営</h2>
+        
+        <div class="panel">
+          <p>
+            学内で開催する「ゲームジャム」イベントの、運営メンバーとして活動しています。<br>
+            また、ゲームジャム本番ではリードプログラマーとしてチームを率いています。
+          </p>
+        </div>
+
+        <div class="panel">
+          <b class="title">チーム分けツール開発</b>
+          <p>
+            重要な役割として、当日ランダムでチームを決める際に使用するツールの開発を担当しました。<br>
+            運営の技術枠として、当日の進行が円滑になるよう貢献しました。
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/gamejam/team_tool_1.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/gamejam/team_tool_1.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+            <div>
+              <a href="../../img/activity/real/gamejam/team_tool_2.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/gamejam/team_tool_2.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <b class="title">活動写真</b>
+          
+          <p>
+            <b>2026年春に開催時の集合写真</b>
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/gamejam/2026_spr_gamejam.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/gamejam/2026_spr_gamejam.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+
+          <p>
+            <b>前日準備の様子</b>
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/gamejam/venue_preparation_1.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/gamejam/venue_preparation_1.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+            <div>
+              <a href="../../img/activity/real/gamejam/venue_preparation_2.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/gamejam/venue_preparation_2.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+
+          <p>
+            <b>当日準備の様子</b>
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/gamejam/monitor_preparation.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/gamejam/monitor_preparation.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+
+          <p>
+            <b>ゲームジャム本番、プレゼンの様子</b>
+          </p>
+          <div class="kr-layout_grid">
+            <div>
+              <a href="../../img/activity/real/gamejam/presentation.webp" data-lightbox="reflect_line" class="zoom-icon-parent">
+                <img src="../../img/activity/real/gamejam/presentation.webp" class="panel-img">
+                <img src="../../img/works/zoom-icon.webp" class="zoom-icon">
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -116,7 +320,7 @@
   <!-- フッター -->
   <footer>
     <small>
-      最終更新日: 2026/04/09<br>
+      最終更新日: 2026/04/14<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio
