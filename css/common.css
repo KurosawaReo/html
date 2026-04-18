@@ -55,8 +55,15 @@ section { scroll-margin-top: 80px; }
 }
 
 .h2 {
-  font-size: clamp(22px, 4.5vw, 32px); font-weight: 900; margin: 0 0 14px;
-  letter-spacing: 0.2px; display: inline-block; position: relative;
+  font-size: clamp(24px, 4.5vw, 32px); 
+  font-weight: 900; 
+  margin: 0 0 14px;
+  letter-spacing: 0.2px; 
+  display: inline-block; 
+  position: relative;
+}
+.h2 + p {
+  margin-top: 0px;
 }
 
 /* imgタグ全て */
@@ -71,30 +78,6 @@ img {
   text-shadow:
     0 0 5px var(--primary),
     0 0 15px var(--primary);
-}
-
-/* 警告テキスト */
-.notice-text {
-  display: inline-block;
-
-  margin-bottom: 12px;
-  padding: 6px 12px;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  color: #ffdede; /* ← 薄赤文字 */
-
-  border-left: 3px solid rgba(255,120,120,0.7);
-
-  background: rgba(255,80,80,0.06);
-
-  border-radius: 6px;
-
-  /* ▼ ほんのり発光 */
-  box-shadow:
-    0 0 8px rgba(255,120,120,0.25),
-    inset 0 0 6px rgba(255,120,120,0.15);
 }
 
 .pillbar { 
@@ -135,13 +118,63 @@ img {
 }
 
 /* =============================== 
+  ▼ 装飾テキスト ▼
+================================ */
+/* 情報テキスト */
+.info-text {
+  display: inline-block;
+
+  margin: 5px 0;
+  padding: 6px 12px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #d8faff; /* やや明るい青白 */
+
+  border-left: 3px solid rgba(51,231,255,0.7);
+
+  background: rgba(51,231,255,0.06);
+
+  border-radius: 6px;
+
+  box-shadow:
+    0 0 6px rgba(51,231,255,0.2),
+    inset 0 0 4px rgba(51,231,255,0.1);
+}
+
+/* 警告テキスト */
+.notice-text {
+  display: inline-block;
+
+  margin: 5px 0;
+  padding: 6px 12px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #ffdede; /* 薄赤文字 */
+
+  border-left: 3px solid rgba(255,120,120,0.7);
+
+  background: rgba(255,80,80,0.06);
+
+  border-radius: 6px;
+
+  /* ▼ ほんのり発光 */
+  box-shadow:
+    0 0 8px rgba(255,120,120,0.25),
+    inset 0 0 6px rgba(255,120,120,0.15);
+}
+
+/* =============================== 
   ▼ パネル ▼
 ================================ */
 /* 区切り用パネル */
 .panel {
   background: var(--panel-back);
 
-  border: 1px solid rgba(51,231,255,0.4); /* ← 少し強く */
+  border: 1px solid rgba(51,231,255,0.4);
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: var(--shadow);
@@ -159,7 +192,6 @@ img {
 /* 段落 */
 .panel p {
   margin: 0 0 16px;
-  font-size: 1em; /* 親に合わせる */
 }
 .panel p:last-child {
   margin-bottom: 0;
@@ -172,26 +204,90 @@ img {
   box-shadow: 0 0 20px rgba(51,231,255,0.2);
 }
 
-/* パネル内の見出し */
-.panel .title {
-  display: inline-block;
-  font-size: clamp(18px, 3vw, 22px);
-  font-weight: 800;
+/* =============================== 
+  ▼ パネル - タイトル ▼
+================================ */
+.panel .title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
   margin-bottom: 8px;
+}
+@media (max-width: 600px) {
+  .panel .title-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .panel .title-row .badge {
+    margin-bottom: 8px;
+    transform: none; /* ズレ防止 */
+  }
+}
+
+/* titleの余白を上書き(row内だけ) */
+.panel .title-row .title {
+  display: inline-block;
+  font-size: clamp(18px, 3vw, 23px);
+  font-weight: 800;
+  margin-bottom: 0;
 
   color: var(--ink);
 
-  /* 下線までの間隔調整用 */
-  line-height: 1.2;        /* 行の高さを調整 */
-  padding-bottom: 2px;     /* 下線と文字の距離 */
+  line-height: 1.2;
+  padding-bottom: 2px;
 
-  /* ネオン */
   text-shadow:
     0 0 6px var(--primary),
     0 0 12px rgba(51,231,255,0.4);
 
-  /* 下ライン */
   border-bottom: 1px solid rgba(51,231,255,0.35);
+}
+
+/* ベース */
+.panel .title-row .badge {
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  padding: 0;
+
+  color: #dffcff;
+
+  /* ▼ 背景を少し暗く */
+  background: rgba(10, 30, 34, 0.6);
+
+  /* ▼ 枠を少し明るく */
+  border: 1px solid rgba(51,231,255,0.65);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 8px rgba(51,231,255,0.3),   /* 外側ほんのり強化 */
+    inset 0 0 4px rgba(51,231,255,0.12);
+
+  transform: translateY(1px);
+  overflow: hidden;
+}
+
+/* 左（ラベル） */
+.panel .title-row .badge .badge-label {
+  padding: 4px 8px 4px 10px;
+  color: #aef6ff;
+  background: rgba(2, 175, 198, 0.16);
+  border-right: 1px solid rgba(51,231,255,0.45);
+}
+
+/* 右（値） */
+.panel .title-row .badge .badge-value {
+  padding: 4px 10px;
+  color: #e6ffff;
+  background: rgba(51,231,255,0.04);
 }
 
 /* =============================== 
@@ -266,7 +362,7 @@ img {
   z-index: var(--z-intro);
   overflow: hidden;
   /* フェードアウト */
-  animation: intro-end 1.5s ease forwards;
+  animation: introEnd 1.5s ease forwards;
   animation-delay: 1.3s;
 }
 
@@ -338,7 +434,7 @@ img {
   80%  { left: 50%; }
   100% { left: 50%; opacity: 0.6; }
 }
-@keyframes intro-end {
+@keyframes introEnd {
   to {
     opacity: 0;
     visibility: hidden;
@@ -542,19 +638,16 @@ footer {
 ================================ */
 #profile {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 0;
 
   display: grid;
   grid-template-columns: 1.0fr 1.0fr; /* 1:1 の比率 */
   gap: 20px;
-
-  padding: 40px 20px;
 }
 @media (max-width: 900px) {
   #profile { 
     /* 画面全体に広げる */
     grid-template-columns: 1.0fr; 
-    padding: 40px 0px;
   }
 }
 
@@ -655,7 +748,7 @@ footer {
 }
 
 .card:hover::before { opacity: 1; }
-.thumb {
+.card .thumb {
   height: 160px; border-radius: 12px; background:
   linear-gradient(135deg, rgba(51,231,255,0.25), rgba(11,20,22,0.8)),
   repeating-linear-gradient(45deg, rgba(51,231,255,0.16) 0 2px, transparent 2px 6px);
@@ -665,14 +758,14 @@ footer {
   place-items: center; font-weight: 900; letter-spacing: 0.4px; color: #001217;
   text-shadow: 0 1px 0 rgba(255,255,255,0.45); background-blend-mode: screen;
 }
-.thumb img {
+.card .thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* 切り抜き */
   display: block;
 }
 
-.badge {
+.card .badge {
   position: absolute;
   top: 14px;
   left: 14px;
@@ -698,10 +791,29 @@ footer {
     inset 0 0 8px rgba(51,231,255,0.2);
 }
 
-.card h3 { margin: 12px 6px 6px; font-size: 18px; }
-.card p { margin: 0 6px 12px; color: var(--muted); font-size: 14px; }
-.chipz { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 6px 14px; }
-.chip { font-size: 12px; border: 1px solid rgba(51,231,255,0.35); padding: 6px 10px; border-radius: 999px; color: #bfeef7; }
+.card h3 { 
+  margin: 10px 6px 6px;
+  font-size: 18px;
+  font-weight: 800;
+
+  color: #eaffff;
+
+  letter-spacing: 0.3px;
+
+  text-shadow:
+    0 0 6px rgba(51,231,255,0.6),
+    0 0 14px rgba(51,231,255,0.35);
+}
+
+.card p { 
+  margin: 0 6px 8px; color: var(--muted); font-size: 14px;
+}
+.card .chipz { 
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 6px 8px; 
+}
+.card .chip {
+  font-size: 12px; border: 1px solid rgba(51,231,255,0.35); padding: 6px 10px; border-radius: 999px; color: #bfeef7; 
+}
 
 /* =============================== 
   ▼ 演出 ▼
@@ -727,25 +839,50 @@ footer {
   transform: translateX(0) translateY(0);
 }
 
-/* ネオンライン演出 */
+/* ネオンライン（バランス型） */
 .neon-line {
   position: relative;
-  height: 3px;
-  background: rgba(51,231,255,0.25);
+  height: 2px;
+
+  /* ベースライン（常に見える芯） */
+  background: rgba(51,231,255,0.18);
+
   overflow: hidden;
   border-radius: 2px;
-  margin: 12px 0 24px;
+
+  margin: 26px 0 18px;
+
+  /* ほんのり存在感 */
+  box-shadow:
+    0 0 6px rgba(51,231,255,0.18);
 }
+
+/* 動く光（アクセント） */
 .neon-line::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
-  animation: moveLine 2s linear infinite;
+  top: 0;
+  bottom: 0;
+
+  width: 30%; /* 細めの光にする */
+  left: -30%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(51,231,255,0.6),
+    transparent
+  );
+
+  filter: blur(0.8px);
+  opacity: 0.8;
+
+  animation: moveLine 3s linear infinite;
 }
+
 @keyframes moveLine {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+  from { left: -30%; }
+  to   { left: 100%; }
 }
 
 /* =============================== 
