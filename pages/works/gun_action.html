@@ -56,6 +56,9 @@
         <p>
           <span class="side-toc-dot">・</span><a href="#contents-production">制作風景</a>
         </p>
+        <p>
+          <span class="side-toc-dot">・</span><a href="#contents-episode">苦労したエピソード</a>
+        </p>
       </div>
     </div>
   </aside>
@@ -128,6 +131,7 @@
               <span class="pillbar">
                 <span class="pill">弾丸の基底クラス</span>
                 <span class="pill">プレイヤー & 敵の基底クラス</span>
+                <span class="pill">敵のモデルやAI</span>
                 <span class="pill">エンジンのトラブル対応</span>
               </span>
             </td>
@@ -199,6 +203,239 @@
       </div>
     </section>
 
+    <div class="neon-line"></div> <!-- グラデーション線 -->
+
+    <section id="contents-episode">
+      <div class="fade-in">
+        <h2 class="h2 neon">苦労したエピソード</h2>
+
+        <div class="panel">
+          <div class="title-row">
+            <b class="title">トラブルの連続発生</b>
+          </div>
+
+          <p>
+            このゲームは<span class="keyword">『Unreal Engine 5 / C++』</span>で開発しています。
+          </p>
+          <p>
+            学内では取り組んでいる人が少なく、成功した前例はあまりありません。<br>
+            さらに、詳しい教師も限られており、指導を受けるのも困難な状況です。<br>
+            だからこそ、未知の領域を自分たちのチームで切り拓くため、この挑戦を始めました。
+          </p>
+          <p>
+            しかし、ゼロからの手探りでの開発は、トラブルの連続でした。<br>
+            主に直面した問題は以下の通りです。
+          </p>
+
+          <ul class="ui-list">
+            <li>1. Unreal Engineのクラッシュ</li>
+            <li>2. Visual Studioの不明なエラー</li>
+            <li>3. Gitの意図しないコミット発生</li>
+            <li>4. アセットの共有方法</li>
+            <li>5. クラス名の変更方法</li>
+            <li>6. プログラムの更新方法</li>
+          </ul>
+
+        </div>
+
+        <!-- トラブル1 -->
+        <div class="panel">
+          <div class="title-row">
+            <b class="title">1. Unreal Engineのクラッシュ</b>
+          </div>
+
+          <p>
+            クラッシュ時に表示される<span class="keyword">「クラッシュリポーター」</span>から、エラー内容を確認できることに気づきました。
+          </p>
+          <p>
+            ある時、プロジェクト起動直後にクラッシュする問題が発生しました。<br>
+            エラーを解析したところ、コンストラクタ内で初期化前のポインタ(GEngine)にアクセスしていたことが原因でした。
+          </p>
+          <div class="episode-img" style="--img-max-width: 600px;">
+            <img src="../../img/works/gun_action/episode/1_crash_reporter.png" class="panel-img">
+          </div>
+        </div>
+
+        <!-- トラブル2 -->
+        <div class="panel">
+          <div class="title-row">
+            <b class="title">2. Visual Studioの不明なエラー</b>
+          </div>
+
+          <p>
+            こちらは未解決の問題です。
+          </p>
+          <p>
+            Visual Studioでのビルド時に、毎回原因不明のエラーが発生します。
+          </p>
+          <ul class="ui-list">
+            <li>開発初期から継続して発生している</li>
+            <li>通常は編集しないファイルで発生している</li>
+            <li>現時点では開発への影響はない</li>
+          </ul>
+          <p>
+            本来であれば不要なエラーは排除すべきですが、<br>
+            開発を優先するため、現状は無視すべき問題として扱っています。
+          </p>
+
+          <div class="episode-img">
+            <img src="../../img/works/gun_action/episode/2_visual_studio_error.png" class="panel-img">
+          </div>
+        </div>
+
+        <!-- トラブル3 -->
+        <div class="panel">
+          <div class="title-row">
+            <b class="title">3. Gitの意図しないコミット発生</b>
+          </div>
+
+          <p>
+            Gitのクライアントには<span class="keyword">『Sourcetree』</span>を使用しています。
+          </p>
+          <p>
+            しかし、コミットがない状態でもブランチを切り替えると、意図しないコミットが自動で発生する問題が起きました。<br>
+            本来は開発効率を高めるためのツールですが、この挙動により、かえって作業効率が大きく低下してしまいました。
+          </p>
+
+          <p>
+            原因を調査したところ、Unreal Engineのプロジェクトを開いたままブランチを切り替えた場合に発生することが分かりました。<br>
+            そのため、現在は<span class="keyword">『プロジェクトを終了してからブランチ操作を行う』</span>というルールをチーム内で徹底しています。
+          </p>
+
+          <div class="episode-img" style="--img-max-width: 600px;">
+            <img src="../../img/works/gun_action/episode/3_git_commit.png" class="panel-img">
+          </div>
+        </div>
+
+        <!-- トラブル4 -->
+        <div class="panel">
+          <div class="title-row">
+            <b class="title">4. アセットの共有方法</b>
+          </div>
+
+          <p>
+            アセットをGitで共有しようとするとエラーが発生し、共有できない問題がありました。<br>
+            原因としては、アセットのファイルサイズが大きく、通常のGitでは扱いにくいことが影響していると考えています。
+          </p>
+          <p>
+            現在は以下のように対処しています。
+          </p>
+          <div class="flow">
+            <!-- 1 -->
+            <div class="flow-item">
+              <div class="flow-index">1</div>
+              <div class="flow-content">
+                アセットを<span class="keyword">『Assets』</span>フォルダにまとめ、<span class="keyword">『.gitignore』</span>で除外
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="flow-item">
+              <div class="flow-index">2</div>
+              <div class="flow-content">
+                必要なアセットは、Unreal EngineプロジェクトごとZIP圧縮し、Googleドライブ経由で共有
+              </div>
+            </div>
+            <!-- 3 -->
+            <div class="flow-item">
+              <div class="flow-index">3</div>
+              <div class="flow-content">
+                受け取り側で<span class="keyword">『移行』</span>機能を使い、開発プロジェクトに導入
+              </div>
+            </div>
+          </div>
+          <p>
+            ただし、この方法では手間がかかるので、より効率的な共有方法を検討中です。
+          </p>
+
+          <div class="episode-img" style="--img-max-width: 600px;">
+            <img src="../../img/works/gun_action/episode/4_assets.png" class="panel-img">
+          </div>
+        </div>
+
+        <!-- トラブル5 -->
+        <div class="panel">
+          <div class="title-row">
+            <b class="title">5. クラス名の変更方法</b>
+          </div>
+
+          <p>
+            Unreal Engineでは、C++クラス名を安全にリネームするのは難しそうなので、以下の手順で対応しています。
+          </p>
+          <div class="flow">
+            <!-- 1 -->
+            <div class="flow-item">
+              <div class="flow-index">1</div>
+              <div class="flow-content">
+                新規C++クラスを作る
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="flow-item">
+              <div class="flow-index">2</div>
+              <div class="flow-content">
+                新規C++クラスにコードを全て移植する
+              </div>
+            </div>
+            <!-- 3 -->
+            <div class="flow-item">
+              <div class="flow-index">3</div>
+              <div class="flow-content">
+                (継承してるBluePrintがあれば) BluePrintを開き、親クラスを1で作成した新規クラスに変更する
+              </div>
+            </div>
+            <!-- 4 -->
+            <div class="flow-item">
+              <div class="flow-index">3</div>
+              <div class="flow-content">
+                元のC++クラスを削除
+              </div>
+            </div>
+          </div>
+
+          <div class="episode-img" style="--img-max-width: 600px;">
+            <img src="../../img/works/gun_action/episode/5_class_rename.png" class="panel-img">
+          </div>
+        </div>
+
+        <!-- トラブル6 -->
+        <div class="panel">
+          <div class="title-row">
+            <b class="title">6. プログラムの更新方法</b>
+          </div>
+
+          <p>
+            C++のプログラムを更新する方法が分からず、Visual Studio側でビルドするべきか、Unreal Engine側で操作するべきか悩んでいました。
+          </p>
+
+          <p>
+            試行錯誤の末、2通りの更新方法があることが分かりました。<br>
+            個人的には、<span class="keyword">『ライブコーディング』</span>を使う方法が手軽だと感じました。
+          </p>
+
+          <ul class="ui-list">
+            <li>ライブコーディングをOFFにし、Visual Studioでビルド (Ctrl + B)</li>
+            <li>ライブコーディングをONにし、Unreal Engineで更新 (Ctrl + Alt + F11)</li>
+          </ul>
+
+          <div class="kr-layout_grid">
+            <div class="episode-img" style="--img-max-width: 600px;">
+              <img src="../../img/works/gun_action/episode/6_live_coding.png" class="panel-img">
+            </div>
+            <div class="episode-img" style="--img-max-width: 600px;">
+              <img src="../../img/works/gun_action/episode/6_live_coding_2.png" class="panel-img">
+            </div>
+          </div>
+
+          <p>
+            ライブコーディングを使用した場合、このような表示が出れば正常に反映されています。
+          </p>
+          <div class="episode-img" style="--img-max-width: 600px;">
+            <img src="../../img/works/gun_action/episode/6_live_coding_3.png" class="panel-img">
+          </div>
+
+      </div>
+    </section>
+
     <p>
       <a href="../../" class="back-button">メインページ</a>
     </p>
@@ -207,7 +444,7 @@
   <!-- フッター -->
   <footer>
     <small>
-      最終更新日: 2026/04/18<br>
+      最終更新日: 2026/04/20<br>
       随時更新中<br>
       <br>
       ©2025-2026 Kurosawa Reo Portfolio

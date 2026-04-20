@@ -366,9 +366,8 @@ img {
   margin-top: -10px;
 }
 
-/* リストの下も少し詰める */
 .panel .ui-list {
-  margin: 2px 0; /* 行間も少し締める */
+  margin: 2px 0;
 }
 
 .ui-list {
@@ -381,11 +380,10 @@ img {
 .ui-list li {
   position: relative;
 
-  padding: 6px 10px 6px 20px;
+  padding: 5px 10px 5px 20px;
   margin: 4px 0;
 
   font-size: 14px;
-  color: rgba(206, 249, 255, 0.8);
 
   background: rgba(51,231,255,0.03);
   border-left: 2px solid rgba(51,231,255,0.35);
