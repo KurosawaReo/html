@@ -290,6 +290,148 @@ img {
   background: rgba(51,231,255,0.04);
 }
 
+/* ===============================
+  ▼ 画像ラベル ▼
+================================ */
+.img-label {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 2px 4px;
+  margin-bottom: 5px;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  color: #eaffff;
+
+  background: rgba(10,25,30,0.85);
+  border: 1px solid rgba(51,231,255,0.5);
+
+  overflow: hidden;
+  position: relative;
+}
+/* ▼ スキャンライン */
+.img-label::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(51,231,255,0.15),
+    transparent 70%
+  );
+
+  transform: translateX(-100%);
+  animation: scan 2s infinite linear;
+}
+@keyframes scan {
+  to { transform: translateX(100%); }
+}
+
+/* ▼ 共通 */
+.img-label .seg {
+  padding: 2px 8px;
+}
+/* ▼ 区切り線 */
+.img-label .index {
+  position: relative;
+}
+.img-label .index::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 1px;
+  height: 70%;
+
+  background: rgba(51,231,255,0.5);
+
+  box-shadow: 0 0 6px rgba(51,231,255,0.5);
+}
+/* ▼ 右（テキスト） */
+.img-label .text {
+  padding-left: 10px;
+}
+
+/* ===============================
+  ▼ 汎用リスト ▼
+================================ */
+/* 前の段落との距離を詰める */
+.panel p + .ui-list {
+  margin-top: -10px;
+}
+
+/* リストの下も少し詰める */
+.panel .ui-list {
+  margin: 2px 0; /* 行間も少し締める */
+}
+
+.ui-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 各項目 */
+.ui-list li {
+  position: relative;
+
+  padding: 6px 10px 6px 20px;
+  margin: 4px 0;
+
+  font-size: 14px;
+  color: rgba(206, 249, 255, 0.8);
+
+  background: rgba(51,231,255,0.03);
+  border-left: 2px solid rgba(51,231,255,0.35);
+  border-radius: 6px;
+
+  box-shadow:
+    inset 0 0 6px rgba(51,231,255,0.05);
+}
+
+/* ▼ 先頭マーク */
+.ui-list li::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+
+  background: rgba(51,231,255,0.8);
+
+  box-shadow:
+    0 0 6px rgba(51,231,255,0.6);
+}
+
+/* ===============================
+  ▼ キーワード強調 ▼
+================================ */
+.keyword {
+  font-weight: 700;
+  color: #eaffff;
+  margin: 0 4px;
+  padding: 0 1px;
+
+  text-shadow:
+    0 0 6px rgba(51,231,255,0.6),
+    0 0 12px rgba(51,231,255,0.3);
+
+  background: linear-gradient(
+    transparent 60%,
+    rgba(51,231,255,0.15) 60%
+  );
+}
+
 /* =============================== 
   ▼ 背景 ▼
 ================================ */ 
