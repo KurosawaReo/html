@@ -1,36 +1,41 @@
 
+//新しいタブで開く.
+const openNewTab = (url) => {
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 /* =============================== 
   ▼ ページ移動 ▼
   カードをクリックで開く。
 ================================ */
 document.getElementById("activity-card-real").onclick = () => {
-  location.href = "pages/activity/real.html";
+  openNewTab("pages/activity/real.html");
 };
 document.getElementById("activity-card-net").onclick = () => {
-  location.href = "pages/activity/net.html";
+  openNewTab("pages/activity/net.html");
 };
 
 document.getElementById("works-card-01").onclick = () => {
-  location.href = "pages/works/reflect_line.html";
+  openNewTab("pages/works/reflect_line.html");
 };
 document.getElementById("works-card-02").onclick = () => {
-  location.href = "pages/works/gun_action.html";
+  openNewTab("pages/works/gun_action.html");
 };
 document.getElementById("works-card-03").onclick = () => {
-  location.href = "pages/works/krlib.html";
+  openNewTab("pages/works/krlib.html");
 };
 document.getElementById("works-card-04").onclick = () => {
-  location.href = "pages/works/tetris.html";
+  openNewTab("pages/works/tetris.html");
 };
 document.getElementById("works-card-05").onclick = () => {
-  location.href = "pages/works/pac_muscle.html";
+  openNewTab("pages/works/pac_muscle.html");
 };
 document.getElementById("works-card-06").onclick = () => {
-  location.href = "pages/works/5host.html";
+  openNewTab("pages/works/5host.html");
 };
 document.getElementById("works-card-07").onclick = () => {
-  location.href = "pages/works/trans_water.html";
+  openNewTab("pages/works/trans_water.html");
 };
 document.getElementById("works-card-08").onclick = () => {
-  location.href = "pages/works/ai_goal.html";
+  openNewTab("pages/works/ai_goal.html");
 };

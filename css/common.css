@@ -849,7 +849,7 @@ footer {
 }
 
 /* =============================== 
-  ▼ カード、バッチ ▼
+  ▼ カード ▼
 ================================ */
 .card_list {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
@@ -925,7 +925,7 @@ footer {
   text-shadow:
     0 0 6px var(--primary),
     0 0 12px rgba(51,231,255,0.6);
-  /* ▼ 影 */
+  /* 影 */
   box-shadow:
     0 0 12px rgba(51,231,255,0.4),
     inset 0 0 8px rgba(51,231,255,0.2);
@@ -953,6 +953,127 @@ footer {
 }
 .card .chip {
   font-size: 12px; border: 1px solid rgba(51,231,255,0.35); padding: 6px 10px; border-radius: 999px; color: #bfeef7; 
+}
+
+/* =============================== 
+  ▼ カード - ★★★テーマ ▼
+================================ */
+.card-gold {
+  background:
+    linear-gradient(135deg,
+      rgba(51,231,255,0.18),
+      rgba(160, 90, 255,0.10),
+      rgba(255,255,255,0.08) /* ← 白に変更 */
+    ),
+    var(--panel-back);
+
+  border: 1px solid rgba(180, 160, 255, 0.35);
+
+  box-shadow:
+    0 12px 40px rgba(120, 160, 255, 0.18),
+    0 0 20px rgba(200, 120, 255, 0.12);
+}
+
+.card-gold:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 60px rgba(120, 160, 255, 0.28),
+    0 0 30px rgba(200, 120, 255, 0.18);
+}
+
+.card-gold::before {
+  background: conic-gradient(
+    from 0deg,
+    rgba(51,231,255,0.0),
+    rgba(180,160,255,0.35),
+    rgba(255,255,255,0.25), /* ← 白 */
+    rgba(51,231,255,0.0)
+  );
+}
+
+.card-gold h3 {
+  text-shadow:
+    0 0 6px rgba(160, 140, 255, 0.6),
+    0 0 14px rgba(255,255,255,0.25); /* ← 白 */
+}
+
+.card-gold .badge {
+  background: rgba(20, 40, 60, 0.9);
+
+  border: 1px solid rgba(180,160,255,0.6);
+
+  color: #f2f8ff;
+
+  text-shadow:
+    0 0 6px rgba(180,160,255,0.8),
+    0 0 10px rgba(255,255,255,0.5); /* ← 白 */
+
+  box-shadow:
+    0 0 12px rgba(180,160,255,0.3),
+    inset 0 0 6px rgba(255,255,255,0.2);
+}
+
+/* =============================== 
+  ▼ 特別：Minecraft風カード
+================================ */
+.card-minecraft {
+  position: relative;
+  z-index: 0;
+  
+  border: 1px solid rgba(120, 255, 160, 0.35);
+  box-shadow:
+    0 12px 40px rgba(120, 255, 160, 0.12),
+    0 0 20px rgba(120, 255, 160, 0.08);
+}
+/* 中身を全部上のレイヤーに */
+.card-minecraft > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-minecraft:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 16px 60px rgba(120, 255, 160, 0.35); 
+}
+
+/* 斜めの光 */
+.card-minecraft::after {
+  z-index: 0;
+
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+
+    /* 1本目 */
+    rgba(120,255,160,0.18) 20%,
+    rgba(120,255,160,0.28) 30%,
+    rgba(120,255,160,0.18) 20%,
+
+    /* 2本目 */
+    rgba(120,255,160,0.18) 60%,
+    rgba(120,255,160,0.28) 70%,
+    rgba(120,255,160,0.18) 60%,
+
+    transparent 100%
+  );
+
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 200ms ease;
+}
+
+.card-minecraft h3 {
+  font-family: 'Press Start 2P', 'DotGothic16', sans-serif;
+  font-size: 14px; /* 小さくしないと潰れる */
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 6px rgba(120,255,160,0.8),
+    0 0 14px rgba(51,231,255,0.4);
 }
 
 /* =============================== 

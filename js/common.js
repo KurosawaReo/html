@@ -35,6 +35,7 @@ sections.forEach(sec => observer.observe(sec));
 
 /* =============================== 
   ▼ スムーススクロール ▼
+  aタグをクリックした時のアニメーション
 ================================ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
